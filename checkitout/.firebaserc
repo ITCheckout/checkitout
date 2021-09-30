@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "checkitout-mu": {
+      "hosting": {
+        "checkitout": [
+          "checkitout-mu"
+        ]
+      }
+    }
+  }
+}
