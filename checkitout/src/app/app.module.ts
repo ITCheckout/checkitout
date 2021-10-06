@@ -24,6 +24,7 @@ import { LoginComponent } from './login/login.component';
     BrowserAnimationsModule,
     MaterialModule,
     RouterModule.forRoot([
+      {path: 'login', component: LoginComponent},
       {path: '', component: AppComponent},
       {path: '**', component: PageNotFoundComponent}
     ])

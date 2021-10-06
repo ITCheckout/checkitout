@@ -9,6 +9,7 @@ border-radius: 0px;
 
 mat-toolbar {
     height: 15%;
+    margin-top: auto;
 }
 
 #column1 {
