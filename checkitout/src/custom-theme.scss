@@ -171,7 +171,7 @@ $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
 
 body {
-  --accent-color: #000000;
+  --accent-color: #f1b82d;
   --accent-lighter-color: #b3b3b3;
   --accent-darker-color: #000000;
   --text-accent-color: #{$light-primary-text};
@@ -201,7 +201,7 @@ body {
   --text-warn-darker-color: #{$dark-primary-text};
 }   
 $mat-warn: (
-  main: #e4f1fa,
+  main: #000000,
   lighter: #f7fbfe,
   darker: #d9ebf8,
   200: #e4f1fa, // For slide toggle,

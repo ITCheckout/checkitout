@@ -1,0 +1,19 @@
+img {
+    width: 75px;
+    height: 75px;
+}
+
+#tabs {
+    align-content: center;
+    text-align: center;
+    margin: auto;
+}
+
+button {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.spacer {
+    flex: 1 1 auto;
+  }
