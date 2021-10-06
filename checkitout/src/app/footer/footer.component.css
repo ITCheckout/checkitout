@@ -10,3 +10,29 @@ border-radius: 0px;
 mat-toolbar {
     height: 15%;
 }
+
+#column1 {
+
+width: 100px;
+height: 129.74px;
+
+}
+
+#column2 {
+    padding-left: 5%;
+    width: 100px;
+    height: 113.07px;
+    bottom: 1%;
+}
+
+#column3 {
+    padding-left: 5%;
+    width: 100px;
+    height: 100.25px;
+    bottom: 0px;
+}
+
+#columns {
+    margin-left: 50%;
+    bottom: 0px;
+}
