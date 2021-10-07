@@ -1,8 +1,30 @@
-img {
+#backgroundImg {
     position: absolute;
 width: 1920px;
 height: 1080px auto;
 z-index: -1;
 max-width: 100%; 
 height: 100%;
+}
+
+.example-card {
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    width: 30%;
+    background-color: black;
+}
+
+#MU {
+width: 150px;
+height: 160.6px;
+left: 1040px;
+top: 237px;
+
+justify-content: center;
+margin-left: 35%;
+}
+
+#center {
+    text-align: center;
 }
