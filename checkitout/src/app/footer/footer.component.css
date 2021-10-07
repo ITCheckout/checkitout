@@ -8,8 +8,9 @@ border-radius: 0px;
 }
 
 mat-toolbar {
-    height: 15%;
-    margin-top: auto;
+    height: 18%;
+    margin: 0px auto;
+    bottom: 0;
 }
 
 #column1 {
