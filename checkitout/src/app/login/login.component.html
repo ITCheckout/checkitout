@@ -1,15 +1,27 @@
 <img id="backgroundImg" src="assets/Jesse.jpeg">
 <mat-card class="example-card">
-<img id="MU" src="assets/MU_Stacked.png">
-    <mat-card-title id="center">CheckItOut</mat-card-title>
+<img id="MU" class="center" src="assets/MU_Stacked.png">
+    <mat-card-title class="center">CheckItOut</mat-card-title>
     <mat-card-content>
-      <mat-form-field [formGroup]="userData">
-        <input matInput [formControl]="pawprint"/>
-    </mat-form-field>
+      <form [formGroup]="userData">
+        <div class="center">
+        <mat-form-field appearance="fill" appearance="outline">
+          <!-- <mat-label>Pawprint</mat-label> -->
+          <input type="text" matInput formControlName="pawprint" placeholder="Pawprint"/>
+        </mat-form-field>
+      </div>
+      <div class="center">
+        <mat-form-field appearance="fill" appearance="outline">
+          <!-- <mat-label>Password</mat-label> -->
+          <input type="password" matInput formControlName="password" placeholder="Password">
+        </mat-form-field>
+      </div>
+      </form> 
+      <button mat-button class="center">Sign In</button>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
+      <div>
+        <p class="center">Don't have an account?</p>
+        <button mat-button>Sign Up</button>
+      </div>
   </mat-card>
   
