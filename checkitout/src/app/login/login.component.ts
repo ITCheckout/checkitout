@@ -7,8 +7,11 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
-
+  userData = new FormGroup({
+    pawprint: new FormControl(''),
+    password: new FormControl(''),
+  });
+  pawprint = new FormControl('');
 
   constructor(private formBuilder: FormBuilder,) { }
 

@@ -13,6 +13,11 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { list } from '@angular/fire/database';
+import { AngularFireModule} from '@angular/fire/compat'
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,9 +38,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       {path: '', component: HomeComponent},
       {path: '**', component: PageNotFoundComponent}
     ]),
-    
+    // AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }

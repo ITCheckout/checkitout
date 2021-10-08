@@ -5,6 +5,9 @@
       </header>
       <main class="content">
         <router-outlet></router-outlet>
+        <mat-form-field>
+          <input matInput [formControl]="pawprint"/>
+      </mat-form-field>
       </main>
     </div>
     <app-footer></app-footer>

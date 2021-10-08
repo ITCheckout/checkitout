@@ -1,12 +1,11 @@
 <img id="backgroundImg" src="assets/Jesse.jpeg">
 <mat-card class="example-card">
-    <mat-card-title><img id="MU" src="assets/MU_Stacked.png"></mat-card-title>
+<img id="MU" src="assets/MU_Stacked.png">
     <mat-card-title id="center">CheckItOut</mat-card-title>
     <mat-card-content>
-        <form >
-            <input class="input" type="text" formControlName="awprint">
-          
-          </form>
+      <mat-form-field [formGroup]="userData">
+        <input matInput [formControl]="pawprint"/>
+    </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button>LIKE</button>
