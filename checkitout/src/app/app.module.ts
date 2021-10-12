@@ -19,7 +19,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /* Firebase imports */
 import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
-import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { UsersService } from './shared/users.service';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
@@ -50,17 +49,6 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
       {path: '', component: HomeComponent},
       {path: '**', component: PageNotFoundComponent},
       
-    ])
-    
-  ],
- 
-  providers: [],
-  bootstrap: [AppComponent]
-})
-
-
-export class AppModule { }
-
     ]),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
@@ -68,6 +56,7 @@ export class AppModule { }
   providers: [UsersService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
 
  }
