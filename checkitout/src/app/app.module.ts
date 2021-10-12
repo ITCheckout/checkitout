@@ -11,6 +11,8 @@ import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -20,18 +22,25 @@ import { HomeComponent } from './home/home.component';
     PageNotFoundComponent,
     LoginComponent,
     HomeComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     RouterModule.forRoot([
+      {path: 'checkout', component: CheckoutComponent},
       {path: 'login', component: LoginComponent},
       {path: '', component: HomeComponent},
-      {path: '**', component: PageNotFoundComponent}
+      {path: '**', component: PageNotFoundComponent},
+      
     ])
+    
   ],
+ 
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }
