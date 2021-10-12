@@ -1,6 +1,6 @@
 #pageTearImg {
     position: absolute;
-    width: 1538px;
+    width: 100%;
     height: 475px;
     left: 0px;
     top: 60px;
@@ -75,27 +75,28 @@
     padding: 0px;
 
     position: absolute;
-    width: 1240px;
+    width: 100%;
     height: 250px;
-    left: 100px;
+    left: -50px;
     top: 506px;
 }
 
 .bottomBlackBox {
     position: absolute;
-    width: 1240px;
+    width: 75%;
     height: 400px;
     left: 100px;
     top: 862px;
+    margin-bottom: 10px;
     background: lightgray;
-    border-radius: 10px;;
+    border-radius: 10px;
 }
 
 .pickup {
     position: absolute;
     width: 199px;
     height: 42px;
-    left: 621px;
+    left: 675px;
     top: 788px;
     font-style: normal;
     font-weight: 500;
@@ -108,7 +109,7 @@
     position: absolute;
     width: 224px;
     height: 42px;
-    left: 608px;
+    left: 675px;
     top: 439px;
 
     font-style: normal;
@@ -249,7 +250,7 @@
     position: absolute;
     width: 318px;
     height: 54px;
-    left: 577px;
+    left: 665px;
     top: 128px;
 
     font-style: normal;
