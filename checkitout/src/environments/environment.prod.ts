@@ -1,5 +1,14 @@
 export const environment = {
-  production: true
+  production: true,
+  firebase: {
+    apiKey: "AIzaSyBbtBm4YsEzXvoxOZhKzJTxKqKz8RZIGm8",
+    authDomain: "checkitout-mu.firebaseapp.com",
+    projectId: "checkitout-mu",
+    storageBucket: "checkitout-mu.appspot.com",
+    messagingSenderId: "916988750934",
+    appId: "1:916988750934:web:505e092e05c89044835ff7",
+    measurementId: "G-VJ8CCPXF74"
+  },
 };
 
 // Import the functions you need from the SDKs you need

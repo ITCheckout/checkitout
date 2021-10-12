@@ -1,0 +1,34 @@
+<img id="backgroundImg" src="assets/Jesse.jpeg">
+<mat-card class="example-card">
+<img id="MU" class="center" src="assets/MU_Stacked.png">
+    <mat-card-title class="center">CheckItOut</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="signUpForm">
+        <div class="center">
+            <mat-form-field appearance="fill" appearance="outline">
+              <input type="text" matInput formControlName="fname" placeholder="First Name"/>
+            </mat-form-field>
+          </div>
+          <div class="center">
+            <mat-form-field appearance="fill" appearance="outline">
+              <input type="text" matInput formControlName="lname" placeholder="Last Name"/>
+            </mat-form-field>
+          </div>
+        <div class="center">
+        <mat-form-field appearance="fill" appearance="outline">
+          <input type="text" matInput formControlName="pawprint" placeholder="Pawprint"/>
+        </mat-form-field>
+      </div>
+      <div class="center">
+        <mat-form-field appearance="fill" appearance="outline">
+          <input type="password" matInput formControlName="password" placeholder="Choose Password">
+        </mat-form-field>
+      </div>
+      </form> 
+      <button mat-button class="center" (click)="createUser()" >Sign Up</button>
+    </mat-card-content>
+      <div>
+        <button mat-button routerLink="/login">Back to Login</button>
+      </div>
+  </mat-card>
+  

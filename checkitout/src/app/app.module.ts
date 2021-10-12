@@ -13,6 +13,17 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { environment } from 'src/environments/environment';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+/* Firebase imports */
+import { AngularFireModule} from '@angular/fire/compat'
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
+import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { UsersService } from './shared/users.service';
+import { UserDialogComponent } from './user-dialog/user-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -23,14 +34,19 @@ import { environment } from 'src/environments/environment';
     LoginComponent,
     HomeComponent,
     CheckoutComponent,
+    SignUpComponent,
+    UserDialogComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'checkout', component: CheckoutComponent},
       {path: 'login', component: LoginComponent},
+      {path: 'signUp', component: SignUpComponent},
       {path: '', component: HomeComponent},
       {path: '**', component: PageNotFoundComponent},
       
@@ -44,3 +60,14 @@ import { environment } from 'src/environments/environment';
 
 
 export class AppModule { }
+
+    ]),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
+  ],
+  providers: [UsersService],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+
+ }
