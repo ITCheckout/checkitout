@@ -57,7 +57,7 @@
     position: static;
     width: 250px;
     height: 250px;
-    left: 990px;
+    left: 25%;
     top: 0px;
 
     background: black;
@@ -85,7 +85,7 @@
     position: absolute;
     width: 75%;
     height: 400px;
-    left: 100px;
+    left: 12.5%;
     top: 862px;
     margin-bottom: 10px;
     background: lightgray;
@@ -96,7 +96,7 @@
     position: absolute;
     width: 199px;
     height: 42px;
-    left: 675px;
+    left: 46.5%;
     top: 788px;
     font-style: normal;
     font-weight: 500;
@@ -109,9 +109,9 @@
     position: absolute;
     width: 224px;
     height: 42px;
-    left: 675px;
+    left: 46.5%;
     top: 439px;
-
+    margin: -5px;
     font-style: normal;
     font-weight: 500;
     font-size: 28px;
@@ -124,7 +124,7 @@
     position: absolute;
     width: 175px;
     height: 30px;
-    left: 201px;
+    left: 20%;
     top:  194px;
 
     font-style: normal;
@@ -138,7 +138,7 @@
     position: absolute;
     width: 36px;
     height: 30px;
-    left: 261px;
+    left: 25%;
     top: 242px;
 
     font-style: normal;
@@ -152,7 +152,7 @@
     position: absolute;
     width: 93px;
     height: 30px;
-    left: 261px;
+    left: 25%;
     top: 282px;
 
     font-style: normal;
@@ -166,7 +166,7 @@
     position: absolute;
     width: 118px;
     height: 30px;
-    left: 678px;
+    left: 49%;
     top: 194px;
 
     font-style: normal;
@@ -180,7 +180,7 @@
     position: absolute;
     width: 36px;
     height: 30px;
-    left: 714px;
+    left: 52%;
     top: 242px;
 
     font-style: normal;
@@ -194,7 +194,7 @@
     position: absolute;
     width: 93px;
     height: 30px;
-    left: 714px;
+    left: 52%;
     top: 282px;
 
     font-style: normal;
@@ -208,7 +208,7 @@
     position: absolute;
     width: 126px;
     height: 30px;
-    left: 1104px;
+    left: 75%;
     top: 194px;
 
     font-style: normal;
@@ -222,7 +222,7 @@
     position: absolute;
     width: 36px;
     height: 30px;
-    left: 1145px;
+    left: 79%;
     top: 242px;
 
     font-style: normal;
@@ -236,7 +236,7 @@
     position: absolute;
     width: 93px;
     height: 30px;
-    left: 1145px;
+    left: 79%;
     top: 282px;
 
     font-style: normal;
@@ -250,7 +250,7 @@
     position: absolute;
     width: 318px;
     height: 54px;
-    left: 665px;
+    left: 44%;
     top: 128px;
 
     font-style: normal;
