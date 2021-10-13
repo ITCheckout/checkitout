@@ -36,6 +36,7 @@ export class SignUpComponent implements OnInit {
     const {pawprint, password} = this.signUpForm.value;
     const schoolEmail = pawprint + "@umsystem.edu";
     this.auth.createUserWithEmailAndPassword(schoolEmail, password).then (user => {
+      this.auth.signOut();
       console.log('RegisterCompnent -> createUser -> user', user)
       this.router.navigate([''])
     })
@@ -44,9 +45,6 @@ export class SignUpComponent implements OnInit {
     let data = this.signUpForm.value;
     console.log(data);
     this.userService.createUser(data)
-      .then(res => {
-
-      })
       this.dialog.open(UserDialogComponent, {
         data: {
           formData: this.signUpForm.value,

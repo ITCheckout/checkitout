@@ -18,7 +18,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
 import { environment } from 'src/environments/environment';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { UsersService } from './shared/users.service';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 
