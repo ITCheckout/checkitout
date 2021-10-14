@@ -20,6 +20,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { environment } from 'src/environments/environment';
 import { UsersService } from './shared/users.service';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
+import { ItemComponent } from './item/item.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
     HomeComponent,
     SignUpComponent,
     UserDialogComponent,
+    ItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
+      {path: 'item', component: ItemComponent},
       {path: 'login', component: LoginComponent},
       {path: 'signUp', component: SignUpComponent},
       {path: '', component: HomeComponent},
