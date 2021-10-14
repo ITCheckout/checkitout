@@ -22,6 +22,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { UsersService } from './shared/users.service';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
     CheckoutComponent,
     SignUpComponent,
     UserDialogComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,7 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
       {path: 'signUp', component: SignUpComponent},
       {path: '', component: HomeComponent},
       {path: '**', component: PageNotFoundComponent},
+      {path: 'about', component: AboutComponent},
       
     ]),
     AngularFireModule.initializeApp(environment.firebase),
