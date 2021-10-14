@@ -81,7 +81,7 @@
     top: 506px;
 }
 
-.bottomBlackBox {
+#bottomBlackBox {
     position: absolute;
     width: 75%;
     height: 400px;
@@ -90,6 +90,7 @@
     margin-bottom: 10px;
     background: lightgray;
     border-radius: 10px;
+    
 }
 
 .pickup {
@@ -261,5 +262,6 @@
 }
 
 body {
-    position: relative;
+    position: static;
+    height: 1400px;
 }
