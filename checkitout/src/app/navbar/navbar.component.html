@@ -1,10 +1,13 @@
 <mat-toolbar color="primary">
     <img src="assets/MU_Stacked.png">
-    <span color="warn" routerLink="/item">CheckItOut</span>
+    <span color="warn">CheckItOut</span>
         <span class="spacer"></span>
             <button mat-button routerLink="">Home</button>
             <button mat-button routerLink="/checkout">Checkout</button>
             <button mat-button routerLink="/about">About</button>
         <span class="spacer"></span>
         <button mat-button routerLink="/login">Login</button>
+        <button mat-button id="cart">
+            <mat-icon aria-hidden="false" aria-label="Shopping Cart">shopping_cart</mat-icon>
+        </button>
 </mat-toolbar>
