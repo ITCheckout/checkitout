@@ -45,12 +45,13 @@ import { AboutComponent } from './about/about.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
+      {path: 'about', component: AboutComponent},
       {path: 'checkout', component: CheckoutComponent},
       {path: 'login', component: LoginComponent},
       {path: 'signUp', component: SignUpComponent},
       {path: '', component: HomeComponent},
       {path: '**', component: PageNotFoundComponent},
-      {path: 'about', component: AboutComponent},
+      
       
     ]),
     AngularFireModule.initializeApp(environment.firebase),
