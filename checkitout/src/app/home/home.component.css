@@ -69,13 +69,13 @@ body {
 .quickCheckoutButtonsContainer {
     position: absolute;
     display: flex;
-    top: 275px;
+    top: 270px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .quickCheckoutButtons {
-    margin: 75px;
+    margin: 75px 75px 25px 75px;
     padding: 80px;
 
     background-color: black;
@@ -93,6 +93,14 @@ body {
 .material-icons-outlined:hover {
     color: black;
     transform: scale(6);
+}
+
+.quickCheckoutButtonsLabels {
+    text-align: center;
+
+    font-weight: normal;
+    font-size: 150%;
+    color: black;
 }
 
 /* #pageTearImg {
