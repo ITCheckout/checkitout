@@ -2,8 +2,10 @@ body {
     display: block;
 }
 
+/* Current Inventory Div */
 .inventory {
     position: relative;
+    height: 300px;
 }
 
 #pageTear {
@@ -13,29 +15,84 @@ body {
 
 .inventoryHeader {
     position: absolute;
-    top: 50px;
+    top: 75px;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+
+    font-weight: bold;
+    font-size: 250%;
+    color: #f1b82d;
 }
 
 .inventoryInfo {
     position: absolute;
     display: flex;
-    top: 150px;
+    top: 200px;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
 }
 
 .inventoryItem {
     text-align: center;
     width: 200px;
-    padding: 25px;
+    padding: 100px;
 }
 
+.inventoryDevice {
+    font-weight: normal;
+    font-size: 150%;
+    color: white;
+}
+
+.inventoryOut, .inventoryAvailable {
+    font-weight: lighter;
+    font-size: 125%;
+    color: white;
+}
+
+/* Quick Checkout Div */
 .quickCheckout {
     position: relative;
+}
+
+.quickCheckoutHeader {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-weight: bold;
+    font-size: 250%;
+    color: black;
+}
+
+.quickCheckoutButtonsContainer {
+    position: absolute;
+    display: flex;
+    top: 275px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.quickCheckoutButtons {
+    margin: 75px;
+    padding: 80px;
+
+    background-color: black;
+}
+
+.quickCheckoutButtons:hover {
+    background-color: #f1b82d;
+}
+
+.material-icons-outlined {
+    transition: all .2s ease-in-out;
+    transform: scale(5);
+}
+
+.material-icons-outlined:hover {
+    color: black;
+    transform: scale(6);
 }
 
 /* #pageTearImg {
