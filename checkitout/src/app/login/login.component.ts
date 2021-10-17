@@ -23,17 +23,20 @@ export class LoginComponent {
 
   //Login Form: https://www.youtube.com/watch?v=vAglCz1F96Y
   onLogin(){
-    const {pawprint, password} = this.loginForm.value;
-    const schoolEmail = pawprint + "@umsystem.edu";
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth,schoolEmail, password).then(userCredential => {
-     const user = userCredential.user;
-     console.log(user)
-      this.router.navigate([''])
-    }).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert(errorCode+ errorMessage)
-    });
+    if(this.loginForm.valid){
+      const {pawprint, password} = this.loginForm.value;
+      const schoolEmail = pawprint + "@umsystem.edu";
+      const auth = getAuth();
+      signInWithEmailAndPassword(auth,schoolEmail, password).then(userCredential => {
+       const user = userCredential.user;
+       console.log(user)
+        this.router.navigate([''])
+      }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorCode+ errorMessage)
+      });
+    }
+
   }
 }
