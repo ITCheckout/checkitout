@@ -15,6 +15,11 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { environment } from 'src/environments/environment';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 /* Firebase imports */
 import { AngularFireModule } from '@angular/fire/compat'
@@ -48,6 +53,10 @@ import { CartComponent } from './cart/cart.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
     RouterModule.forRoot([
       { path: 'cart', component: CartComponent },
       { path: 'item', component: ItemComponent },

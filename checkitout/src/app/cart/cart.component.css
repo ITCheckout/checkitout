@@ -1,0 +1,35 @@
+#cartHeader {
+    margin-top: 3%;
+    margin-bottom: 1.5%;
+    margin-left: 5%;
+
+    font-weight: bold;
+    font-size: 500%;
+}
+
+#pickupHeader {
+    margin-top: 3%;
+    margin-bottom: 0.5%;
+    margin-left: 5%;
+
+    font-weight: normal;
+    font-size: 200%;
+}
+
+hr {
+    border: 2.5px solid black;
+    width: 90%;
+}
+
+.pickupForm {
+    display: block;
+    width: 25%;
+    margin-left: 6%;
+    margin-bottom: 0.5%;
+
+    background-color: #D7D7D7;
+}
+
+mat-label {
+    color: #f1b82d;
+}
