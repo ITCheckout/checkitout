@@ -17,13 +17,14 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /* Firebase imports */
-import { AngularFireModule} from '@angular/fire/compat'
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
+import { AngularFireModule } from '@angular/fire/compat'
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { ItemComponent } from './item/item.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { UsersService } from './shared/users.service';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { AboutComponent } from './about/about.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { AboutComponent } from './about/about.component';
     UserDialogComponent,
     ItemComponent,
     AboutComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,15 +49,16 @@ import { AboutComponent } from './about/about.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      {path: 'item', component: ItemComponent},
-      {path: 'about', component: AboutComponent},
-      {path: 'checkout', component: CheckoutComponent},
-      {path: 'login', component: LoginComponent},
-      {path: 'signUp', component: SignUpComponent},
-      {path: '', component: HomeComponent},
-      {path: '**', component: PageNotFoundComponent},
-      
-      
+      { path: 'cart', component: CartComponent },
+      { path: 'item', component: ItemComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'checkout', component: CheckoutComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'signUp', component: SignUpComponent },
+      { path: '', component: HomeComponent },
+      { path: '**', component: PageNotFoundComponent },
+
+
     ]),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
@@ -66,4 +69,4 @@ import { AboutComponent } from './about/about.component';
 
 export class AppModule {
 
- }
+}
