@@ -1,34 +1,69 @@
 <body>
-<img id="pageTearImg" src="assets/MU-Brand-PageTear-Horiz-1920px.png">
-<h3 class="currentInventory">Current Inventory</h3>
+    <div class="inventory">
+        <img id="pageTear" src="assets/MU-Brand-PageTear-Horiz-1920px.png">
 
-<div class="inventory">
-    <p class="inventoryOneTitle">MackBook Pro 16"</p>
-    <p class="inventoryOneOut">Out</p>
-    <p class="inventoryOneAvailable">Available</p>
+        <h3 class="inventoryHeader">Current Inventory</h3>
 
-    <p class="inventoryTwoTitle">Dell XPS 15"</p>
-    <p class="inventoryTwoOut">Out</p>
-    <p class="inventoryTwoAvailable">Available</p>
+        <section class="inventoryInfo">
+            <div class="inventoryItem">
+                <p class="inventoryDevice">MackBook Pro 16"</p>
+                <p class="inventoryOut">Out</p>
+                <p class="inventoryAvailable">Available</p>
+            </div>
+            <div class="inventoryItem">
+                <p class="inventoryDevice">Dell XPS 15"</p>
+                <p class="inventoryOut">Out</p>
+                <p class="inventoryAvailable">Available</p>
+            </div>
+            <div class="inventoryItem">
+                <p class="inventoryDevice">Canon C200</p>
+                <p class="inventoryOut">Out</p>
+                <p class="inventoryAvailable">Available</p>
+            </div>
+        </section>
+    </div>
 
-    <p class="inventoryThreeTitle">Canon C200</p>
-    <p class="inventoryThreeOut">Out</p>
-    <p class="inventoryThreeAvailable">Available</p>
-</div>
+    <div class="quickCheckout">
+        <h3 class="quickCheckoutHeader">Quick Checkout</h3>
 
-<h4 class="quickCheckout">Quick Checkout</h4>
+        <div class="quickCheckoutButtonsContainer">
+            <div id="buttonOne">
+                <button mat-raised-button class="quickCheckoutButtons" routerLink="/checkout" color="black">
+                    <span class="material-icons-outlined">computer</span>
+                </button>
+                <p class="quickCheckoutButtonsLabels">Computers</p>
+            </div>
+            <div id="buttonTwo">
+                <button mat-raised-button class="quickCheckoutButtons" routerLink="/checkout" color="black">
+                    <span class="material-icons-outlined">photo_camera</span>
+                </button>
+                <p class="quickCheckoutButtonsLabels">Cameras</p>
+            </div>
+            <div id="buttonThree">
+                <button mat-raised-button class="quickCheckoutButtons" routerLink="/checkout" color="black">
+                    <span class="material-icons-outlined">mic_none</span>
+                </button>
+                <p class="quickCheckoutButtonsLabels">Microphones</p>
+            </div>
+            <div id="buttonFour">
+                <button mat-raised-button class="quickCheckoutButtons" routerLink="/checkout" color="black">
+                    <span class="material-icons-outlined">inventory_2</span>
+                </button>
+                <p class="quickCheckoutButtonsLabels">Inventory</p>
+            </div>
+        </div>
+    </div>
 
-<div class="middleBoxes">
-    <img id="boxOne" src="assets/computer-logo.png">
-    <img id="boxTwo" src="assets/camera-logo.png">
-    <img id="boxThree" src="assets/mic-logo.png">
-    <img id="boxFour">
- 
-</div>
+    <!--
+    <div class="middleBoxes">
+        <img id="boxOne" src="assets/computer-logo.png">
+        <img id="boxTwo" src="assets/camera-logo.png">
+        <img id="boxThree" src="assets/mic-logo.png">
+        <img id="boxFour">
+    </div>
+    -->
 
-<p class="pickup">Pick-Up Hours</p>
+    <!-- <p class="pickup">Pick-Up Hours</p> -->
 
-<div id="bottomBlackBox">
-
-</div>
+    <!-- <div id="bottomBlackBox"> -->
 </body>

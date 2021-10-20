@@ -15,14 +15,21 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { environment } from 'src/environments/environment';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 /* Firebase imports */
-import { AngularFireModule} from '@angular/fire/compat'
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
+import { AngularFireModule } from '@angular/fire/compat'
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
+import { ItemComponent } from './item/item.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { UsersService } from './shared/users.service';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { AboutComponent } from './about/about.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -36,7 +43,9 @@ import { AboutComponent } from './about/about.component';
     CheckoutComponent,
     SignUpComponent,
     UserDialogComponent,
+    ItemComponent,
     AboutComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,15 +53,21 @@ import { AboutComponent } from './about/about.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
     RouterModule.forRoot([
-      {path: 'about', component: AboutComponent},
-      {path: 'checkout', component: CheckoutComponent},
-      {path: 'login', component: LoginComponent},
-      {path: 'signUp', component: SignUpComponent},
-      {path: '', component: HomeComponent},
-      {path: '**', component: PageNotFoundComponent},
-      
-      
+      { path: 'cart', component: CartComponent },
+      { path: 'item', component: ItemComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'checkout', component: CheckoutComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'signUp', component: SignUpComponent },
+      { path: '', component: HomeComponent },
+      { path: '**', component: PageNotFoundComponent },
+
+
     ]),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
@@ -63,4 +78,4 @@ import { AboutComponent } from './about/about.component';
 
 export class AppModule {
 
- }
+}

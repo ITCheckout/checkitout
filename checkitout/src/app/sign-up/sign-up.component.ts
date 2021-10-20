@@ -33,26 +33,26 @@ export class SignUpComponent implements OnInit {
 
   //Will create the user by getting the pawprint, concat. w/ @umsystem, and sending user back to home page
   createUser() {
-    const {pawprint, password} = this.signUpForm.value;
-    const schoolEmail = pawprint + "@umsystem.edu";
-    this.auth.createUserWithEmailAndPassword(schoolEmail, password).then (user => {
-      console.log('RegisterCompnent -> createUser -> user', user)
-      this.router.navigate([''])
-    })
-
-    // this will get the data from the signUpForm and pass it to the userService's 'createUser' method
-    let data = this.signUpForm.value;
-    console.log(data);
-    this.userService.createUser(data)
-      .then(res => {
-
+    if(this.signUpForm.valid){
+      const {pawprint, password} = this.signUpForm.value;
+      const schoolEmail = pawprint + "@umsystem.edu";
+      this.auth.createUserWithEmailAndPassword(schoolEmail, password).then (user => {
+        this.auth.signOut();
+        console.log('RegisterCompnent -> createUser -> user', user)
+        this.router.navigate([''])
       })
-      this.dialog.open(UserDialogComponent, {
-        data: {
-          formData: this.signUpForm.value,
-          thanks: "Thank you!"
-        }
-      })
+  
+      // this will get the data from the signUpForm and pass it to the userService's 'createUser' method
+      let data = this.signUpForm.value;
+      console.log(data);
+      this.userService.createUser(data)
+        this.dialog.open(UserDialogComponent, {
+          data: {
+            formData: this.signUpForm.value,
+            thanks: "Thank you!"
+          }
+        })
+    }
   }
 
   //Dialog reference: https://www.techiediaries.com/angular-material-dialogs/

@@ -1,13 +1,122 @@
-#pageTearImg {
-    position: absolute;
-    width: 100%;
-    height: 475px;
-    left: 0px;
-    top: 60px;
-    scale: -50;
-    transform: rotate(-180deg);
+body {
+    display: block;
 }
 
+/* Current Inventory Div */
+.inventory {
+    position: relative;
+    height: 300px;
+}
+
+#pageTear {
+    transform: rotate(180deg);
+    width: 100%;
+}
+
+.inventoryHeader {
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-weight: bold;
+    font-size: 250%;
+    color: #f1b82d;
+}
+
+.inventoryInfo {
+    position: absolute;
+    display: flex;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.inventoryItem {
+    text-align: center;
+    width: 200px;
+    padding: 100px;
+}
+
+.inventoryDevice {
+    font-weight: normal;
+    font-size: 150%;
+    color: white;
+}
+
+.inventoryOut, .inventoryAvailable {
+    font-weight: lighter;
+    font-size: 125%;
+    color: white;
+}
+
+/* Quick Checkout Div */
+.quickCheckout {
+    position: relative;
+}
+
+.quickCheckoutHeader {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-weight: bold;
+    font-size: 250%;
+    color: black;
+}
+
+.quickCheckoutButtonsContainer {
+    position: absolute;
+    display: flex;
+    top: 270px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.quickCheckoutButtons {
+    margin: 75px 75px 25px 75px;
+    padding: 80px;
+
+    background-color: black;
+}
+
+.quickCheckoutButtons:hover {
+    background-color: #f1b82d;
+}
+
+.material-icons-outlined {
+    transition: all .2s ease-in-out;
+    transform: scale(5);
+}
+
+.material-icons-outlined:hover {
+    color: black;
+    transform: scale(6);
+}
+
+.quickCheckoutButtonsLabels {
+    text-align: center;
+
+    font-weight: normal;
+    font-size: 150%;
+    color: black;
+}
+
+/* #pageTearImg {
+    position: relative;
+    width: 100%;
+    height: 475px;
+    transform: scale(0.5);
+    transform: rotate(-180deg);
+} */
+
+/* .quickCheckoutButtons {
+    display: inline-flex;
+    
+} */
+
+/* 
 #boxOne {
     position: static;
     width: 250px;
@@ -80,6 +189,7 @@
     left: 7.5%; 
     top: 506px;
 }
+
 
 #bottomBlackBox {
     position: absolute;
@@ -260,8 +370,9 @@
     line-height: 54px;
     color: #f1b82d;
 }
+*/
 
-body {
+/* body {
     position: static;
     height: 1400px;
-}
+} */

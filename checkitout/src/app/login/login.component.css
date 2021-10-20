@@ -5,6 +5,13 @@
     z-index: 0;
 }
 
+#title {
+    padding-bottom: 8%;
+}
+
+#form {
+    padding-bottom: 8%;
+}
 button {
     display: block;
     margin: auto;
@@ -74,3 +81,4 @@ mat-form-field {
    /*change color of underline when focused*/
    background-color: green !important;;
   }
+
