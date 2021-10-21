@@ -19,7 +19,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatTabsModule } from '@angular/material/tabs';
 
 /* Firebase imports */
 import { AngularFireModule } from '@angular/fire/compat'
@@ -30,6 +30,7 @@ import { UsersService } from './shared/users.service';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { AboutComponent } from './about/about.component';
 import { CartComponent } from './cart/cart.component';
+import { AdminFacingComponent } from './admin-facing/admin-facing.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { CartComponent } from './cart/cart.component';
     ItemComponent,
     AboutComponent,
     CartComponent,
+    AdminFacingComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +60,7 @@ import { CartComponent } from './cart/cart.component';
     MatFormFieldModule,
     MatInputModule,
     RouterModule.forRoot([
+      { path: 'admin', component: AdminFacingComponent },
       { path: 'cart', component: CartComponent },
       { path: 'item', component: ItemComponent },
       { path: 'about', component: AboutComponent },

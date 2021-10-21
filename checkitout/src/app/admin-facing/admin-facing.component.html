@@ -1,1 +1,47 @@
-<p>admin-facing works!</p>
+<body>
+    <div class="inventory">
+        <img id="pageTear" src="assets/MU-Brand-PageTear-Horiz-1920px.png">
+
+        <h3 class="inventoryHeader">Current Inventory</h3>
+
+        <section class="inventoryInfo">
+            <div class="inventoryItem">
+                <p class="inventoryDevice">MackBook Pro 16"</p>
+                <p class="inventoryOut">Out</p>
+                <p class="inventoryAvailable">Available</p>
+            </div>
+            <div class="inventoryItem">
+                <p class="inventoryDevice">Dell XPS 15"</p>
+                <p class="inventoryOut">Out</p>
+                <p class="inventoryAvailable">Available</p>
+            </div>
+            <div class="inventoryItem">
+                <p class="inventoryDevice">Canon C200</p>
+                <p class="inventoryOut">Out</p>
+                <p class="inventoryAvailable">Available</p>
+            </div>
+        </section>
+
+        <div class="inventoryTabs">
+            <mat-tab-group class="tabTitle" mat-align-tabs="center">
+                <mat-tab class="labelText" label="Inventory Overview" color="primary">
+                    <hr class="vertical">
+                    <h4 class="macbook16">MacBook Pro 16"</h4>
+                        <img computerOne src="assets/macbookpro.jpg" routerLink="/item">
+                        <h5 class="macbook16CPU">CPU: 2.6GHz 6-Core Intel Core i7</h5>
+                        <h5 class="macbook16GPU">GPU: AMD Radeon Pro 5300M with 4GB of GDDR6 Memory</h5>
+                        <h5 class="macbook16Memory">Memory (RAM): 16GB</h5>
+                        <h5 class="macbook16Storage">Storage: 512GB</h5>
+                </mat-tab>
+
+                <mat-tab class="labelText" label="Add Item">
+
+                </mat-tab>
+
+                <mat-tab class="labelText" label="Change Pick-Up">
+
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</body>
