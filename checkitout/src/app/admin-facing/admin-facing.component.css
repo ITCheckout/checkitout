@@ -1,0 +1,124 @@
+body {
+    display: block;
+    height: 750px;
+}
+
+/* Current Inventory Div */
+.inventory {
+    position: relative;
+    height: 300px;
+}
+
+#pageTear {
+    transform: rotate(180deg);
+    width: 100%;
+}
+
+.inventoryHeader {
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-weight: bold;
+    font-size: 250%;
+    color: #f1b82d;
+}
+
+.inventoryInfo {
+    position: absolute;
+    display: flex;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.inventoryItem {
+    text-align: center;
+    width: 200px;
+    padding: 100px;
+}
+
+.inventoryDevice {
+    font-weight: normal;
+    font-size: 150%;
+    color: white;
+}
+
+.inventoryOut, .inventoryAvailable {
+    font-weight: lighter;
+    font-size: 125%;
+    color: white;
+}
+
+.hr {
+    border: 2px solid #000000;
+}
+
+.mat-tab-group {
+    margin-bottom: 50%;
+}
+
+.tabTitle {
+    color: black;
+}
+
+ /* Test */
+.macbook16 {
+    position: absolute;
+    left: 57%;
+    top: 13%;
+    white-space: nowrap;
+    font-family: Gotham Medium;
+    font-style: normal;
+    font-size: 120%;
+    font-weight: 900s;
+    color: #000000;
+}
+img[computerOne] {
+    position: relative;
+    width: 18%;
+    height: 22%;
+    left: 30%;
+    top: 30%;
+}
+.macbook16CPU {
+    position: absolute;
+    left: 59%;
+    top: 17%;
+    white-space: nowrap;
+    font-family: Gotham Medium;
+    font-style: normal;
+    font-size: 105%;
+    color: #000000;
+}
+.macbook16GPU {
+    position: absolute;
+    left: 59%;
+    top: 20%;
+    white-space: nowrap;
+    font-family: Gotham Medium;
+    font-style: normal;
+    font-size: 105%;
+    color: #000000;
+}
+.macbook16Memory {
+    position: absolute;
+    left: 59%;
+    top: 23%;
+    white-space: nowrap;
+    font-family: Gotham Medium;
+    font-style: normal;
+    font-size: 105%;
+    color: #000000;
+}
+.macbook16Storage {
+    position: absolute;
+    left: 59%;
+    top: 26%;
+    white-space: nowrap;
+    font-family: Gotham Medium;
+    font-style: normal;
+    font-size: 105%;
+    color: #000000;
+}
