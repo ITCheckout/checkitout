@@ -1,6 +1,6 @@
 body {
     display: block;
-    height: 750px;
+    height: 1000px;
 }
 
 /* Current Inventory Div */
@@ -55,6 +55,7 @@ body {
     border: 2px solid #000000;
 }
 
+
 .mat-tab-group {
     margin-bottom: 50%;
 }
@@ -65,7 +66,7 @@ body {
 
  /* Test */
 .macbook16 {
-    position: absolute;
+    position: relative;
     left: 57%;
     top: 13%;
     white-space: nowrap;
@@ -83,7 +84,7 @@ img[computerOne] {
     top: 30%;
 }
 .macbook16CPU {
-    position: absolute;
+    position: relative;
     left: 59%;
     top: 17%;
     white-space: nowrap;
@@ -93,7 +94,7 @@ img[computerOne] {
     color: #000000;
 }
 .macbook16GPU {
-    position: absolute;
+    position: relative;
     left: 59%;
     top: 20%;
     white-space: nowrap;
@@ -103,7 +104,7 @@ img[computerOne] {
     color: #000000;
 }
 .macbook16Memory {
-    position: absolute;
+    position: relative;
     left: 59%;
     top: 23%;
     white-space: nowrap;
@@ -113,7 +114,7 @@ img[computerOne] {
     color: #000000;
 }
 .macbook16Storage {
-    position: absolute;
+    position: relative;
     left: 59%;
     top: 26%;
     white-space: nowrap;
@@ -122,3 +123,136 @@ img[computerOne] {
     font-size: 105%;
     color: #000000;
 }
+
+.macbook13 {
+    position: relative;
+    left: 57%;
+    top: 37%;
+    white-space: nowrap;
+    font-family: Gotham Medium;
+    font-style: normal;
+    font-size: 120%;
+    font-weight: 900;
+    color: #000000;
+    }
+ img[computerTwo] {
+        position: relative;
+    width: 18%;
+    height: 22%;
+    left: 30%;
+    top: 33.5%;
+    }
+.macbook13CPU {
+    position: absolute;
+    left: 59%;
+    top: 41%;
+    white-space: nowrap;
+    font-family: Gotham Medium;
+    font-style: normal;
+    font-size: 105%;
+      color: #000000;
+    }
+.macbook13GPU {
+    position: absolute;
+    left: 59%;
+    top: 44%;
+    white-space: nowrap;
+    font-family: Gotham Medium;
+    font-style: normal;
+    font-size: 105%;
+    color: #000000;
+    }
+.macbook13Memory {
+    position: absolute;
+    left: 59%;
+    top: 47%;
+    white-space: nowrap;
+    font-family: Gotham Medium;
+    font-style: normal;
+    font-size: 105%;
+    color: #000000;
+    }
+.macbook13Storage {
+    position: absolute;
+    left: 59%;
+    top: 50%;
+    white-space: nowrap;
+    font-family: Gotham Medium;
+    font-style: normal;
+    font-size: 105%;
+    color: #000000;
+    }
+
+
+.dell15 {
+        position: relative;
+        left: 57%;
+        top: 65%;
+        white-space: nowrap;
+        font-family: Gotham Medium;
+        font-style: normal;
+        font-size: 120%;
+        font-weight: 900;
+        color: #000000;
+        }
+    img[computerThree] {
+        position: relative;
+        width: 18%;
+        height: 22%;
+        left: 30%;
+        top: 60%;
+        }
+        
+        .dell15CPU {
+                /* 2.6GHz 6-Core Intel Core i7 */
+        position: relative;
+        left: 59%;
+        top: 69%;
+        white-space: nowrap;
+        font-family: Gotham Medium;
+        font-style: normal;
+        font-size: 105%;
+    
+        /* identical to box height */
+        color: #000000;
+        }
+        
+        .dell15GPU {
+            /* 2.6GHz 6-Core Intel Core i7 */
+        position: relative;
+        left: 59%;
+        top: 72%;
+        white-space: nowrap;
+        font-family: Gotham Medium;
+        font-style: normal;
+        font-size: 105%;
+    
+        /* identical to box height */
+        color: #000000;
+        }
+        .dell15Memory {
+            /* 2.6GHz 6-Core Intel Core i7 */
+        position: relative;
+        left: 59%;
+        top: 75%;
+        white-space: nowrap;
+        font-family: Gotham Medium;
+        font-style: normal;
+        font-size: 105%;
+    
+        /* identical to box height */
+        color: #000000;
+        }
+        .dell15Storage {
+            /* 2.6GHz 6-Core Intel Core i7 */
+        position: relative;
+        left: 59%;
+        top: 78%;
+        white-space: nowrap;
+        font-family: Gotham Medium;
+        font-style: normal;
+        font-size: 105%;
+    
+        /* identical to box height */
+        color: #000000;
+        }
