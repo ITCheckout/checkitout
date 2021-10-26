@@ -21,16 +21,19 @@ body {
 
 .aboutHeader {
     margin-bottom: 5%;
-    font-weight: bold;
+    font-family: "GOTHAM-BOLD";
+    /* font-weight: bold; */
     font-size: 500%;
 }
 
 .contactHeader {
-    font-weight: bold;
+    font-family: "GOTHAM-MEDIUM";
+    /* font-weight: bold; */
     font-size: 150%;
 }
 
 p {
+    font-family: "GOTHAM-BOOK";
     font-size: 125%;
 }
 /* .title {

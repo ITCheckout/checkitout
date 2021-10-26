@@ -2,3 +2,53 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@font-face {
+    font-family: "GOTHAM-BLACK";
+    src: local("GOTHAM-BLACK"), url(./assets/fonts/GOTHAM-BLACK.otf) format("truetype");
+}
+
+@font-face {
+    font-family: "GOTHAM-BOLD";
+    src: local("GOTHAM-BOLD"), url(./assets/fonts/GOTHAM-BOLD.otf) format("truetype");
+}
+
+@font-face {
+    font-family: "GOTHAM-BOOK";
+    src: local("GOTHAM-BOOK"), url(./assets/fonts/GOTHAM-BOOK.otf) format("truetype");
+}
+
+@font-face {
+    font-family: "GOTHAM-BOOKITALIC";
+    src: local("GOTHAM-BOOKITALIC"), url(./assets/fonts/GOTHAM-BOOKITALIC.otf) format("truetype");
+}
+
+@font-face {
+    font-family: "GOTHAM-LIGHT";
+    src: local("GOTHAM-LIGHT"), url(./assets/fonts/GOTHAM-LIGHT.otf) format("truetype");
+}
+
+@font-face {
+    font-family: "GOTHAM-LIGHTITALIC";
+    src: local("GOTHAM-LIGHTITALIC"), url(./assets/fonts/GOTHAM-LIGHTITALIC.otf) format("truetype");
+}
+
+@font-face {
+    font-family: "GOTHAM-MEDIUM";
+    src: local("GOTHAM-MEDIUM"), url(./assets/fonts/GOTHAM-MEDIUM.otf) format("truetype");
+}
+
+@font-face {
+    font-family: "GOTHAM-MEDIUMITALIC";
+    src: local("GOTHAM-MEDIUMITALIC"), url(./assets/fonts/GOTHAM-MEDIUMITALIC.otf) format("truetype");
+}
+
+@font-face {
+    font-family: "GOTHAM-ULTRA";
+    src: local("GOTHAM-ULTRA"), url(./assets/fonts/GOTHAM-ULTRA.otf) format("truetype");
+}
+
+@font-face {
+    font-family: "GOTHAM-ULTRAITALIC";
+    src: local("GOTHAM-ULTRAITALIC"), url(./assets/fonts/GOTHAM-ULTRAITALIC.otf) format("truetype");
+}
