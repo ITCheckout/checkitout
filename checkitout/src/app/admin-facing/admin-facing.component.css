@@ -10,6 +10,7 @@ body {
 }
 
 #pageTear {
+    position: relative;
     transform: rotate(180deg);
     width: 100%;
 }
@@ -58,10 +59,20 @@ body {
 
 .mat-tab-group {
     margin-bottom: 50%;
+
+    font-weight: bold;
+    font-size: 250%;
+    color: black;
 }
 
-.tabTitle {
-    color: black;
+.inventoryTabs {
+    position: relative;
+    top: 5em;
+    width: 100%;
+}
+
+.mat-tab-group {
+    margin-bottom: 50%;
 }
 
  /* Test */
@@ -256,3 +267,29 @@ img[computerOne] {
         /* identical to box height */
         color: #000000;
         }
+/* Add Item tab */
+mat-form-field {
+    background-color: #7D7D7D;
+}
+
+mat-label {
+    color: #f1b82d;
+}
+
+.initialForm {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    margin-top: 1em;
+}
+
+.loadingForm {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+mat-form-field {
+    margin: 1em;
+}

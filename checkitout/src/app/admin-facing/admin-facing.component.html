@@ -1,7 +1,7 @@
 <body>
+
     <div class="inventory">
         <img id="pageTear" src="assets/MU-Brand-PageTear-Horiz-1920px.png">
-
         <h3 class="inventoryHeader">Current Inventory</h3>
 
         <section class="inventoryInfo">
@@ -21,41 +21,165 @@
                 <p class="inventoryAvailable">Available</p>
             </div>
         </section>
-
-        <div class="inventoryTabs">
-            <mat-tab-group class="tabTitle" mat-align-tabs="center">
-                <mat-tab class="labelText" label="Inventory Overview" color="primary">
-                    <hr class="vertical">
-                    <h4 class="macbook16">MacBook Pro 16"</h4>
-                        <img computerOne src="assets/macbookpro.jpg" routerLink="/item">
-                        <h5 class="macbook16CPU">CPU: 2.6GHz 6-Core Intel Core i7</h5>
-                        <h5 class="macbook16GPU">GPU: AMD Radeon Pro 5300M with 4GB of GDDR6 Memory</h5>
-                        <h5 class="macbook16Memory">Memory (RAM): 16GB</h5>
-                        <h5 class="macbook16Storage">Storage: 512GB</h5>
-
-                    <h4 class="macbook13">MacBook Pro 13"</h4>
-                        <img computerTwo src="assets/macbookpro.jpg"  routerLink="/item">
-                        <h5 class="macbook13CPU">CPU: Apple M1</h5>
-                        <h5 class="macbook13GPU">GPU: 8-Core</h5>
-                        <h5 class="macbook13Memory">Memory (RAM): 8GB</h5>
-                        <h5 class="macbook13Storage">Storage: 256GB</h5>
-                    
-                    <h4 class="dell15">Dell XPS 15"</h4>
-                        <img computerThree src="assets/dellXPS.jpeg"  routerLink="/item">
-                        <h5 class="dell15CPU">CPU: 2.6GHz 6-Core Intel Core i7</h5>
-                        <h5 class="dell15GPU">GPU: AMD Radeon Pro 5300M with 4GB of GDDR6 Memory</h5>
-                        <h5 class="dell15Memory">Memory (RAM): 16GB</h5>
-                        <h5 class="dell15Storage">Storage: 512GB</h5>   
-                </mat-tab>
-
-                <mat-tab class="labelText" label="Add Item">
-
-                </mat-tab>
-
-                <mat-tab class="labelText" label="Change Pick-Up">
-
-                </mat-tab>
-            </mat-tab-group>
-        </div>
     </div>
+
+    <div class="inventoryTabs">
+        <h3 class="adminHeader">Admin</h3>
+        <mat-tab-group class="tabTitle" mat-align-tabs="center" backgroundColor="primary">
+            <mat-tab class="labelText" label="Inventory Overview">
+                <hr class="vertical">
+                <h4 class="macbook16">MacBook Pro 16"</h4>
+                <img computerOne src="assets/macbookpro.jpg" routerLink="/item">
+                <h5 class="macbook16CPU">CPU: 2.6GHz 6-Core Intel Core i7</h5>
+                <h5 class="macbook16GPU">GPU: AMD Radeon Pro 5300M with 4GB of GDDR6 Memory</h5>
+                <h5 class="macbook16Memory">Memory (RAM): 16GB</h5>
+                <h5 class="macbook16Storage">Storage: 512GB</h5>
+            </mat-tab>
+
+            <mat-tab class="labelText" label="Add Item">
+                <form>
+                    <div class="initialForm">
+                        <!-- <h4>Add Item</h4> -->
+                        <mat-form-field appearance="fill">
+                            <mat-label>Type of device</mat-label>
+                            <mat-select [(ngModel)]="selectedValue" name="addItem">
+                                <mat-option *ngFor="let form of addItemForm" [value]="form.viewValue">
+                                    {{form.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <!-- <p> Selected device: {{selectedValue}} </p> -->
+                    </div>
+
+                    <div class="loadingForm">
+                        <ng-container class="computerForm" *ngIf="selectedValue==='Computer'">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Brand</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Model</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Release year</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Screen size</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Disk space</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Condition</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Barcode</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </ng-container>
+
+
+                        <ng-container class="cameraForm" *ngIf="selectedValue==='Camera'">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Brand</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Model</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Release year</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Condition</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Barcode</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </ng-container>
+
+                        <ng-container class="microphoneForm" *ngIf="selectedValue==='Microphone'">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Brand</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Model</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Release year</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Condition</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Barcode</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </ng-container>
+
+                        <ng-container class="lightsForm" *ngIf="selectedValue==='Lights'">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Brand</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Model</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Release year</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Condition</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Barcode</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </ng-container>
+                    </div>
+                </form>
+
+            </mat-tab>
+
+            <mat-tab class="labelText" label="Change Pick-Up">
+
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+
 </body>

@@ -25,7 +25,7 @@ export class UsersService {
   //       .add(data)
   //       .then(res => {}, err => reject(err))
   //   })
-  console.log("User Created");
+  // console.log("User Created");
   }
 
 }

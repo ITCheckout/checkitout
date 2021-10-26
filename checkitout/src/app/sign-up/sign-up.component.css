@@ -41,6 +41,9 @@ mat-form-field {
     color: black;
 }
 
+.demo {
+    color: white;
+}
 
 /* border-radius change: https://stackoverflow.com/questions/66484113/change-increase-border-radius-of-mat-form-field 
      -needs important tags

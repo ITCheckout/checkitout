@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   constructor(private fb: FormBuilder, private auth: AngularFireAuth, private router: Router) { }
-
   loginForm!: FormGroup;
 
   ngOnInit(): void {
@@ -21,8 +20,13 @@ export class LoginComponent {
     })
   }
 
+  get pawprint() {return this.loginForm.get('pawprint')}
+  get password() {return this.loginForm.get('password')}
+
   //Login Form: https://www.youtube.com/watch?v=vAglCz1F96Y
+  loginError = '';
   onLogin(){
+    this.loginError = "";
     if(this.loginForm.valid){
       const {pawprint, password} = this.loginForm.value;
       const schoolEmail = pawprint + "@umsystem.edu";
@@ -32,9 +36,20 @@ export class LoginComponent {
        console.log(user)
         this.router.navigate([''])
       }).catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorCode+ errorMessage)
+        switch (error.code) {
+          case "auth/invalid-email":
+          case "auth/wrong-password":
+          case "auth/user-not-found":
+          {
+             this.loginError = "Wrong email address or password.";
+             break;
+          }
+             default:
+          {
+              this.loginError = "Unexpected Error";
+              break;
+          }
+     }
       });
     }
 
