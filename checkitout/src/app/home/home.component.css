@@ -3,6 +3,10 @@ body {
     height: 750px;
 }
 
+h3 {
+    font-family: "GOTHAM-BOLD";
+}
+
 /* Current Inventory Div */
 .inventory {
     position: relative;
@@ -20,7 +24,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    font-weight: bold;
+    /* font-weight: bold; */
     font-size: 250%;
     color: #f1b82d;
 }
@@ -40,13 +44,15 @@ body {
 }
 
 .inventoryDevice {
-    font-weight: normal;
+    font-family: "GOTHAM-MEDIUM";
+    /* font-weight: normal; */
     font-size: 150%;
     color: white;
 }
 
 .inventoryOut, .inventoryAvailable {
-    font-weight: lighter;
+    font-family: "GOTHAM-BOOK";
+    /* font-weight: lighter; */
     font-size: 125%;
     color: white;
 }
@@ -62,7 +68,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    font-weight: bold;
+    /* font-weight: bold; */
     font-size: 250%;
     color: black;
 }
@@ -99,7 +105,8 @@ body {
 .quickCheckoutButtonsLabels {
     text-align: center;
 
-    font-weight: normal;
+    font-family: "GOTHAM-BOOK";
+    /* font-weight: normal; */
     font-size: 150%;
     color: black;
 }

@@ -6,8 +6,10 @@ h1 {
     position: absolute;
     left: 9%;
     top: 1%;
-    font-family: Gotham Medium;
-    font-style: normal;
+
+    font-family: "GOTHAM-BOLD";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 300%;
     line-height: 250%;
 }
@@ -33,8 +35,10 @@ h1 {
     height: 27px;
     left: 200px;
     top: 12%;
-    font-family: Gotham Medium;
-    font-style: normal;
+
+    font-family: "GOTHAM-MEDIUM";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-weight: 500;
     font-size: 18px;
     color: #000000;
@@ -47,8 +51,10 @@ h1 {
     height: 27px;
     left: 265px;
     top: 16%;
-    font-family: Gotham Medium;
-    font-style: normal;
+
+    font-family: "GOTHAM-MEDIUM";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-weight: 500;
     font-size: 18px;
     line-height: 27px;
@@ -61,20 +67,27 @@ h1 {
     height: 27px;
     left: 268px;
     top: 20%;
-    font-family: Gotham Medium;
-    font-style: normal;
+
+    font-family: "GOTHAM-MEDIUM";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-weight: 500;
     font-size: 18px;
     line-height: 27px;
     color: #000000;
 }
+
+h4 {
+    font-family: "GOTHAM-MEDIUM";
+}
+
 .macbook16 {
     position: absolute;
     left: 57%;
     top: 13%;
     white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 120%;
     font-weight: 900s;
     color: #000000;
@@ -91,8 +104,9 @@ img[computerOne] {
     left: 59%;
     top: 17%;
     white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
+    font-family: "GOTHAM-BOOK";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 105%;
     color: #000000;
 }
@@ -101,8 +115,9 @@ img[computerOne] {
     left: 59%;
     top: 20%;
     white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
+    font-family: "GOTHAM-BOOK";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 105%;
     color: #000000;
 }
@@ -111,8 +126,9 @@ img[computerOne] {
     left: 59%;
     top: 23%;
     white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
+    font-family: "GOTHAM-BOOK";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 105%;
     color: #000000;
 }
@@ -121,8 +137,9 @@ img[computerOne] {
     left: 59%;
     top: 26%;
     white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
+    font-family: "GOTHAM-BOOK";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 105%;
     color: #000000;
 }
@@ -139,8 +156,8 @@ img[computerOne] {
     left: 57%;
     top: 37%;
     white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 120%;
     font-weight: 900;
     color: #000000;
@@ -157,8 +174,9 @@ img[computerOne] {
     left: 59%;
     top: 41%;
     white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
+    font-family: "GOTHAM-BOOK";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 105%;
       color: #000000;
     }
@@ -167,8 +185,9 @@ img[computerOne] {
     left: 59%;
     top: 44%;
     white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
+    font-family: "GOTHAM-BOOK";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 105%;
     color: #000000;
     }
@@ -177,8 +196,9 @@ img[computerOne] {
     left: 59%;
     top: 47%;
     white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
+    font-family: "GOTHAM-BOOK";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 105%;
     color: #000000;
     }
@@ -187,8 +207,9 @@ img[computerOne] {
     left: 59%;
     top: 50%;
     white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
+    font-family: "GOTHAM-BOOK";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 105%;
     color: #000000;
     }
@@ -206,8 +227,8 @@ img[computerOne] {
     left: 57%;
     top: 65%;
     white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 120%;
     font-weight: 900;
     color: #000000;
@@ -226,8 +247,9 @@ img[computerThree] {
     left: 59%;
     top: 69%;
     white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
+    font-family: "GOTHAM-BOOK";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 105%;
 
     /* identical to box height */
@@ -240,8 +262,9 @@ img[computerThree] {
     left: 59%;
     top: 72%;
     white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
+    font-family: "GOTHAM-BOOK";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 105%;
 
     /* identical to box height */
@@ -253,8 +276,9 @@ img[computerThree] {
     left: 59%;
     top: 75%;
     white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
+    font-family: "GOTHAM-BOOK";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 105%;
 
     /* identical to box height */
@@ -266,8 +290,9 @@ img[computerThree] {
     left: 59%;
     top: 78%;
     white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
+    font-family: "GOTHAM-BOOK";
+    /* font-family: Gotham Medium;
+    font-style: normal; */
     font-size: 105%;
 
     /* identical to box height */

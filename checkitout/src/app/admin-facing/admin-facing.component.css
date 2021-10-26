@@ -1,6 +1,10 @@
 body {
     display: block;
+<<<<<<< HEAD
     height: 1000px;
+=======
+    height: 90em;
+>>>>>>> dev
 }
 
 /* Current Inventory Div */
@@ -21,7 +25,8 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    font-weight: bold;
+    font-family: "GOTHAM-BOLD";
+    /* font-weight: bold; */
     font-size: 250%;
     color: #f1b82d;
 }
@@ -41,13 +46,15 @@ body {
 }
 
 .inventoryDevice {
-    font-weight: normal;
+    font-family: "GOTHAM-MEDIUM";
+    /* font-weight: normal; */
     font-size: 150%;
     color: white;
 }
 
 .inventoryOut, .inventoryAvailable {
-    font-weight: lighter;
+    font-family: "GOTHAM-BOOK";
+    /* font-weight: lighter; */
     font-size: 125%;
     color: white;
 }
@@ -60,7 +67,8 @@ body {
 .mat-tab-group {
     margin-bottom: 50%;
 
-    font-weight: bold;
+    font-family: "GOTHAM-BOLD";
+    /* font-weight: bold; */
     font-size: 250%;
     color: black;
 }
@@ -73,6 +81,10 @@ body {
 
 .mat-tab-group {
     margin-bottom: 50%;
+}
+
+.mat-tab {
+    font-family: "GOTHAM-MEDIUM";
 }
 
  /* Test */
@@ -293,3 +305,15 @@ mat-label {
 mat-form-field {
     margin: 1em;
 }
+<<<<<<< HEAD
+=======
+
+.pickupContainer {
+    position: relative;
+}
+
+.daysForm {
+    display: inline-flex;
+    width: 100%;
+}
+>>>>>>> dev

@@ -3,7 +3,8 @@
     margin-bottom: 1.5%;
     margin-left: 5%;
 
-    font-weight: bold;
+    font-family: "GOTHAM-BOLD";
+    /* font-weight: bold; */
     font-size: 500%;
 }
 
@@ -12,7 +13,8 @@
     margin-bottom: 0.5%;
     margin-left: 5%;
 
-    font-weight: normal;
+    font-family: "GOTHAM-MEDIUM";
+    /* font-weight: normal; */
     font-size: 200%;
 }
 
