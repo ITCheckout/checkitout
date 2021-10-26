@@ -52,8 +52,8 @@
         <div *ngIf="f.confirmPassword.errors?.confirmedValidator">
           <div class="error">Password and Confirm Password must match</div>
         </div>
-        <div class="demo">Password: {{password?.value}}</div>
-        <div class="demo">ConfirmPassword: {{confirmPassword?.value}}</div>
+        <!-- <div class="demo">Password: {{password?.value}}</div>
+        <div class="demo">ConfirmPassword: {{confirmPassword?.value}}</div> -->
       </div>
       </form> 
       <button mat-button class="center" (click)="createUser()" type="submit" ng-disabled="signUpForm.$invalid">Sign Up</button>
