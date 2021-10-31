@@ -49,3 +49,8 @@ button {
    /* #cart{
 
    } */
+
+   .mat-snack-bar-container{
+     background: black;
+     color: white;
+   }
