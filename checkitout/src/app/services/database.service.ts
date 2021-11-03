@@ -1,7 +1,9 @@
 import { query } from '@angular/animations';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Item } from '@firebase/analytics';
 import { SubCategory } from '../models/category';
+import { Model } from '../models/model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,38 +19,15 @@ export class DatabaseService {
   }
 
   getCategories() {
-    // var docId: string[] = [];
-    // var docRef = this.itemsCollection.ref;
-    // docRef.get().then(function(querySnapshot) {
-    //   querySnapshot.forEach(function(doc) {
-    //     console.log(doc.id, ' => ', doc.data());
-    //     docId.push(doc.id);
-    //   });
-    // }).catch(function(error) {
-    //   console.log('error: ', error)
-    // });
-
-    // return docId;
     return this.firestore.collection<SubCategory>('items').valueChanges({ categoryName: 'categoryName', categoryList: 'categoryList' });
   }
 
-  getSubCategories(category) {
-    return this.firestore.collection('items').doc(category).valueChanges();
-  }
+  // getSubCategories(category) {
+  //   return this.firestore.collection('items').doc(category).valueChanges();
+  // }
 
   getModels(category, subCategory) {
-    // var docId: string[] = [];
-    // var docRef = this.itemsCollection.doc(category).collection(subCategory).ref;
-    // docRef.get().then(function(querySnapshot) {
-    //   querySnapshot.forEach(function(doc) {
-    //     console.log(doc.id, ' => ', doc.data());
-    //     docId.push(doc.id);
-    //   });
-    // }).catch(function(error) {
-    //   console.log('error: ', error)
-    // });
-    // return docId;
-    return this.itemsCollection.doc(category).collection(subCategory).valueChanges();
+    return this.itemsCollection.doc(category).collection<Model>(subCategory).valueChanges( { imagePath: 'imagePath', itemTitle: 'itemTitle' });
   }
 
   getModel(category, subCategory, model) {
@@ -56,20 +35,7 @@ export class DatabaseService {
   }
 
   getItems(category, subCategory, model) {
-  //   var docId: string[] = [];
-  //   var docRef = this.itemsCollection.doc(category).collection(subCategory).doc(model).collection('item-list').ref;
-  //   docRef.get().then(function(querySnapshot) {
-  //     querySnapshot.forEach(function(doc) {
-  //       console.log(doc.id, ' => ', doc.data());
-  //       docId.push(doc.id);
-  //     });
-  //   }).catch(function(error) {
-  //     console.log('error: ', error)
-  //   });
-
-  //   return docId;
-  // }
-    return this.itemsCollection.doc(category).collection(subCategory).doc(model).collection('item-list').valueChanges();
+    return this.itemsCollection.doc(category).collection(subCategory).doc(model).collection<Item>('item-list').valueChanges( { imagePath: 'imagePath', itemTitle: 'itemTitle' });
   }
 
   getItem(category, subCategory, model, item) {

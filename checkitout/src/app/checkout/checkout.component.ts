@@ -28,6 +28,15 @@ export class CheckoutComponent implements OnInit {
      this.databaseService.getCategories().subscribe(categories => {
       this.mainCategories = categories;
     });
+    this.databaseService.getModels(this.mainCategories[0], this.mainCategories[0].categoryName[0]).subscribe(models => {
+      this.models = models;
+    }
+    );
+    // this.databaseService.getItems(this.mainCategories[0], this.mainCategories[0].categoryName[0], ).subscribe(items => {
+    //   this.items = items;
+    // }
+    // );
+    
   }
 }
 
