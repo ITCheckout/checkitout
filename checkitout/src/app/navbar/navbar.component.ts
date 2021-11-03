@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate([''])
 
     this._snackBar.open('You have been logged out', '', {
-      duration: 100000,
+      duration: 2500,
       panelClass: ['snackbar-success']
     });
   }
