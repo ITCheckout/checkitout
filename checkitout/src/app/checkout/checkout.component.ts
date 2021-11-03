@@ -15,27 +15,19 @@ import { DatabaseService } from '../services/database.service';
 export class CheckoutComponent implements OnInit {
 
   mainCategories;
-  subCategories;
   items;
   models;
 
-
-
   constructor(private databaseService: DatabaseService) {
     this.mainCategories = null;
-    this.subCategories = null;
     this.items = null;
     this.models = null;
-    
   }
 
   ngOnInit(): void {
-    this.mainCategories = this.databaseService.getCategories();
-    this.subCategories = this.databaseService.getSubCategories(this.mainCategories[0]);
-    console.log(this.subCategories)
-    this.models = this.databaseService.getModels(this.mainCategories[0], 'laptop-mac');
-    this.items = this.databaseService.getItems('laptops', 'laptop-mac', 'late-2013-macbook-pro');
+     this.databaseService.getCategories().subscribe(categories => {
+      this.mainCategories = categories;
+    });
   }
-
 }
 
