@@ -75,7 +75,7 @@ import { AdminFacingComponent } from './admin-facing/admin-facing.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
-  providers: [UsersService],
+  providers: [UsersService, LoginComponent],
   bootstrap: [AppComponent]
 })
 

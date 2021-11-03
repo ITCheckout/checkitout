@@ -66,6 +66,7 @@ export class SignUpComponent implements OnInit {
           //do profile things here if we get to it
           // console.log(user);
         })
+        this.auth.signOut();
         this.router.navigate([''])
       })
   

@@ -21,13 +21,6 @@ export class UsersService {
 
   //this function will get the data from the sign-up form component, pass it here, and will submit it to the firestore database
   createUser(data: any) {
-  //   return new Promise<any>((resolve, reject) => {
-  //     this.firestore
-  //       .collection("users")
-  //       .add(data)
-  //       .then(res => {}, err => reject(err))
-  //   })
-  // console.log("User Created");
   }
 
   setUser(data: any) {
