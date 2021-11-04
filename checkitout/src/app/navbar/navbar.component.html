@@ -5,9 +5,15 @@
     <button mat-button routerLink="">Home</button>
     <button mat-button routerLink="/checkout">Checkout</button>
     <button mat-button routerLink="/about">About</button>
-    <button mat-button routerLink="/admin">Admin</button>
+    <div *ngIf="userRole=='admin'">
+        <button mat-button routerLink="/admin">Admin</button>
+    </div>
+
     <span class="spacer"></span>
-    <button mat-button routerLink="/login">Login</button>
+    <button mat-button routerLink="/login" *ngIf="!(afAuth.user | async); else noLogin">Login</button>
+    <ng-template #noLogin>
+        <button mat-button (click)="logout()">Logout</button>
+    </ng-template>
     <button mat-button routerLink="/cart" id="cart">
         <mat-icon aria-hidden="false" aria-label="Shopping Cart">shopping_cart</mat-icon>
     </button>
