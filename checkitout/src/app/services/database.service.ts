@@ -19,12 +19,12 @@ export class DatabaseService {
   }
 
   getCategories() {
-    return this.firestore.collection<SubCategory>('items').valueChanges({ categoryName: 'categoryName', categoryList: 'categoryList' });
+    return this.itemsCollection.valueChanges();
   }
 
-  // getSubCategories(category) {
-  //   return this.firestore.collection('items').doc(category).valueChanges();
-  // }
+  getSubCategories(category) {
+    return this.itemsCollection.doc(category).collection("SubCategories").valueChanges();
+  }
 
   getModels(category, subCategory) {
     return this.itemsCollection.doc(category).collection<Model>(subCategory).valueChanges( { imagePath: 'imagePath', itemTitle: 'itemTitle' });

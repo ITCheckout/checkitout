@@ -1,6 +1,7 @@
 body {
     position: relative;
     height: 1000px;
+    background-color: gray;
 }
 h1 {
     position: absolute;

@@ -33,22 +33,37 @@
 </mat-tree> -->
 
 
-
-
-<div *ngFor = "let category of mainCategories; let i = index">
+<!-- <div *ngFor = "let category of mainCategories; let i = index">
     <p>category name: {{category.categoryName}}</p>
-    <div *ngFor = "let subCategory of mainCategories[i].categoryList">
-        <p>subcategories: {{subCategory}}</p>
-    </div>
-</div>
+    <p>category value: {{category.categoryValue}}</p> -->
+    <!-- <div *ngFor = "let subCategory of mainCategories[i].categoryList">
+        <p>category list: {{subCategory}}</p>
+    </div>  -->
+    <!-- <div *ngFor = "let subCatValues of mainCategories[i].categoryListValues">
+        <p>category list values: {{subCatValues}}</p>
+    </div> -->
+<!-- </div> -->
 
-<div class="formContainer">
-    <form>
-        <select name="category" id="category">
-            <option value="value" *ngFor = "let category of mainCategories">{{category.categoryName}}</option>
-        </select>
+
+<!-- <div class="formContainer"> -->
+    <form [formGroup]="selectCategory">
+        <mat-form-field>
+            <mat-select placeholder="Select Category" formControlName="category" (selectionChange)="categorySelected($event.value)">
+                <mat-option *ngFor="let category of mainCategories" [value]="category.categoryName">
+                    {{category.categoryName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-select placeholder="Select Sub Category" formControlName="subCategory" (selectionChange)="subCategorySelected($event.value)">
+                <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory">
+                    {{subCategory.subCategoryName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
     </form>
-</div>
+<!-- </div> -->
 
 
 <!-- <div *ngFor = "let model of models; let i = index">
