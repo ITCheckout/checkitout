@@ -1,11 +1,11 @@
 <body>
-<h1>Inventory Checkout</h1>
+<!-- <h1>Inventory Checkout</h1>
 <hr class="horizontalLine">
 <hr class="verticalLine">
 
 <p class="productType">Product Type &#x25BE;</p>
 <p class="brand">Brand &#x25BE;</p>
-<p class="stock">Stock &#x25BE;</p>
+<p class="stock">Stock &#x25BE;</p> -->
 
 <!--<mat-tree [dataSource]="nestedDataSource" [treeControl]="nestedTreeControl" class="example-tree">
     <mat-tree-node *matTreeNodeDef="let node">
@@ -35,17 +35,29 @@
 
 
 
+<div *ngFor = "let category of mainCategories; let i = index">
+    <p>category name: {{category.categoryName}}</p>
+    <div *ngFor = "let subCategory of mainCategories[i].categoryList">
+        <p>subcategories: {{subCategory}}</p>
+    </div>
+</div>
+
+<div class="formContainer">
+    <form>
+        <select name="category" id="category">
+            <option value="value" *ngFor = "let category of mainCategories">{{category.categoryName}}</option>
+        </select>
+    </form>
+</div>
 
 
+<!-- <div *ngFor = "let model of models; let i = index">
+    <h4>{{ model.itemName }}</h4>
+    <img computerOne src="assets/macbookpro.jpg" routerLink="/item">
+        <h5 class="macbook16Storage">Storage: 512GB</h5>
+</div> -->
 
-
-
-
-
-
-
-
-<h4 class="macbook16">MacBook Pro 16"</h4>
+<!-- <h4 class="macbook16">MacBook Pro 16"</h4>
     <img computerOne src="assets/macbookpro.jpg" routerLink="/item">
         <h5 class="macbook16CPU">CPU: 2.6GHz 6-Core Intel Core i7</h5>
         <h5 class="macbook16GPU">GPU: AMD Radeon Pro 5300M with 4GB of GDDR6 Memory</h5>
@@ -67,7 +79,7 @@
             <h5 class="dell15CPU">CPU: 2.6GHz 6-Core Intel Core i7</h5>
             <h5 class="dell15GPU">GPU: AMD Radeon Pro 5300M with 4GB of GDDR6 Memory</h5>
             <h5 class="dell15Memory">Memory (RAM): 16GB</h5>
-            <h5 class="dell15Storage">Storage: 512GB</h5>    
+            <h5 class="dell15Storage">Storage: 512GB</h5>     -->
 
         <!-- <hr class="thirdLine"> -->
 
