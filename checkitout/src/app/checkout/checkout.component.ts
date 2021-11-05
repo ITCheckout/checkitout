@@ -17,7 +17,7 @@ export class CheckoutComponent implements OnInit {
 
   mainCategories;
   items;
-  models;
+  models: any[];
 
   constructor(private databaseService: DatabaseService, private fb: FormBuilder) { 
     this.mainCategories = null;
@@ -35,21 +35,16 @@ export class CheckoutComponent implements OnInit {
       subCategory: [new FormControl('')],
     });
 
-
-
-     this.databaseService.getCategories().subscribe(categories => {
+    this.databaseService.getCategories().subscribe(categories => {
       this.mainCategories = categories;
     });
 
+    this.models = this.databaseService.getAllModels();
+    console.log(this.models);
+
     
-    // this.databaseService.getModels(this.mainCategories[0], this.mainCategories[0].categoryName[0]).subscribe(models => {
-    //   this.models = models;
-    // }
-    // );
-    // this.databaseService.getItems(this.mainCategories[0], this.mainCategories[0].categoryName[0], ).subscribe(items => {
-    //   this.items = items;
-    // }
-    // );
+
+
     
   }
 

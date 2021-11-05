@@ -1,6 +1,7 @@
-export interface SubCategory {
+export interface Category {
     categoryName: string;
-    categoryValue: string;
-    categoryList: string[];
-    categoryListValues: string[];
+}
+
+export interface SubCategory {
+    subCategoryName: string;
 }
