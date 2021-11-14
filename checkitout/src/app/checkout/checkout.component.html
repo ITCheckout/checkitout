@@ -1,11 +1,11 @@
 <body>
-<h1>Inventory Checkout</h1>
+<!-- <h1>Inventory Checkout</h1>
 <hr class="horizontalLine">
 <hr class="verticalLine">
 
 <p class="productType">Product Type &#x25BE;</p>
 <p class="brand">Brand &#x25BE;</p>
-<p class="stock">Stock &#x25BE;</p>
+<p class="stock">Stock &#x25BE;</p> -->
 
 <!--<mat-tree [dataSource]="nestedDataSource" [treeControl]="nestedTreeControl" class="example-tree">
     <mat-tree-node *matTreeNodeDef="let node">
@@ -33,19 +33,55 @@
 </mat-tree> -->
 
 
+<!-- <div *ngFor = "let category of mainCategories; let i = index">
+    <p>category name: {{category.categoryName}}</p>
+    <p>category value: {{category.categoryValue}}</p> -->
+    <!-- <div *ngFor = "let subCategory of mainCategories[i].categoryList">
+        <p>category list: {{subCategory}}</p>
+    </div>  -->
+    <!-- <div *ngFor = "let subCatValues of mainCategories[i].categoryListValues">
+        <p>category list values: {{subCatValues}}</p>
+    </div> -->
+<!-- </div> -->
 
 
+<!-- <div class="formContainer"> -->
+    <form [formGroup]="selectCategory">
+        <mat-form-field>
+            <mat-select placeholder="Select Category" formControlName="category" (selectionChange)="categorySelected($event.value)">
+                <mat-option *ngFor="let category of mainCategories" [value]="category.categoryName">
+                    {{category.categoryName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Select Sub Category" formControlName="subCategory" (selectionChange)="subCategorySelected($event.value)">
+                <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory">
+                    {{subCategory.subCategoryName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+<!-- </div> -->
+
+<mat-card *ngFor = "let model of models; let i = index" class="itemCard">
+    <mat-card-header>
+        <mat-card-title>
+            {{ model.modelName }}
+        </mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="{{model.imagePath}}" alt="{{model.modelName}}" class="cardImage">
+    <mat-card-actions>
+        <button mat-button>ITEM DETAILS</button>
+    </mat-card-actions>
+</mat-card>
+<!-- <div *ngFor = "let model of models; let i = index">
+    <h4>{{ model.modelName }}</h4>
+    <img computerOne src="{{model.imagePath}}" routerLink="/item">
+         <h5 class="macbook16Storage">Storage: 512GB</h5> -->
 
 
-
-
-
-
-
-
-
-
-<h4 class="macbook16">MacBook Pro 16"</h4>
+<!-- <h4 class="macbook16">MacBook Pro 16"</h4>
     <img computerOne src="assets/macbookpro.jpg" routerLink="/item">
         <h5 class="macbook16CPU">CPU: 2.6GHz 6-Core Intel Core i7</h5>
         <h5 class="macbook16GPU">GPU: AMD Radeon Pro 5300M with 4GB of GDDR6 Memory</h5>
@@ -67,11 +103,11 @@
             <h5 class="dell15CPU">CPU: 2.6GHz 6-Core Intel Core i7</h5>
             <h5 class="dell15GPU">GPU: AMD Radeon Pro 5300M with 4GB of GDDR6 Memory</h5>
             <h5 class="dell15Memory">Memory (RAM): 16GB</h5>
-            <h5 class="dell15Storage">Storage: 512GB</h5>    
+            <h5 class="dell15Storage">Storage: 512GB</h5>     -->
 
         <!-- <hr class="thirdLine"> -->
 
 
 
 
-</body>
+ </body>

@@ -20,6 +20,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 /* Firebase imports */
 import { AngularFireModule } from '@angular/fire/compat'
@@ -53,6 +54,7 @@ import { AdminFacingComponent } from './admin-facing/admin-facing.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
@@ -75,7 +77,7 @@ import { AdminFacingComponent } from './admin-facing/admin-facing.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
-  providers: [UsersService],
+  providers: [UsersService, LoginComponent],
   bootstrap: [AppComponent]
 })
 

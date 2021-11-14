@@ -7,6 +7,7 @@ import { UsersService } from '../shared/users.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 import { ConfirmedValidator } from '../confirm-password';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -21,7 +22,8 @@ export class SignUpComponent implements OnInit {
     private auth: AngularFireAuth, 
     private router: Router, 
     private userService: UsersService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
@@ -44,13 +46,27 @@ export class SignUpComponent implements OnInit {
   get f(){return this.signUpForm.controls;}
 
   //Will create the user by getting the pawprint, concat. w/ @umsystem, and sending user back to home page
+  userRole;
   createUser() {
     if(this.signUpForm.valid){
       const {pawprint, password} = this.signUpForm.value;
       const schoolEmail = pawprint + "@umsystem.edu";
-      this.auth.createUserWithEmailAndPassword(schoolEmail, password).then (user => {
+      this.auth.createUserWithEmailAndPassword(schoolEmail, password).then (userResponse => {
+      
+        let user = {
+          id: userResponse.user.uid,
+          email: userResponse.user.email,
+          pawprint: pawprint,
+          role: 'user',
+        }
+
+        console.log(user);
+        this.userService.setUser(user)
+        this.userService.getUser(user.pawprint).subscribe(user => {
+          //do profile things here if we get to it
+          // console.log(user);
+        })
         this.auth.signOut();
-        // console.log('RegisterCompnent -> createUser -> user', user)
         this.router.navigate([''])
       })
   

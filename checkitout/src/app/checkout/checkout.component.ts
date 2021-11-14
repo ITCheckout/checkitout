@@ -3,6 +3,9 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { BehaviorSubject, Observable, of as observableOf } from 'rxjs';
 
+import { DatabaseService } from '../services/database.service';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+
 
 
 @Component({
@@ -12,10 +15,46 @@ import { BehaviorSubject, Observable, of as observableOf } from 'rxjs';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
+  mainCategories;
+  items;
+  models: any[];
 
-  ngOnInit(): void {
+  constructor(private databaseService: DatabaseService, private fb: FormBuilder) { 
+    this.mainCategories = null;
+    this.items = null;
+    this.models = null;
   }
 
+  selectCategory!: FormGroup;
+  selectedCategory;
+  subCategories;
+
+  ngOnInit(): void {
+    this.selectCategory = this.fb.group({
+      category: [new FormControl('')],
+      subCategory: [new FormControl('')],
+    });
+
+    this.databaseService.getCategories().subscribe(categories => {
+      this.mainCategories = categories;
+    });
+
+    this.models = this.databaseService.getAllModels();
+    console.log(this.models);
+
+    
+
+
+    
+  }
+
+  categorySelected(event) {
+    this.databaseService.getSubCategories(event).subscribe(subCategories => {
+      this.subCategories = subCategories;
+      });
+  }
+
+  subCategorySelected(event) {
+  }
 }
 

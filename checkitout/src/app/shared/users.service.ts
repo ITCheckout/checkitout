@@ -15,17 +15,23 @@ export class UsersService {
   })
   constructor( private firestore: AngularFirestore) { }
   
+  public currentUser: any;
+  public userRole: string;
   //Tutorial helped: https://www.dottedsquirrel.com/angular-firebase-crud/
 
   //this function will get the data from the sign-up form component, pass it here, and will submit it to the firestore database
   createUser(data: any) {
-  //   return new Promise<any>((resolve, reject) => {
-  //     this.firestore
-  //       .collection("users")
-  //       .add(data)
-  //       .then(res => {}, err => reject(err))
-  //   })
-  // console.log("User Created");
   }
+
+  setUser(data: any) {
+    return this.firestore
+      .collection(`users`).doc(data.pawprint).set(data)
+  }
+
+  //get user data from firestore database
+  getUser(id: string) {
+    return this.firestore.collection('users').doc(id).valueChanges();
+  }
+
 
 }
