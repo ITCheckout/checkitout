@@ -1,10 +1,5 @@
 body {
     display: block;
-<<<<<<< HEAD
-    height: 1000px;
-=======
-    height: 90em;
->>>>>>> dev
 }
 
 /* Current Inventory Div */
@@ -305,8 +300,6 @@ mat-label {
 mat-form-field {
     margin: 1em;
 }
-<<<<<<< HEAD
-=======
 
 .pickupContainer {
     position: relative;
@@ -316,4 +309,3 @@ mat-form-field {
     display: inline-flex;
     width: 100%;
 }
->>>>>>> dev
