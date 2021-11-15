@@ -1,16 +1,29 @@
-body {
+/* body {
     position: relative;
     height: 1000px;
-    background-color: gray;
+} */
+.mat-grid-list {
+    background-color: black;
 }
+
+.mat-grid-tile {
+    background-color: white;
+}
+
+.filterContainer{
+    margin-top: -75%;
+    margin-left: 40%;
+}
+
+
+
+/* OLD CODE Temporary for reference!!! */ 
 h1 {
     position: absolute;
-    left: 9%;
+    left: 10%;
     top: 1%;
 
     font-family: "GOTHAM-BOLD";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
     font-size: 300%;
     line-height: 250%;
 }
