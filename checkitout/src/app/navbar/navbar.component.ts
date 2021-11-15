@@ -23,11 +23,17 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     this.afAuth.signOut();
-    this.router.navigate(['']).then(() => {window.location.reload();});
-    localStorage.removeItem('userRole');
-    this._snackBar.open('You have been logged out', '', {
+    const snackBarRef = this._snackBar.open('You have been logged out', '', {
       duration: 2500,
-      panelClass: ['snackbar-success']
+      panelClass: ['snackbar-success'],
     });
+    snackBarRef.afterDismissed().subscribe(() => {
+      console.log('The snack-bar was dismissed');
+      this.router.navigate(['']).then(() => {
+        window.location.reload();
+        localStorage.removeItem('userRole');
+      });
+    }
+    );
   }
 }

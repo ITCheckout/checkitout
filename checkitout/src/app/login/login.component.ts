@@ -6,6 +6,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from '../shared/users.service';
 import { User } from '../shared/user';
+import { __awaiter } from 'tslib';
 
 @Component({
   selector: 'app-login',
@@ -32,16 +33,23 @@ export class LoginComponent {
     loginError = '';
     userRole;
     user: User;
+
+    wait = (ms) => { new Promise(resolve => setTimeout(resolve, ms)) }
     onLogin(){
       this.loginError = "";
       if(this.loginForm.valid){
         const {pawprint, password} = this.loginForm.value;
         this.usersService.getUser(pawprint).subscribe(user => {
           this.userRole = user;
+          console.log(this.userRole);
+          console.log(this.userRole.role);
         })
+     
         const schoolEmail = pawprint + "@umsystem.edu";
         const auth = getAuth();
+        this.wait(1000);
         signInWithEmailAndPassword(auth,schoolEmail, password).then(userCredential => {
+          console.log("Firebase Login")
          const user = userCredential.user;
          localStorage.setItem('userRole', this.userRole.role);
           this.router.navigate(['']).then(() => {
@@ -54,11 +62,14 @@ export class LoginComponent {
             case "auth/user-not-found":
             {
                this.loginError = "Wrong email address or password.";
+               console.log(this.loginError);
                break;
             }
                default:
             {
                 this.loginError = "Unexpected Error";
+                console.log(this.loginError);
+                console.log(error);
                 break;
             }
        }
