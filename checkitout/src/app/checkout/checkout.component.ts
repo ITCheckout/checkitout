@@ -15,7 +15,7 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 })
 export class CheckoutComponent implements OnInit {
 
-  allItems;
+  models;
   categories;
   subCategories;
   selectCategory!: FormGroup;
@@ -33,10 +33,14 @@ export class CheckoutComponent implements OnInit {
       subCategory: new FormControl('')
     })
 
-    // this.allItems = this.databaseService.getAllItems();
     this.databaseService.getCategories().subscribe(data => {
       this.categories = data;
     });
+
+    this.databaseService.getAllModels().subscribe(data => {
+      this.models = data;
+    }
+    );
 
   }
 

@@ -29,6 +29,10 @@ export class DatabaseService {
     return this.categoryCollection.doc(category).collection("subCategories").valueChanges();
   }
 
+  getAllModels() {
+    return this.firestore.collection('items').valueChanges();
+  }
+
 
   // IN PROGRESS QUERIES 
 
@@ -37,9 +41,7 @@ export class DatabaseService {
   }
 
 
-  getAllModels(category) {
-    this.firestore.collection('items', ref => ref.where('categoryName', '==', category)).valueChanges();
-  }
+  
   
 
   

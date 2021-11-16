@@ -28,18 +28,18 @@
             </div>
         </mat-grid-tile>
         <mat-grid-tile colspan="4" rowspan="7">
-            <p>Inventory</p>
-            <!-- <mat-card *ngFor = "let model of models; let i = index" class="itemCard">
+            <!-- <p>Inventory</p> -->
+            <mat-card *ngFor = "let model of models" class="itemCard">
                 <mat-card-header>
                     <mat-card-title>
-                        {{ model.modelName }}
+                        {{ model.model }}
                     </mat-card-title>
                 </mat-card-header>
-                <img mat-card-image src="{{model.imagePath}}" alt="{{model.modelName}}" class="cardImage">
+                <img mat-card-image src="{{model.imagePath}}" alt="{{model.model}}" class="cardImage">
                 <mat-card-actions>
                     <button mat-button>ITEM DETAILS</button>
                 </mat-card-actions>
-            </mat-card> -->
+            </mat-card>
         </mat-grid-tile>
     </mat-grid-list>
 
