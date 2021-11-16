@@ -32,6 +32,7 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { AboutComponent } from './about/about.component';
 import { CartComponent } from './cart/cart.component';
 import { AdminFacingComponent } from './admin-facing/admin-facing.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -77,7 +78,7 @@ import { AdminFacingComponent } from './admin-facing/admin-facing.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
-  providers: [UsersService, LoginComponent],
+  providers: [UsersService, LoginComponent, CookieService],
   bootstrap: [AppComponent]
 })
 

@@ -5,6 +5,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 import { LoginComponent } from '../login/login.component';
+import { CookieService } from 'ngx-cookie-service';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -12,17 +14,31 @@ import { LoginComponent } from '../login/login.component';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public afAuth: AngularFireAuth, private router: Router, private _snackBar: MatSnackBar, private loginComponent: LoginComponent) { }
+  constructor(
+    public afAuth: AngularFireAuth, 
+    private router: Router, 
+    private _snackBar: MatSnackBar, 
+    private loginComponent: LoginComponent, 
+    private cookieService: CookieService,
+    private dialog: MatDialog) { }
 
   userRole;
   ngOnInit(): void {
-    this.userRole = localStorage.getItem('userRole');
-    console.log(this.userRole);
+    this.userRole = this.cookieService.get('userRole');
+    if(!this.userRole){
+      this.afAuth.signOut();
+    }
   }
 
 
   logout(){
     this.afAuth.signOut();
+    this.dialog.open(UserDialogComponent, {
+      data: {
+        formData: 'logout',
+        thanks: "You have been signed Out"
+      }
+    })
     const snackBarRef = this._snackBar.open('You have been logged out', '', {
       duration: 2500,
       panelClass: ['snackbar-success'],
@@ -31,7 +47,7 @@ export class NavbarComponent implements OnInit {
       console.log('The snack-bar was dismissed');
       this.router.navigate(['']).then(() => {
         window.location.reload();
-        localStorage.removeItem('userRole');
+        this.cookieService.delete('userRole');
       });
     }
     );

@@ -7,14 +7,14 @@ import { Router } from '@angular/router';
 import { UsersService } from '../shared/users.service';
 import { User } from '../shared/user';
 import { __awaiter } from 'tslib';
-
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private fb: FormBuilder, private auth: AngularFireAuth, private router: Router, private usersService: UsersService) { }
+  constructor(private fb: FormBuilder, private auth: AngularFireAuth, private router: Router, private usersService: UsersService, private cookieService: CookieService) { }
 
   loginForm!: FormGroup;
 
@@ -34,24 +34,30 @@ export class LoginComponent {
     userRole;
     user: User;
 
-    wait = (ms) => { new Promise(resolve => setTimeout(resolve, ms)) }
-    onLogin(){
-      this.loginError = "";
-      if(this.loginForm.valid){
+    //This function creates a promise (that will be resolved when the user's role is found)
+    //This is needed because this function needs to run first, then the Firebase Authentication can run only AFTER the promise is resolved
+    getRole() {
+      const promise = new Promise((resolve, reject) => {
         const {pawprint, password} = this.loginForm.value;
         this.usersService.getUser(pawprint).subscribe(user => {
           this.userRole = user;
-          console.log(this.userRole);
-          console.log(this.userRole.role);
         })
-     
+        resolve("success");
+        })
+        return promise
+    }
+    onLogin(){
+      this.loginError = "";
+      if(this.loginForm.valid){
+        this.getRole().then(() => {
+          const {pawprint, password} = this.loginForm.value;
         const schoolEmail = pawprint + "@umsystem.edu";
         const auth = getAuth();
-        this.wait(1000);
-        signInWithEmailAndPassword(auth,schoolEmail, password).then(userCredential => {
-          console.log("Firebase Login")
-         const user = userCredential.user;
-         localStorage.setItem('userRole', this.userRole.role);
+        signInWithEmailAndPassword(auth,schoolEmail, password).then(() => {
+          // console.log("Firebase Login")
+         const dateNow = new Date();
+         dateNow.setMinutes(dateNow.getMinutes() + 1);
+        this.cookieService.set('userRole', this.userRole.role, dateNow);
           this.router.navigate(['']).then(() => {
             window.location.reload();
           });
@@ -74,7 +80,13 @@ export class LoginComponent {
             }
        }
         });
+        })
       }
-  
+    }
+
+    handleKeyUp(event) {
+      if (event.keyCode === 13) {
+        this.onLogin();
+      }
     }
 }
