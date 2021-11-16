@@ -6,7 +6,7 @@
       <form [formGroup]="signUpForm">
         <div class="center">
             <mat-form-field appearance="fill" appearance="outline">
-              <input type="text" matInput formControlName="fname" placeholder="First Name"/>
+              <input type="text" matInput formControlName="fname" placeholder="First Name" (keyup)="handleKeyUp($event)"/>
             </mat-form-field>
             <div *ngIf="fname?.invalid && fname?.touched">
               <div class="error">First Name is Required</div>
@@ -14,7 +14,7 @@
           </div>
           <div class="center">
             <mat-form-field appearance="fill" appearance="outline">
-              <input type="text" matInput formControlName="lname" placeholder="Last Name"/>
+              <input type="text" matInput formControlName="lname" placeholder="Last Name" (keyup)="handleKeyUp($event)"/>
             </mat-form-field>
             <div *ngIf="lname?.invalid && lname?.touched">
               <div class="error">Last Name is Required</div>
@@ -22,7 +22,7 @@
           </div>
         <div class="center">
         <mat-form-field appearance="fill" appearance="outline">
-          <input type="text" matInput formControlName="pawprint" placeholder="Pawprint"/>
+          <input type="text" matInput formControlName="pawprint" placeholder="Pawprint" (keyup)="handleKeyUp($event)"/>
         </mat-form-field>
         <div *ngIf="pawprint?.invalid && pawprint?.touched">
           <div class="error">Pawprint is Required</div>
@@ -30,7 +30,7 @@
       </div>
       <div class="center">
         <mat-form-field appearance="fill" appearance="outline">
-          <input type="password" matInput formControlName="password" placeholder="Choose Password">
+          <input type="password" matInput formControlName="password" placeholder="Choose Password" (keyup)="handleKeyUp($event)">
         </mat-form-field>
         <div *ngIf="password?.invalid && password?.touched">
           <div class="error">Password is Required</div>
@@ -41,7 +41,7 @@
       </div>
       <div class="center">
         <mat-form-field appearance="fill" appearance="outline">
-          <input type="password" matInput formControlName="confirmPassword" placeholder="Confirm Password">
+          <input type="password" matInput formControlName="confirmPassword" placeholder="Confirm Password" (keyup)="handleKeyUp($event)">
         </mat-form-field>
         <div *ngIf="f.confirmPassword.errors?.required && confirmPassword?.touched">
           <div class="error">Confirm Password is Required</div>

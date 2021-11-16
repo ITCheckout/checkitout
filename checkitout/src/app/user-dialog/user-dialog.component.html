@@ -1,5 +1,17 @@
-<h1 mat-dialog-title>Thank You!</h1>
-<div mat-dialog-content>Thank you {{formData.formData.fname}} for signing up for the IT Checkout Website. A confirmation email will be sent to {{formData.formData.pawprint}}@umsystem.edu</div>
-<div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Close</button>
+<div *ngIf="formData.formData!='logout'; else logout">
+    <h1 mat-dialog-title>Thank You! {{formData.formData.fname}}</h1>
+  <div mat-dialog-content>A confirmation email will be sent to {{formData.formData.pawprint}}@umsystem.edu</div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </div>
+  <!-- <div *ngIf="thanks">
+    <button mat-button>Logout</button>
+  </div> -->
 </div>
+
+<ng-template #logout>
+    <h1 mat-dialog-title>Goodbye</h1>
+  <div mat-dialog-content>You have been logged out</div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </div>
