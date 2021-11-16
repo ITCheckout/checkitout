@@ -29,7 +29,8 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
 
     this.selectCategory = this.fb.group({
-      category: new FormControl('')
+      category: new FormControl(''),
+      subCategory: new FormControl('')
     })
 
     // this.allItems = this.databaseService.getAllItems();

@@ -26,7 +26,7 @@ export class DatabaseService {
   }
 
   getSubCategories(category) {
-    return this.categoryCollection.doc(category).collection("SubCategories").valueChanges();
+    return this.categoryCollection.doc(category).collection("subCategories").valueChanges();
   }
 
 

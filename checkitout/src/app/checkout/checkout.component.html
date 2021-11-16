@@ -5,9 +5,26 @@
         </mat-grid-tile>
         <mat-grid-tile colspan="1" rowspan="7">
             <div class="filterContainer">
-                <p>Product Type &#x25BE;</p>
+                <form [formGroup]="selectCategory">
+                    <mat-form-field>
+                        <mat-select placeholder="Select Category" formControlName="category" (selectionChange)="categorySelected($event.value)">
+                            <mat-option *ngFor="let category of categories" [value]="category.categoryName">
+                                {{category.categoryName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <!-- (selectionChange)="subCategorySelected($event.value)" -->
+                        <mat-select placeholder="Select Sub Category" formControlName="subCategory" >
+                            <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory.subCategoryName">
+                                {{subCategory.subCategoryName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </form>
+                <!-- <p>Product Type &#x25BE;</p>
                 <p>Brand &#x25BE;</p>
-                <p>Stock &#x25BE;</p>
+                <p>Stock &#x25BE;</p> -->
             </div>
         </mat-grid-tile>
         <mat-grid-tile colspan="4" rowspan="7">
@@ -62,25 +79,6 @@
     </div> -->
     <!-- </div> -->
 
-
-<div class="formContainer">
-    <form [formGroup]="selectCategory">
-        <mat-form-field>
-            <mat-select placeholder="Select Category" formControlName="category" (selectionChange)="categorySelected($event.value)">
-                <mat-option *ngFor="let category of categories" [value]="category.categoryName">
-                    {{category.categoryName}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <!-- <mat-form-field>
-            <mat-select placeholder="Select Sub Category" formControlName="subCategory" (selectionChange)="subCategorySelected($event.value)">
-                <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory">
-                    {{subCategory.subCategoryName}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field> -->
-    </form>
-</div>
 
 
 <!-- <mat-card *ngFor = "let model of models; let i = index" class="itemCard">
