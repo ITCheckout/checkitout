@@ -40,12 +40,6 @@ export class DatabaseService {
 
   }
 
-
-  
-  
-
-  
-
   getItemsInSubCategory(category, subCategory) {
     return this.firestore.collection<Item>('items', ref => ref.where('categoryName', '==', category).where('subCategoryName', '==', subCategory)).valueChanges();
   }
@@ -53,9 +47,9 @@ export class DatabaseService {
     return this.itemsCollection.doc(category).collection<Model>(subCategory).valueChanges( { imagePath: 'imagePath', itemTitle: 'itemTitle' });
   }
 
-  getModel(category, subCategory, model) {
-    return this.itemsCollection.doc(category).collection(subCategory).doc(model).valueChanges();
-  }
+  // getModel(category, subCategory, model) {
+  //   return this.itemsCollection.doc(category).collection(subCategory).doc(model).
+  // }
 
   getItems(category, subCategory, model) {
     return this.itemsCollection.doc(category).collection(subCategory).doc(model).collection<Item>('item-list').valueChanges( { imagePath: 'imagePath', itemTitle: 'itemTitle' });
