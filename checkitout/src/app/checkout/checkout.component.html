@@ -1,5 +1,23 @@
 <body>
-<!-- <h1>Inventory Checkout</h1>
+    <mat-grid-list cols="5" rowHeight="100px" gutterSize="3px">
+        <mat-grid-tile colspan="5">
+            <h1 id="cartHeader">Checkout</h1>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="7">
+            <div class="filterContainer">
+                <p>Product Type &#x25BE;</p>
+                <p>Brand &#x25BE;</p>
+                <p>Stock &#x25BE;</p>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="4" rowspan="7">
+            <p>Inventory</p>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+
+    <!-- OLD CODE Temporary for reference!!! -->
+    <!-- <h1>Inventory Checkout</h1>
 <hr class="horizontalLine">
 <hr class="verticalLine">
 
@@ -7,7 +25,7 @@
 <p class="brand">Brand &#x25BE;</p>
 <p class="stock">Stock &#x25BE;</p> -->
 
-<!--<mat-tree [dataSource]="nestedDataSource" [treeControl]="nestedTreeControl" class="example-tree">
+    <!--<mat-tree [dataSource]="nestedDataSource" [treeControl]="nestedTreeControl" class="example-tree">
     <mat-tree-node *matTreeNodeDef="let node">
         <li class="mat-tree-node">
             <button mat-icon-button disabled></button>
@@ -33,7 +51,7 @@
 </mat-tree> -->
 
 
-<!-- <div *ngFor = "let category of mainCategories; let i = index">
+    <!-- <div *ngFor = "let category of mainCategories; let i = index">
     <p>category name: {{category.categoryName}}</p>
     <p>category value: {{category.categoryValue}}</p> -->
     <!-- <div *ngFor = "let subCategory of mainCategories[i].categoryList">
@@ -42,7 +60,7 @@
     <!-- <div *ngFor = "let subCatValues of mainCategories[i].categoryListValues">
         <p>category list values: {{subCatValues}}</p>
     </div> -->
-<!-- </div> -->
+    <!-- </div> -->
 
 
 <div class="formContainer">
@@ -82,7 +100,7 @@
          <h5 class="macbook16Storage">Storage: 512GB</h5> -->
 
 
-<!-- <h4 class="macbook16">MacBook Pro 16"</h4>
+    <!-- <h4 class="macbook16">MacBook Pro 16"</h4>
     <img computerOne src="assets/macbookpro.jpg" routerLink="/item">
         <h5 class="macbook16CPU">CPU: 2.6GHz 6-Core Intel Core i7</h5>
         <h5 class="macbook16GPU">GPU: AMD Radeon Pro 5300M with 4GB of GDDR6 Memory</h5>
@@ -106,9 +124,9 @@
             <h5 class="dell15Memory">Memory (RAM): 16GB</h5>
             <h5 class="dell15Storage">Storage: 512GB</h5>     -->
 
-        <!-- <hr class="thirdLine"> -->
+    <!-- <hr class="thirdLine"> -->
 
 
 
 
- </body>
+</body>
