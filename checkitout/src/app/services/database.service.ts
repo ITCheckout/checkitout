@@ -14,54 +14,39 @@ export class DatabaseService {
   constructor(private firestore: AngularFirestore) { }
 
   itemsCollection = this.firestore.collection('items');
+  categoryCollection = this.firestore.collection('categories');
   mainCategories;
   models: any[] = [];
+
+
+  // WORKING QUERIES
+
+  getCategories() {
+    return this.firestore.collection('categories').valueChanges();
+  }
+
+  getSubCategories(category) {
+    return this.categoryCollection.doc(category).collection("SubCategories").valueChanges();
+  }
+
+
+  // IN PROGRESS QUERIES 
 
   addItem() {
 
   }
 
-  getAllModels() {
-    
-    this.firestore.collection<Category>('items').valueChanges().subscribe(categoryData => {
-      this.mainCategories = categoryData;
-    });
-    setTimeout(() => {
-      this.mainCategories.forEach(element => {
-        // console.log(element.categoryName);
-        this.firestore.collection('items').doc(element.categoryName).collection('SubCategories').valueChanges().subscribe(data => {
-          data.forEach(subCatElement => {
-            // console.log(subCatElement.subCategoryName);
-            this.firestore.collection('items').doc(element.categoryName).collection('SubCategories').doc(subCatElement.subCategoryName).collection('Models').valueChanges().subscribe(modelData => {
-              modelData.forEach(modelElement => {
-                // console.log(modelElement.modelName);
-                this.models.push(modelElement);
-                // this.firestore.collection('items').doc(element.categoryName).collection('SubCategories').doc(subCatElement.subCategoryName).collection('Models').doc(modelElement.modelName).collection('item-list').valueChanges().subscribe(itemData => {
-                //   itemData.forEach(itemElement => {
-                //     console.log(itemElement.imagePath);
-                //   });
-                // }
-                // );
-              });
-            });
-          });
-        }
-        );
-      });
-    }, 1000);
-    // });
 
-    return this.models;
+  getAllModels(category) {
+    this.firestore.collection('items', ref => ref.where('categoryName', '==', category)).valueChanges();
   }
+  
 
-  getCategories() {
-    return this.itemsCollection.valueChanges();
+  
+
+  getItemsInSubCategory(category, subCategory) {
+    return this.firestore.collection<Item>('items', ref => ref.where('categoryName', '==', category).where('subCategoryName', '==', subCategory)).valueChanges();
   }
-
-  getSubCategories(category) {
-    return this.itemsCollection.doc(category).collection("SubCategories").valueChanges();
-  }
-
   getModels(category, subCategory) {
     return this.itemsCollection.doc(category).collection<Model>(subCategory).valueChanges( { imagePath: 'imagePath', itemTitle: 'itemTitle' });
   }
@@ -77,5 +62,14 @@ export class DatabaseService {
   getItem(category, subCategory, model, item) {
     return this.itemsCollection.doc(category).collection(subCategory).doc(model).collection('item-list').doc(item).valueChanges();
       
+  }
+
+
+  getUniqueModels() {
+    var uniqueModels = [];
+
+    var returnvalue = this.firestore.collection<Item>('items').valueChanges();
+
+    
   }
 }

@@ -15,46 +15,35 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 })
 export class CheckoutComponent implements OnInit {
 
-  mainCategories;
-  items;
-  models: any[];
+  allItems;
+  categories;
+  subCategories;
+  selectCategory!: FormGroup;
+  
 
-  constructor(private databaseService: DatabaseService, private fb: FormBuilder) { 
-    this.mainCategories = null;
-    this.items = null;
-    this.models = null;
+  constructor(private fb: FormBuilder, private databaseService: DatabaseService) { 
+    
   }
 
-  selectCategory!: FormGroup;
-  selectedCategory;
-  subCategories;
 
   ngOnInit(): void {
+
     this.selectCategory = this.fb.group({
-      category: [new FormControl('')],
-      subCategory: [new FormControl('')],
+      category: new FormControl('')
+    })
+
+    // this.allItems = this.databaseService.getAllItems();
+    this.databaseService.getCategories().subscribe(data => {
+      this.categories = data;
     });
 
-    this.databaseService.getCategories().subscribe(categories => {
-      this.mainCategories = categories;
-    });
-
-    this.models = this.databaseService.getAllModels();
-    console.log(this.models);
-
-    
-
-
-    
   }
 
   categorySelected(event) {
-    this.databaseService.getSubCategories(event).subscribe(subCategories => {
-      this.subCategories = subCategories;
-      });
+    this.databaseService.getSubCategories(event).subscribe(data => {
+      this.subCategories = data;
+    });
   }
 
-  subCategorySelected(event) {
-  }
 }
 
