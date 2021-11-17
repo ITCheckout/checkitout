@@ -7,7 +7,8 @@
             <div class="filterContainer">
                 <form [formGroup]="selectCategory">
                     <mat-form-field>
-                        <mat-select placeholder="Select Category" formControlName="category" (selectionChange)="categorySelected($event.value)">
+                        <mat-select placeholder="Select Category" formControlName="category"
+                            (selectionChange)="categorySelected($event.value)">
                             <mat-option *ngFor="let category of categories" [value]="category.categoryName">
                                 {{category.categoryName}}
                             </mat-option>
@@ -15,7 +16,7 @@
                     </mat-form-field>
                     <mat-form-field>
                         <!-- (selectionChange)="subCategorySelected($event.value)" -->
-                        <mat-select placeholder="Select Sub Category" formControlName="subCategory" >
+                        <mat-select placeholder="Select Sub Category" formControlName="subCategory">
                             <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory.subCategoryName">
                                 {{subCategory.subCategoryName}}
                             </mat-option>
@@ -29,17 +30,20 @@
         </mat-grid-tile>
         <mat-grid-tile colspan="4" rowspan="7">
             <!-- <p>Inventory</p> -->
-            <mat-card *ngFor = "let model of models" class="itemCard">
-                <mat-card-header>
-                    <mat-card-title>
-                        {{ model.model }}
-                    </mat-card-title>
-                </mat-card-header>
-                <img mat-card-image src="{{model.imagePath}}" alt="{{model.model}}" class="cardImage">
-                <mat-card-actions>
-                    <button mat-button>ITEM DETAILS</button>
-                </mat-card-actions>
-            </mat-card>
+            <div fxLayoutGap="32px" class="itemContainer">
+                <mat-card *ngFor="let model of models" class="itemCard">
+                    <mat-card-header>
+                        <mat-card-title>
+                            {{ model.model }}
+                        </mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image src="{{model.imagePath}}" alt="{{model.model}}" class="cardImage">
+                    <mat-card-actions>
+                        <button mat-button>ITEM DETAILS</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+
         </mat-grid-tile>
     </mat-grid-list>
 
