@@ -21,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 /* Firebase imports */
 import { AngularFireModule } from '@angular/fire/compat'
@@ -62,6 +63,7 @@ import { CookieService } from 'ngx-cookie-service';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
+    ScrollingModule,
     RouterModule.forRoot([
       { path: 'admin', component: AdminFacingComponent },
       { path: 'cart', component: CartComponent },

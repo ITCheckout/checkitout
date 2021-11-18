@@ -1,5 +1,66 @@
 <body>
-    <mat-grid-list cols="5" rowHeight="100px" gutterSize="3px">
+    <div fxLayout="column" fxLayoutGap="1vw" class="container">
+        <div fxLayout="row" class="headerContainer">
+            <div fxLayoutAlign="left">
+                <h1 class="checkoutHeader">Checkout</h1>
+            </div>
+        </div>
+        <hr>
+        <div fxLayout="row" class="filterContainer">
+            <div fxLayoutAlign="center" fxFill>
+                <form [formGroup]="selectCategory" fxLayoutGap="25px">
+                    <mat-form-field class="filterForm">
+                        <mat-select placeholder="Select Category" formControlName="category"
+                            (selectionChange)="categorySelected($event.value)">
+                            <mat-option *ngFor="let category of categories" [value]="category.categoryName">
+                                {{category.categoryName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="filterForm">
+                        <mat-select placeholder="Select Sub Category" formControlName="subCategory">
+                            <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory.subCategoryName">
+                                {{subCategory.subCategoryName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <!-- <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page"> -->
+        <div fxLayout="row" class="inventoryContainer">
+
+            <div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="10px grid">
+
+                <div fxFlex="20%" *ngFor="let model of models" class="itemContainer">
+
+
+                    <mat-card class="itemCard">
+                        <mat-card-header>
+                            <mat-card-title class="itemTitle">
+                                {{ model.model }}
+                            </mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="{{model.imagePath}}" alt="{{model.model}}" class="cardImage">
+                        <mat-card-actions>
+                            <button mat-button>ITEM DETAILS</button>
+                        </mat-card-actions>
+                    </mat-card>
+
+                </div>
+
+
+            </div>
+        </div>
+        <!-- </mat-paginator> -->
+
+
+    </div>
+
+
+    <!-- <mat-grid-list cols="5" rowHeight="100px" gutterSize="3px">
         <mat-grid-tile colspan="5">
             <h1 id="cartHeader">Checkout</h1>
         </mat-grid-tile>
@@ -14,23 +75,28 @@
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
-                    <mat-form-field>
-                        <!-- (selectionChange)="subCategorySelected($event.value)" -->
-                        <mat-select placeholder="Select Sub Category" formControlName="subCategory">
+                    <mat-form-field> -->
+
+    <!-- (selectionChange)="subCategorySelected($event.value)" -->
+
+    <!-- <mat-select placeholder="Select Sub Category" formControlName="subCategory">
                             <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory.subCategoryName">
                                 {{subCategory.subCategoryName}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
-                </form>
-                <!-- <p>Product Type &#x25BE;</p>
+                </form> -->
+
+    <!-- <p>Product Type &#x25BE;</p>
                 <p>Brand &#x25BE;</p>
                 <p>Stock &#x25BE;</p> -->
-            </div>
+
+    <!-- </div>
         </mat-grid-tile>
-        <mat-grid-tile colspan="4" rowspan="7">
-            <!-- <p>Inventory</p> -->
-            <div fxLayoutGap="32px" class="itemContainer">
+        <mat-grid-tile colspan="4" rowspan="7"> -->
+
+    <!-- <p>Inventory</p> -->
+    <!-- <div fxLayoutGap="32px" class="itemContainer">
                 <mat-card *ngFor="let model of models" class="itemCard">
                     <mat-card-header>
                         <mat-card-title>
@@ -43,9 +109,25 @@
                     </mat-card-actions>
                 </mat-card>
             </div>
-
         </mat-grid-tile>
-    </mat-grid-list>
+    </mat-grid-list> -->
+
+    <!-- Possible scroll code -->
+    <!-- <cdk-virtual-scroll-viewport itemSize="500" class="example-viewport">
+        <li *cdkVirtualFor="let model of models">
+            <h2>{{ model.model }}</h2>
+            <img src="{{model.imagePath}}" alt="{{model.model}}">
+
+        </li>
+
+    </cdk-virtual-scroll-viewport> -->
+
+
+
+
+
+
+
 
 
     <!-- OLD CODE Temporary for reference!!! -->

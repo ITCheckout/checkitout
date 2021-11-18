@@ -19,10 +19,10 @@ export class CheckoutComponent implements OnInit {
   categories;
   subCategories;
   selectCategory!: FormGroup;
-  
 
-  constructor(private fb: FormBuilder, private databaseService: DatabaseService) { 
-    
+
+  constructor(private fb: FormBuilder, private databaseService: DatabaseService) {
+
   }
 
 
