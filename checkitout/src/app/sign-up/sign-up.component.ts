@@ -83,5 +83,9 @@ export class SignUpComponent implements OnInit {
     }
   }
   //Dialog reference: https://www.techiediaries.com/angular-material-dialogs/
-
+  handleKeyUp(event) {
+    if (event.keyCode === 13) {
+      this.createUser();
+    }
+  }
 }

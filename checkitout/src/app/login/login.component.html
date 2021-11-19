@@ -14,7 +14,7 @@
       </div>
       <div class="center">
         <mat-form-field appearance="fill" appearance="outline" has-success>
-          <input required type="password" matInput formControlName="password" placeholder="Password">
+          <input required type="password" matInput formControlName="password" placeholder="Password"  (keyup)="handleKeyUp($event)">
         </mat-form-field>
         <div *ngIf="password?.invalid && password?.touched">
           <div class="error">Password is Required</div>

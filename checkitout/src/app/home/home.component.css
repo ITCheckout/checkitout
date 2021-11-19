@@ -48,13 +48,20 @@ h3 {
 }
 
 .quickCheckout {
-    margin-top: 5%;
+    margin-top: 7%;
     margin-bottom: -2.5%;
 }
 
 .quickCheckoutHeader {
     text-align: center;
     font-size: 250%;
+    color: black;
+}
+
+.quickCheckoutSubHeader {
+    font-family: "GOTHAM-MEDIUM";
+    text-align: center;
+    font-size: 200%;
     color: black;
 }
 

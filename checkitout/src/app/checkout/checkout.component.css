@@ -1,320 +1,38 @@
-body {
+/* Whole page */
+.container {
     position: relative;
-    height: 1000px;
-    background-color: gray;
 }
-h1 {
-    position: absolute;
-    left: 9%;
-    top: 1%;
 
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+hr {
+    border: 2.5px solid black;
+    width: 90%;
+}
+
+/* headerContainer */
+.headerContainer {
+    margin-top: 3vw;
+    margin-left: 5vw;
+}
+
+.checkoutHeader {
     font-family: "GOTHAM-BOLD";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 300%;
-    line-height: 250%;
-}
-.horizontalLine {
-    position: absolute;
-    width: 84%;
-    left: 8%;
-    top: 8%;
-    border: 2px solid black;
-}
-.verticalLine {
-    position: absolute;
-    height: 80%;
-    left: 25%;
-    top: 8%;
-    border: 2px solid #000000;
-    transform: rotate(180deg);
-}
-.productType {
-    white-space: nowrap;
-    position: absolute;
-    width: 120px;
-    height: 27px;
-    left: 200px;
-    top: 12%;
-
-    font-family: "GOTHAM-MEDIUM";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-weight: 500;
-    font-size: 18px;
-    color: #000000;
+    font-size: 500%;
 }
 
-.brand {
-    white-space: nowrap;
-    position: absolute;
-    width: 55px;
-    height: 27px;
-    left: 265px;
-    top: 16%;
-
-    font-family: "GOTHAM-MEDIUM";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 27px;
-    color: #000000;
-}
-.stock {
-    white-space: nowrap;
-    position: absolute;
-    width: 50px;
-    height: 27px;
-    left: 268px;
-    top: 20%;
-
-    font-family: "GOTHAM-MEDIUM";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 27px;
-    color: #000000;
+/* filterContainer */
+.filterForm {
+    padding: 5px;
+    background-color: lightgray;
 }
 
-h4 {
-    font-family: "GOTHAM-MEDIUM";
+/* inventoryContainer */
+.itemContainer {
+    margin: 5px;
 }
 
-.macbook16 {
-    position: absolute;
-    left: 57%;
-    top: 13%;
-    white-space: nowrap;
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 120%;
-    font-weight: 900s;
-    color: #000000;
-}
-img[computerOne] {
-    position: absolute;
-    width: 18%;
-    height: 22%;
-    left: 30%;
-    top: 9.5%;
-}
-.macbook16CPU {
-    position: absolute;
-    left: 59%;
-    top: 17%;
-    white-space: nowrap;
-    font-family: "GOTHAM-BOOK";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 105%;
-    color: #000000;
-}
-.macbook16GPU {
-    position: absolute;
-    left: 59%;
-    top: 20%;
-    white-space: nowrap;
-    font-family: "GOTHAM-BOOK";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 105%;
-    color: #000000;
-}
-.macbook16Memory {
-    position: absolute;
-    left: 59%;
-    top: 23%;
-    white-space: nowrap;
-    font-family: "GOTHAM-BOOK";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 105%;
-    color: #000000;
-}
-.macbook16Storage {
-    position: absolute;
-    left: 59%;
-    top: 26%;
-    white-space: nowrap;
-    font-family: "GOTHAM-BOOK";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 105%;
-    color: #000000;
-}
-.firstLine {
-    position: absolute;
-    width: 64.3%;
-    height: 0px;
-    left: 27%;
-    top: 32%;
-    border: 2px solid #000000;
-}
-.macbook13 {
-    position: absolute;
-    left: 57%;
-    top: 37%;
-    white-space: nowrap;
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 120%;
-    font-weight: 900;
-    color: #000000;
-    }
- img[computerTwo] {
-        position: absolute;
-    width: 18%;
-    height: 22%;
-    left: 30%;
-    top: 33.5%;
-    }
-.macbook13CPU {
-    position: absolute;
-    left: 59%;
-    top: 41%;
-    white-space: nowrap;
-    font-family: "GOTHAM-BOOK";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 105%;
-      color: #000000;
-    }
-.macbook13GPU {
-    position: absolute;
-    left: 59%;
-    top: 44%;
-    white-space: nowrap;
-    font-family: "GOTHAM-BOOK";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 105%;
-    color: #000000;
-    }
-.macbook13Memory {
-    position: absolute;
-    left: 59%;
-    top: 47%;
-    white-space: nowrap;
-    font-family: "GOTHAM-BOOK";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 105%;
-    color: #000000;
-    }
-.macbook13Storage {
-    position: absolute;
-    left: 59%;
-    top: 50%;
-    white-space: nowrap;
-    font-family: "GOTHAM-BOOK";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 105%;
-    color: #000000;
-    }
-.secondLine {
-    position: absolute;
-    width: 64.3%;
-    height: 0px;
-    left: 27%;
-    top: 56%;
-    border: 2px solid #000000;
-}
-
-.dell15 {
-    position: absolute;
-    left: 57%;
-    top: 65%;
-    white-space: nowrap;
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 120%;
-    font-weight: 900;
-    color: #000000;
-    }
-img[computerThree] {
-        position: absolute;
-    width: 18%;
-    height: 22%;
-    left: 30%;
-    top: 60%;
-    }
-    
-    .dell15CPU {
-            /* 2.6GHz 6-Core Intel Core i7 */
-    position: absolute;
-    left: 59%;
-    top: 69%;
-    white-space: nowrap;
-    font-family: "GOTHAM-BOOK";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 105%;
-
-    /* identical to box height */
-    color: #000000;
-    }
-    
-    .dell15GPU {
-        /* 2.6GHz 6-Core Intel Core i7 */
-    position: absolute;
-    left: 59%;
-    top: 72%;
-    white-space: nowrap;
-    font-family: "GOTHAM-BOOK";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 105%;
-
-    /* identical to box height */
-    color: #000000;
-    }
-    .dell15Memory {
-        /* 2.6GHz 6-Core Intel Core i7 */
-    position: absolute;
-    left: 59%;
-    top: 75%;
-    white-space: nowrap;
-    font-family: "GOTHAM-BOOK";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 105%;
-
-    /* identical to box height */
-    color: #000000;
-    }
-    .dell15Storage {
-        /* 2.6GHz 6-Core Intel Core i7 */
-    position: absolute;
-    left: 59%;
-    top: 78%;
-    white-space: nowrap;
-    font-family: "GOTHAM-BOOK";
-    /* font-family: Gotham Medium;
-    font-style: normal; */
-    font-size: 105%;
-
-    /* identical to box height */
-    color: #000000;
-    }
-
-
-/*.thirdLine {
-    position: absolute;
-    width: 64.3%;
-    height: 0px;
-    left: 27%;
-    top: 108%;
-    border: 2px solid #000000;
-} */
-
-/* .itemCard {
-    max-width: 400px;
-} */
-
-.cardImage {
-    background-size: cover;
-    max-width: 400px;
-}
