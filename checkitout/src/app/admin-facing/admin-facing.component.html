@@ -26,12 +26,7 @@
     <div class="inventoryTabs">
         <h3 class="adminHeader">Admin</h3>
         <mat-tab-group class="tabTitle" mat-align-tabs="center" backgroundColor="primary">
-<<<<<<< HEAD
-            <!-- Taken out due to not needed, it is just like checkout page.
-            <mat-tab class="labelText" label="Inventory Overview">
-=======
             <!-- <mat-tab class="labelText" label="Inventory Overview">
->>>>>>> dev
                 <hr class="vertical">
                 <h4 class="macbook16">MacBook Pro 16"</h4>
                 <img computerOne src="assets/macbookpro.jpg" routerLink="/item">
@@ -39,13 +34,8 @@
                 <h5 class="macbook16GPU">GPU: AMD Radeon Pro 5300M with 4GB of GDDR6 Memory</h5>
                 <h5 class="macbook16Memory">Memory (RAM): 16GB</h5>
                 <h5 class="macbook16Storage">Storage: 512GB</h5>
-<<<<<<< HEAD
-            </mat-tab>
-            -->
-=======
             </mat-tab> -->
-
->>>>>>> dev
+            
             <mat-tab class="labelText" label="Add Item">
                 <form>
                     <div class="initialForm">
@@ -99,7 +89,6 @@
                                 <input matInput>
                             </mat-form-field>
                         </ng-container>
-
 
                         <ng-container class="cameraForm" *ngIf="selectedValue==='Camera'">
                             <mat-form-field appearance="fill">
@@ -181,6 +170,7 @@
                                 <input matInput>
                             </mat-form-field>
                         </ng-container>
+                        <button class="addItemBtn">Add Item</button>
                     </div>
                 </form>
 
@@ -207,14 +197,14 @@
 
                     <div class="daysForm">
 
-                        <h4>Monday</h4>
+                        <h4 class="daysTo">Monday</h4>
 
                         <mat-form-field appearance="fill">
                             <mat-label>Time</mat-label>
                             <input matInput>
                         </mat-form-field>
 
-                        <p>to</p>
+                        <p class="daysTo">to</p>
 
                         <mat-form-field appearance="fill">
                             <mat-label>Time</mat-label>
