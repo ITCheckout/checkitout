@@ -33,8 +33,23 @@
         <div fxLayout="row" class="inventoryContainer">
 
             <div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="grid">
-
-                <div fxFlex="20%" *ngFor="let model of models" class="itemContainer">
+                <!-- <div *ngFor='let test of testing; let i = index'>
+                    <div *ngFor='let model of test'>
+                        <mat-card class="itemCard">
+                            <mat-card-header>
+                                <mat-card-title class="itemTitle">
+                                    {{ model.model }}
+                                </mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image src="{{model.imagePath}}" alt="{{model.model}}" class="cardImage">
+                            <mat-card-actions>
+                                <button mat-button>ITEM DETAILS</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div> -->
+                <div fxFlex="20%" *ngFor='let test of testing' class="itemContainer">
+                <div  *ngFor="let model of test" >
 
 
                     <mat-card class="itemCard">
@@ -49,6 +64,7 @@
                         </mat-card-actions>
                     </mat-card>
 
+                </div>
                 </div>
 
 
