@@ -7,8 +7,6 @@ import { DatabaseService } from '../services/database.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { waitForAsync } from '@angular/core/testing';
 
-
-
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -23,9 +21,7 @@ export class CheckoutComponent implements OnInit {
   testing: any = [];
   selectCategory!: FormGroup;
 
-
-  constructor(private fb: FormBuilder, private databaseService: DatabaseService) {}
-
+  constructor(private fb: FormBuilder, private databaseService: DatabaseService) { }
 
   ngOnInit(): void {
 
@@ -38,24 +34,24 @@ export class CheckoutComponent implements OnInit {
       this.categories = data;
     });
 
+    this.databaseService.getAllModels().subscribe(data => {
+      this.models = data;
+    });
 
-    this.uniqueModels = this.databaseService.getUniqueModels();
+    // THIS CODE WAS LEFT HERE FOR BACK TRACKING
+    // this.uniqueModels = this.databaseService.getUniqueModels();
 
-    setTimeout(() => {
-      this.testing = this.databaseService.queryUniqueModel(this.uniqueModels);
-      console.log(this.testing);
-    }, 1000);
-
+    // setTimeout(() => {
+    //   this.testing = this.databaseService.queryUniqueModel(this.uniqueModels);
+    //   console.log(this.testing);
+    // }, 1000);
 
   }
-
-  
 
   categorySelected(event) {
     this.databaseService.getSubCategories(event).subscribe(data => {
       this.subCategories = data;
     });
   }
-
 }
 
