@@ -34,17 +34,17 @@ export class CheckoutComponent implements OnInit {
       this.categories = data;
     });
 
-    this.databaseService.getAllModels().subscribe(data => {
-      this.models = data;
-    });
+    // this.databaseService.getAllModels().subscribe(data => {
+    //   this.models = data;
+    // });
 
     // THIS CODE WAS LEFT HERE FOR BACK TRACKING
-    // this.uniqueModels = this.databaseService.getUniqueModels();
+    this.uniqueModels = this.databaseService.getUniqueModels();
 
-    // setTimeout(() => {
-    //   this.testing = this.databaseService.queryUniqueModel(this.uniqueModels);
-    //   console.log(this.testing);
-    // }, 1000);
+    setTimeout(() => {
+      this.testing = this.databaseService.queryUniqueModel(this.uniqueModels);
+      console.log(this.testing);
+    }, 1000);
 
   }
 
