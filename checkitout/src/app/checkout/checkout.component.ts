@@ -18,7 +18,7 @@ export class CheckoutComponent implements OnInit {
   categories;
   subCategories;
   uniqueModels;
-  testing: any = [];
+  uniqueModelResult: any = [];
   selectCategory!: FormGroup;
 
   constructor(private fb: FormBuilder, private databaseService: DatabaseService) { }
@@ -43,8 +43,7 @@ export class CheckoutComponent implements OnInit {
 
 
     setTimeout(() => {
-      this.testing = this.databaseService.queryUniqueModel(this.uniqueModels);
-      console.log(this.testing);
+      this.uniqueModelResult = this.databaseService.queryUniqueModel(this.uniqueModels);
     }, 1000);
 
   }
@@ -53,6 +52,30 @@ export class CheckoutComponent implements OnInit {
     this.databaseService.getSubCategories(event).subscribe(data => {
       this.subCategories = data;
     });
+
+    var filteredItems = null;
+    this.uniqueModelResult = null;
+
+    var categoryItemArray = this.databaseService.getItemsInCategory(event);
+    
+    setTimeout(() => {
+    filteredItems = this.databaseService.filterCategory(categoryItemArray);
+    this.uniqueModelResult = filteredItems;
+    }, 1000);
+
   }
+
+  subCategorySelected(event) {
+    var filteredItems = null;
+    this.uniqueModelResult = null;
+
+    var categoryItemArray = this.databaseService.getItemsInSubCategory(event);
+    
+    setTimeout(() => {
+    filteredItems = this.databaseService.filterCategory(categoryItemArray);
+    this.uniqueModelResult = filteredItems;
+    }, 1000);
+  }
+
 }
 

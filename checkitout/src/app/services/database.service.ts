@@ -33,34 +33,6 @@ export class DatabaseService {
     return this.firestore.collection('items').valueChanges();
   }
 
-
-  // IN PROGRESS QUERIES 
-
-  addItem() {
-
-  }
-
-  // getItemsInSubCategory(category, subCategory) {
-  //   return this.firestore.collection<Item>('items', ref => ref.where('categoryName', '==', category).where('subCategoryName', '==', subCategory)).valueChanges();
-  // }
-  // getModels(category, subCategory) {
-  //   return this.itemsCollection.doc(category).collection<Model>(subCategory).valueChanges( { imagePath: 'imagePath', itemTitle: 'itemTitle' });
-  // }
-
-  // getModel(category, subCategory, model) {
-  //   return this.itemsCollection.doc(category).collection(subCategory).doc(model).
-  // }
-
-  // getItems(category, subCategory, model) {
-  //   return this.itemsCollection.doc(category).collection(subCategory).doc(model).collection<Item>('item-list').valueChanges( { imagePath: 'imagePath', itemTitle: 'itemTitle' });
-  // }
-
-  // getItem(category, subCategory, model, item) {
-  //   return this.itemsCollection.doc(category).collection(subCategory).doc(model).collection('item-list').doc(item).valueChanges();
-      
-  // }
-
-
   getUniqueModels() {
     var uniqueModels = [];
     var returnvalue;
@@ -81,7 +53,7 @@ export class DatabaseService {
 
   queryUniqueModel(uniqueModels) {
     var queryResult;
-    var returnthing = [];
+    var uniqueModelList = [];
 
     var forbidLoop = 0
 
@@ -92,12 +64,71 @@ export class DatabaseService {
 
         if(forbidLoop < uniqueModels.length) {
           // console.log('add value to array')
-          returnthing.push(data);
+          uniqueModelList.push(data);
         }
 
         forbidLoop++;
       });
     });
     // console.log(returnthing);
-    return returnthing;  }
+    return uniqueModelList;
+  }
+
+
+  // IN PROGRESS QUERIES 
+
+  getItemsInCategory(category) {
+    var queryResult;
+    var uniqueModels = [];
+
+    queryResult = this.firestore.collection<Item>('items', ref => ref.where('categoryName', '==', category)).valueChanges();
+
+    queryResult.subscribe(data => {
+      data.forEach(element => {
+        if(!uniqueModels.includes(element.model)) {
+          uniqueModels.push(element.model);
+        }
+      }); 
+    });
+
+    return uniqueModels;
+  }
+
+  getItemsInSubCategory(subCategory) {
+    var queryResult;
+    var uniqueModels = [];
+
+    queryResult = this.firestore.collection<Item>('items', ref => ref.where('subCategoryName', '==', subCategory)).valueChanges();
+  
+    queryResult.subscribe(data => {
+      data.forEach(element => {
+        if(!uniqueModels.includes(element.model)) {
+          uniqueModels.push(element.model);
+        }
+      }); 
+    });
+    return uniqueModels;
+  }
+
+  filterCategory(uniqueModels) {
+    var queryResult;
+    var uniqueModelList = [];
+
+    var forbidLoop = 0
+
+    uniqueModels.forEach(element => {
+      queryResult = this.firestore.collection('items', ref => ref.where('model', '==', element).limit(1)).valueChanges()
+
+      queryResult.subscribe(data => {
+
+        if(forbidLoop < uniqueModels.length) {
+          uniqueModelList.push(data);
+        }
+
+        forbidLoop++;
+      });
+    });
+    return uniqueModelList;
+  }
+
 }
