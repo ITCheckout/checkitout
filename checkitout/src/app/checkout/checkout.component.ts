@@ -34,11 +34,6 @@ export class CheckoutComponent implements OnInit {
       this.categories = data;
     });
 
-    // this.databaseService.getAllModels().subscribe(data => {
-    //   this.models = data;
-    // });
-
-    // THIS CODE WAS LEFT HERE FOR BACK TRACKING
     this.uniqueModels = this.databaseService.getUniqueModels();
 
 

@@ -42,7 +42,6 @@ export class DatabaseService {
     returnvalue.subscribe(data => {
       data.forEach(element => {
         if(!uniqueModels.includes(element.model)) {
-          // console.log(element.model);
           uniqueModels.push(element.model);
         }
       }); 
@@ -63,19 +62,14 @@ export class DatabaseService {
       queryResult.subscribe(data => {
 
         if(forbidLoop < uniqueModels.length) {
-          // console.log('add value to array')
           uniqueModelList.push(data);
         }
 
         forbidLoop++;
       });
     });
-    // console.log(returnthing);
     return uniqueModelList;
   }
-
-
-  // IN PROGRESS QUERIES 
 
   getItemsInCategory(category) {
     var queryResult;
