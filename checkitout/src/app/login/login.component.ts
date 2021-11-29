@@ -56,7 +56,7 @@ export class LoginComponent {
         signInWithEmailAndPassword(auth,schoolEmail, password).then(() => {
           // console.log("Firebase Login")
          const dateNow = new Date();
-         dateNow.setMinutes(dateNow.getMinutes() + 1);
+         dateNow.setMinutes(dateNow.getMinutes() + 60);
         this.cookieService.set('userRole', this.userRole.role, dateNow);
           this.router.navigate(['']).then(() => {
             window.location.reload();

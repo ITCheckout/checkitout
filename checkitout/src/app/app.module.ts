@@ -19,14 +19,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatTabsModule } from '@angular/material/tabs';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 /* Firebase imports */
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { ItemComponent } from './item/item.component';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { UsersService } from './shared/users.service';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { AboutComponent } from './about/about.component';
@@ -72,8 +70,6 @@ import { CookieService } from 'ngx-cookie-service';
       { path: 'signUp', component: SignUpComponent },
       { path: '', component: HomeComponent },
       { path: '**', component: PageNotFoundComponent },
-
-
     ]),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
