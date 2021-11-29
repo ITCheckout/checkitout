@@ -62,13 +62,9 @@ export class DatabaseService {
 
 
   getUniqueModels() {
-
-    var queryResult;
-    var returnthing = [];
     var uniqueModels = [];
     var returnvalue;
     
-
     returnvalue = this.firestore.collection<Item>('items').valueChanges( { model: 'model' } );
     
     returnvalue.subscribe(data => {
@@ -81,29 +77,6 @@ export class DatabaseService {
     });
 
     return uniqueModels;
-
-    // setTimeout(() => {
-
-    // var forbidLoop = 0
-
-    // uniqueModels.forEach(element => {
-    //   queryResult = this.firestore.collection('items', ref => ref.where('model', '==', element).limit(1)).valueChanges()
-
-    //   queryResult.subscribe(data => {
-
-    //     if(forbidLoop < uniqueModels.length) {
-    //       console.log('add value to array')
-    //       returnthing.push(data);
-    //     } else {
-    //       console.log('over length')
-    //     }
-
-    //     forbidLoop++;
-    //   });
-    // });
-    // console.log(returnthing);
-    // return returnthing;
-    // }, 1000);
   }
 
   queryUniqueModel(uniqueModels) {

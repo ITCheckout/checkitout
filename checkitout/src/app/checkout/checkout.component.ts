@@ -41,6 +41,7 @@ export class CheckoutComponent implements OnInit {
     // THIS CODE WAS LEFT HERE FOR BACK TRACKING
     this.uniqueModels = this.databaseService.getUniqueModels();
 
+
     setTimeout(() => {
       this.testing = this.databaseService.queryUniqueModel(this.uniqueModels);
       console.log(this.testing);
