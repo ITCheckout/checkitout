@@ -46,6 +46,7 @@ export class SignUpComponent implements OnInit {
   get f(){return this.signUpForm.controls;}
 
   //Will create the user by getting the pawprint, concat. w/ @umsystem, and sending user back to home page
+  loginError;
   userRole;
   createUser() {
     return new Promise(async (resolve, reject) => {
@@ -81,6 +82,8 @@ export class SignUpComponent implements OnInit {
             thanks: "Thank you!"
           }
         })
+    } else {
+      this.loginError = "Please fill out all fields."
     }
   }
   )}

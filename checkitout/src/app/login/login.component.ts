@@ -56,10 +56,9 @@ export class LoginComponent {
         signInWithEmailAndPassword(auth,schoolEmail, password).then((result) => {
           //if the email is verfiied, then the user can login
           if(result.user.emailVerified !== true){
-            this.loginError = "Please validate the email address before loggin in.";
+            this.loginError = "Please validate the email address before logging in.";
             //break from function
             return;
-            throw new Error("Email not verified");
           }
           console.log(result.user);
           // console.log("Firebase Login")
@@ -89,6 +88,8 @@ export class LoginComponent {
        }
         });
         })
+      }else {
+        this.loginError = "Please fill email and password fields.";
       }
     }
 

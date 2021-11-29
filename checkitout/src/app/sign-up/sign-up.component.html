@@ -55,7 +55,10 @@
         <!-- <div class="demo">Password: {{password?.value}}</div>
         <div class="demo">ConfirmPassword: {{confirmPassword?.value}}</div> -->
       </div>
-      </form> 
+      </form>
+      <div *ngIf="loginError">
+        <div class="error center">{{loginError}}</div>
+        </div> 
       <button mat-button class="center" (click)="createUser()" type="submit" ng-disabled="signUpForm.$invalid">Sign Up</button>
     </mat-card-content>
       <div>

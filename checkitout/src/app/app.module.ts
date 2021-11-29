@@ -32,6 +32,7 @@ import { AboutComponent } from './about/about.component';
 import { CartComponent } from './cart/cart.component';
 import { AdminFacingComponent } from './admin-facing/admin-facing.component';
 import { CookieService } from 'ngx-cookie-service';
+import { ResetComponent } from './reset/reset.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { CookieService } from 'ngx-cookie-service';
     ItemComponent,
     AboutComponent,
     CartComponent,
-    AdminFacingComponent
+    AdminFacingComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +65,7 @@ import { CookieService } from 'ngx-cookie-service';
     MatInputModule,
     ScrollingModule,
     RouterModule.forRoot([
+      { path: 'reset', component: ResetComponent },
       { path: 'admin', component: AdminFacingComponent },
       { path: 'cart', component: CartComponent },
       { path: 'item', component: ItemComponent },
