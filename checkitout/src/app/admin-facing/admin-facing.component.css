@@ -1,6 +1,5 @@
 body {
     display: block;
-    height: 90em;
 }
 
 /* Current Inventory Div */
@@ -59,9 +58,9 @@ body {
     border: 2px solid #000000;
 }
 
-.adminHeader {
-    position: relative;
-    text-align: center;
+
+.mat-tab-group {
+    margin-bottom: 50%;
 
     font-family: "GOTHAM-BOLD";
     /* font-weight: bold; */
@@ -85,7 +84,7 @@ body {
 
  /* Test */
 .macbook16 {
-    position: absolute;
+    position: relative;
     left: 57%;
     top: 13%;
     white-space: nowrap;
@@ -103,7 +102,7 @@ img[computerOne] {
     top: 30%;
 }
 .macbook16CPU {
-    position: absolute;
+    position: relative;
     left: 59%;
     top: 17%;
     white-space: nowrap;
@@ -113,7 +112,7 @@ img[computerOne] {
     color: #000000;
 }
 .macbook16GPU {
-    position: absolute;
+    position: relative;
     left: 59%;
     top: 20%;
     white-space: nowrap;
@@ -123,7 +122,7 @@ img[computerOne] {
     color: #000000;
 }
 .macbook16Memory {
-    position: absolute;
+    position: relative;
     left: 59%;
     top: 23%;
     white-space: nowrap;
@@ -133,7 +132,7 @@ img[computerOne] {
     color: #000000;
 }
 .macbook16Storage {
-    position: absolute;
+    position: relative;
     left: 59%;
     top: 26%;
     white-space: nowrap;
@@ -143,9 +142,142 @@ img[computerOne] {
     color: #000000;
 }
 
+.macbook13 {
+    position: relative;
+    left: 57%;
+    top: 37%;
+    white-space: nowrap;
+    font-family: Gotham Medium;
+    font-style: normal;
+    font-size: 120%;
+    font-weight: 900;
+    color: #000000;
+    }
+ img[computerTwo] {
+        position: relative;
+    width: 18%;
+    height: 22%;
+    left: 30%;
+    top: 33.5%;
+    }
+.macbook13CPU {
+    position: absolute;
+    left: 59%;
+    top: 41%;
+    white-space: nowrap;
+    font-family: Gotham Medium;
+    font-style: normal;
+    font-size: 105%;
+      color: #000000;
+    }
+.macbook13GPU {
+    position: absolute;
+    left: 59%;
+    top: 44%;
+    white-space: nowrap;
+    font-family: Gotham Medium;
+    font-style: normal;
+    font-size: 105%;
+    color: #000000;
+    }
+.macbook13Memory {
+    position: absolute;
+    left: 59%;
+    top: 47%;
+    white-space: nowrap;
+    font-family: Gotham Medium;
+    font-style: normal;
+    font-size: 105%;
+    color: #000000;
+    }
+.macbook13Storage {
+    position: absolute;
+    left: 59%;
+    top: 50%;
+    white-space: nowrap;
+    font-family: Gotham Medium;
+    font-style: normal;
+    font-size: 105%;
+    color: #000000;
+    }
+
+
+.dell15 {
+        position: relative;
+        left: 57%;
+        top: 65%;
+        white-space: nowrap;
+        font-family: Gotham Medium;
+        font-style: normal;
+        font-size: 120%;
+        font-weight: 900;
+        color: #000000;
+        }
+    img[computerThree] {
+        position: relative;
+        width: 18%;
+        height: 22%;
+        left: 30%;
+        top: 60%;
+        }
+        
+        .dell15CPU {
+                /* 2.6GHz 6-Core Intel Core i7 */
+        position: relative;
+        left: 59%;
+        top: 69%;
+        white-space: nowrap;
+        font-family: Gotham Medium;
+        font-style: normal;
+        font-size: 105%;
+    
+        /* identical to box height */
+        color: #000000;
+        }
+        
+        .dell15GPU {
+            /* 2.6GHz 6-Core Intel Core i7 */
+        position: relative;
+        left: 59%;
+        top: 72%;
+        white-space: nowrap;
+        font-family: Gotham Medium;
+        font-style: normal;
+        font-size: 105%;
+    
+        /* identical to box height */
+        color: #000000;
+        }
+        .dell15Memory {
+            /* 2.6GHz 6-Core Intel Core i7 */
+        position: relative;
+        left: 59%;
+        top: 75%;
+        white-space: nowrap;
+        font-family: Gotham Medium;
+        font-style: normal;
+        font-size: 105%;
+    
+        /* identical to box height */
+        color: #000000;
+        }
+        .dell15Storage {
+            /* 2.6GHz 6-Core Intel Core i7 */
+        position: relative;
+        left: 59%;
+        top: 78%;
+        white-space: nowrap;
+        font-family: Gotham Medium;
+        font-style: normal;
+        font-size: 105%;
+    
+        /* identical to box height */
+        color: #000000;
+        }
 /* Add Item tab */
 mat-form-field {
     background-color: #7D7D7D;
+    border-radius: 25px;
 }
 
 mat-label {
@@ -156,14 +288,21 @@ mat-label {
     position: relative;
     display: flex;
     justify-content: center;
-
+    flex-direction: column;
+    border-radius: 25px;
     margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
 }
 
 .loadingForm {
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    column-count: 4;
+    
 }
 
 mat-form-field {
@@ -172,9 +311,28 @@ mat-form-field {
 
 .pickupContainer {
     position: relative;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .daysForm {
-    display: inline-flex;
-    width: 100%;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.computerForm {
+    border-radius: 25px;
+    column-count: auto;
+}
+
+.addItemBtn {
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+}
+
+.daysTo {
+    height: 25px;
 }

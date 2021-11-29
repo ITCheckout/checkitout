@@ -1,111 +1,79 @@
 <body>
-    <mat-grid-list cols="5" rowHeight="100px" gutterSize="3px">
-        <mat-grid-tile colspan="5">
-            <h1 id="cartHeader">Checkout</h1>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="1" rowspan="7">
-            <div class="filterContainer">
-                <form [formGroup]="selectCategory">
-                    <mat-form-field>
-                        <mat-select placeholder="Select Category" formControlName="category" (selectionChange)="categorySelected($event.value)">
+    <div fxLayout="column" fxLayoutGap="1vw" class="container">
+        <div fxLayout="row" class="headerContainer">
+            <div fxLayoutAlign="left">
+                <h1 class="checkoutHeader">Checkout</h1>
+            </div>
+        </div>
+        <hr>
+        <div fxLayout="row" class="filterContainer">
+            <div fxLayoutAlign="center" fxFill>
+                <form [formGroup]="selectCategory" fxLayoutGap="25px">
+                    <mat-form-field class="filterForm">
+                        <mat-select placeholder="Select Category" formControlName="category"
+                            (selectionChange)="categorySelected($event.value)">
                             <mat-option *ngFor="let category of categories" [value]="category.categoryName">
                                 {{category.categoryName}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
-                    <mat-form-field>
-                        <!-- (selectionChange)="subCategorySelected($event.value)" -->
-                        <mat-select placeholder="Select Sub Category" formControlName="subCategory" >
+
+                    <mat-form-field class="filterForm">
+                        <mat-select placeholder="Select Sub Category" formControlName="subCategory">
                             <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory.subCategoryName">
                                 {{subCategory.subCategoryName}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </form>
-                <!-- <p>Product Type &#x25BE;</p>
-                <p>Brand &#x25BE;</p>
-                <p>Stock &#x25BE;</p> -->
             </div>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="4" rowspan="7">
-            <!-- <p>Inventory</p> -->
-            <mat-card *ngFor = "let model of models" class="itemCard">
-                <mat-card-header>
-                    <mat-card-title>
-                        {{ model.model }}
-                    </mat-card-title>
-                </mat-card-header>
-                <img mat-card-image src="{{model.imagePath}}" alt="{{model.model}}" class="cardImage">
-                <mat-card-actions>
-                    <button mat-button>ITEM DETAILS</button>
-                </mat-card-actions>
-            </mat-card>
-        </mat-grid-tile>
-    </mat-grid-list>
+        </div>
+        <hr>
+
+        <div fxLayout="row" class="inventoryContainer">
+
+            <div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="grid">
+
+                <div fxFlex="20%" *ngFor='let test of testing' class="itemContainer">
+                    <div *ngFor="let model of test">
 
 
-    <!-- OLD CODE Temporary for reference!!! -->
-    <!-- <h1>Inventory Checkout</h1>
-<hr class="horizontalLine">
-<hr class="verticalLine">
+                        <mat-card class="itemCard">
+                            <mat-card-header>
+                                <mat-card-title class="itemTitle">
+                                    {{ model.model }}
+                                </mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image src="{{model.imagePath}}" alt="{{model.model}}" class="cardImage">
+                            <mat-card-actions>
+                                <button mat-button>ITEM DETAILS</button>
+                            </mat-card-actions>
+                        </mat-card>
 
-<p class="productType">Product Type &#x25BE;</p>
-<p class="brand">Brand &#x25BE;</p>
-<p class="stock">Stock &#x25BE;</p> -->
+                    </div>
+                </div>
 
-    <!--<mat-tree [dataSource]="nestedDataSource" [treeControl]="nestedTreeControl" class="example-tree">
-    <mat-tree-node *matTreeNodeDef="let node">
-        <li class="mat-tree-node">
-            <button mat-icon-button disabled></button>
-            {{node.filename}}: {{node.type}}
-        </li>
-    </mat-tree-node>
 
-    <mat-nested-tree-node *matTreeNodeDef="let node; when: hasNestedChild">
-        <li>
-            <div class="mat-tree-node">
-                <button mat-icon-button matTreeNodeToggle>
-                    <mat-icon class="mat-icon-rtl-mirror">
-                        {{nestedTreeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                    </mat-icon>
-                </button>
-                {{node.filename}}
             </div>
-            <ul [class.example-tree-invisible]="!nestedTreeControl.isExpanded(node)">
-                <ng-container matTreeNodeOutlet></ng-container>
-            </ul>
-        </li>
-    </mat-nested-tree-node>
-</mat-tree> -->
+        </div>
 
-
-    <!-- <h4 class="macbook16">MacBook Pro 16"</h4>
-    <img computerOne src="assets/macbookpro.jpg" routerLink="/item">
-        <h5 class="macbook16CPU">CPU: 2.6GHz 6-Core Intel Core i7</h5>
-        <h5 class="macbook16GPU">GPU: AMD Radeon Pro 5300M with 4GB of GDDR6 Memory</h5>
-        <h5 class="macbook16Memory">Memory (RAM): 16GB</h5>
-        <h5 class="macbook16Storage">Storage: 512GB</h5>
-
-<hr class="firstLine">
-
-    <h4 class="macbook13">MacBook Pro 13"</h4>
-    <img computerTwo src="assets/macbookpro.jpg"  routerLink="/item">
-            <h5 class="macbook13CPU">CPU: Apple M1</h5>
-            <h5 class="macbook13GPU">GPU: 8-Core</h5>
-            <h5 class="macbook13Memory">Memory (RAM): 8GB</h5>
-            <h5 class="macbook13Storage">Storage: 256GB</h5>
-
-<hr class="secondLine">
-    <h4 class="dell15">Dell XPS 15"</h4>
-    <img computerThree src="assets/dellXPS.jpeg"  routerLink="/item">
-            <h5 class="dell15CPU">CPU: 2.6GHz 6-Core Intel Core i7</h5>
-            <h5 class="dell15GPU">GPU: AMD Radeon Pro 5300M with 4GB of GDDR6 Memory</h5>
-            <h5 class="dell15Memory">Memory (RAM): 16GB</h5>
-            <h5 class="dell15Storage">Storage: 512GB</h5>     -->
-
-    <!-- <hr class="thirdLine"> -->
-
-
-
-
+        <!-- SHAWN'S PREVIOUS CODE -->
+        <!-- <div fxLayout="row" class="inventoryContainer">
+            <div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="10px grid">
+                <div fxFlex="20%" *ngFor="let model of models" class="itemContainer">
+                    <mat-card class="itemCard">
+                        <mat-card-header>
+                            <mat-card-title class="itemTitle">
+                                {{ model.model }}
+                            </mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="{{model.imagePath}}" alt="{{model.model}}" class="cardImage">
+                        <mat-card-actions>
+                            <button mat-button routerLink="/item">ITEM DETAILS</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+        </div> -->
+    </div>
 </body>

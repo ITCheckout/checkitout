@@ -35,7 +35,7 @@
                 <h5 class="macbook16Memory">Memory (RAM): 16GB</h5>
                 <h5 class="macbook16Storage">Storage: 512GB</h5>
             </mat-tab> -->
-
+            
             <mat-tab class="labelText" label="Add Item">
                 <form>
                     <div class="initialForm">
@@ -89,7 +89,6 @@
                                 <input matInput>
                             </mat-form-field>
                         </ng-container>
-
 
                         <ng-container class="cameraForm" *ngIf="selectedValue==='Camera'">
                             <mat-form-field appearance="fill">
@@ -171,6 +170,7 @@
                                 <input matInput>
                             </mat-form-field>
                         </ng-container>
+                        <button class="addItemBtn">Add Item</button>
                     </div>
                 </form>
 
@@ -197,14 +197,14 @@
 
                     <div class="daysForm">
 
-                        <h4>Monday</h4>
+                        <h4 class="daysTo">Monday</h4>
 
                         <mat-form-field appearance="fill">
                             <mat-label>Time</mat-label>
                             <input matInput>
                         </mat-form-field>
 
-                        <p>to</p>
+                        <p class="daysTo">to</p>
 
                         <mat-form-field appearance="fill">
                             <mat-label>Time</mat-label>
