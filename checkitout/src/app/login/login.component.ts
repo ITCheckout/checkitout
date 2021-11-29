@@ -53,7 +53,15 @@ export class LoginComponent {
           const {pawprint, password} = this.loginForm.value;
         const schoolEmail = pawprint + "@umsystem.edu";
         const auth = getAuth();
-        signInWithEmailAndPassword(auth,schoolEmail, password).then(() => {
+        signInWithEmailAndPassword(auth,schoolEmail, password).then((result) => {
+          //if the email is verfiied, then the user can login
+          if(result.user.emailVerified !== true){
+            this.loginError = "Please validate the email address before loggin in.";
+            //break from function
+            return;
+            throw new Error("Email not verified");
+          }
+          console.log(result.user);
           // console.log("Firebase Login")
          const dateNow = new Date();
          dateNow.setMinutes(dateNow.getMinutes() + 60);
@@ -71,7 +79,7 @@ export class LoginComponent {
                console.log(this.loginError);
                break;
             }
-               default:
+            default:
             {
                 this.loginError = "Unexpected Error";
                 console.log(this.loginError);

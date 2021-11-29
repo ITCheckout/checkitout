@@ -54,3 +54,9 @@ button {
      background: black;
      color: white;
    }
+
+   .admin {
+    font-family: "GOTHAM-MEDIUM";
+    padding-left: 2%;
+    padding-right: 2%;
+   }

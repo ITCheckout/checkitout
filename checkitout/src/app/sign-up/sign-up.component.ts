@@ -48,10 +48,11 @@ export class SignUpComponent implements OnInit {
   //Will create the user by getting the pawprint, concat. w/ @umsystem, and sending user back to home page
   userRole;
   createUser() {
+    return new Promise(async (resolve, reject) => {
     if(this.signUpForm.valid){
       const {pawprint, password} = this.signUpForm.value;
       const schoolEmail = pawprint + "@umsystem.edu";
-      this.auth.createUserWithEmailAndPassword(schoolEmail, password).then (userResponse => {
+      this.auth.createUserWithEmailAndPassword(schoolEmail, password).then (async userResponse => {
       
         let user = {
           id: userResponse.user.uid,
@@ -59,9 +60,9 @@ export class SignUpComponent implements OnInit {
           pawprint: pawprint,
           role: 'user',
         }
-
-        console.log(user);
-        this.userService.setUser(user)
+        //send verification email
+        userResponse.user.sendEmailVerification()
+        await this.userService.setUser(user)
         this.userService.getUser(user.pawprint).subscribe(user => {
           //do profile things here if we get to it
           // console.log(user);
@@ -82,10 +83,12 @@ export class SignUpComponent implements OnInit {
         })
     }
   }
+  )}
   //Dialog reference: https://www.techiediaries.com/angular-material-dialogs/
   handleKeyUp(event) {
     if (event.keyCode === 13) {
       this.createUser();
     }
   }
+
 }
