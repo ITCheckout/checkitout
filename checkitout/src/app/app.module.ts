@@ -66,7 +66,7 @@ import { AdminGuard } from './services/admin.guard';
     ScrollingModule,
     RouterModule.forRoot([
       { path: 'reset', component: ResetComponent },
-      { path: 'admin', component: AdminFacingComponent, canActivate: [AdminGuard] },
+      { path: 'admin', component: AdminFacingComponent },
       { path: 'cart', component: CartComponent },
       { path: 'checkout/:model', component: ItemComponent },
       { path: 'about', component: AboutComponent },
