@@ -1,18 +1,33 @@
 <div id="title">
-    <span id="item"><b>MacBook Pro 16"</b></span>
+    <span id="item"><b>{{itemDoc.model}}</b></span>
     <span class="spacer"></span>
     <span class="count"><b class="gold">___</b> Out</span>
     <span class="count"><b>___</b> Available</span>
 </div>
 <div id="img">
-    <img src="./assets/MacBookPro_Touchbar.png">
+    <img src="{{itemDoc.imagePath}}">
 </div>
-<div id="content">
-    <h3><b>DEVICE SPECS</b></h3>
-    <h3><b>CPU:</b></h3>
-    <h3><b>GPU:</b></h3>
-    <h3><b>Memory (RAM):</b></h3>
-    <h3><b>Storage:</b></h3>
-    <button mat-raised-button>Add to Cart</button>
+<!-- IF Model is a laptop-->
+<div *ngIf="itemDoc.subCategoryName=='Mac Laptops' || 'PC Laptops'">
+    <div id="content">
+        <h3><b>DEVICE SPECS</b></h3>
+        <h3><b>Screen Size:</b>  {{itemDoc.screenSize}}</h3>
+        <h3><b>Storage:</b>  {{itemDoc.diskSpace}}</h3>
+        <h3><b>Release Year:</b> {{itemDoc.releaseYear}}</h3>
+        <h3><b>Location:</b> {{itemDoc.location}}</h3>
+        <button mat-raised-button>Add to Cart</button>
+    </div>
+</div>
+
+<!--If model is Canon-->
+<div *ngIf="itemDoc.subCategoryName=='Canon'">
+    <div id="content">
+        <h3><b>DEVICE SPECS</b></h3>
+        <h3><b>Screen Size:</b>  {{itemDoc.screenSize}}</h3>
+        <h3><b>Storage:</b>  {{itemDoc.diskSpace}}</h3>
+        <h3><b>Release Year:</b> {{itemDoc.releaseYear}}</h3>
+        <h3><b>Location:</b> {{itemDoc.location}}</h3>
+        <button mat-raised-button>Add to Cart</button>
+    </div>
 </div>
 

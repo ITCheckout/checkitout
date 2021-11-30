@@ -32,7 +32,9 @@ export class DatabaseService {
   getAllModels() {
     return this.firestore.collection('items').valueChanges();
   }
-
+  getModel(model) {
+    return this.firestore.collection('items', ref => ref.where('model', '==', model)).valueChanges();
+  }
   getUniqueModels() {
     var uniqueModels = [];
     var returnvalue;
