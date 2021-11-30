@@ -68,7 +68,7 @@ import { ResetComponent } from './reset/reset.component';
       { path: 'reset', component: ResetComponent },
       { path: 'admin', component: AdminFacingComponent },
       { path: 'cart', component: CartComponent },
-      { path: 'item', component: ItemComponent },
+      { path: 'checkout/:model', component: ItemComponent },
       { path: 'about', component: AboutComponent },
       { path: 'checkout', component: CheckoutComponent },
       { path: 'login', component: LoginComponent },

@@ -44,7 +44,6 @@ export class NavbarComponent implements OnInit {
       panelClass: ['snackbar-success'],
     });
     snackBarRef.afterDismissed().subscribe(() => {
-      console.log('The snack-bar was dismissed');
       this.router.navigate(['']).then(() => {
         window.location.reload();
         this.cookieService.delete('userRole');

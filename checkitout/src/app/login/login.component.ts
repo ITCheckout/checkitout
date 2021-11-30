@@ -89,7 +89,7 @@ export class LoginComponent {
         });
         })
       }else {
-        this.loginError = "Please fill email and password fields.";
+        this.loginError = "Please fill pawprint and password fields.";
       }
     }
 
