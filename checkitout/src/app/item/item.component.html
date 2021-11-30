@@ -8,9 +8,9 @@
     <img src="{{itemDoc.imagePath}}">
 </div>
 <!-- IF Model is a laptop-->
-<div *ngIf="itemDoc.subCategoryName=='Mac Laptops' || 'PC Laptops'">
+<div *ngIf="itemDoc.categoryName=='Laptops' else noLaptop">
     <div id="content">
-        <h3><b>DEVICE SPECS</b></h3>
+        <h3><b>LAPTOP SPECS</b></h3>
         <h3><b>Screen Size:</b>  {{itemDoc.screenSize}}</h3>
         <h3><b>Storage:</b>  {{itemDoc.diskSpace}}</h3>
         <h3><b>Release Year:</b> {{itemDoc.releaseYear}}</h3>
@@ -19,15 +19,13 @@
     </div>
 </div>
 
-<!--If model is Canon-->
-<div *ngIf="itemDoc.subCategoryName=='Canon'">
+<!--If it is anything else, display different information-->
+<ng-template #noLaptop>
     <div id="content">
-        <h3><b>DEVICE SPECS</b></h3>
-        <h3><b>Screen Size:</b>  {{itemDoc.screenSize}}</h3>
-        <h3><b>Storage:</b>  {{itemDoc.diskSpace}}</h3>
-        <h3><b>Release Year:</b> {{itemDoc.releaseYear}}</h3>
-        <h3><b>Location:</b> {{itemDoc.location}}</h3>
+        <h3><b>SPECS</b></h3>
+        <h3><b>Category:</b>  {{itemDoc.categoryName}}</h3>
+        <h3><b>Model:</b>  {{itemDoc.model}}</h3>
+        <h3><b>Info:</b>  {{itemDoc.description}}</h3>
         <button mat-raised-button>Add to Cart</button>
     </div>
-</div>
-
+</ng-template>
