@@ -15,8 +15,9 @@ export class ItemComponent implements OnInit {
     const itemName = this.route.snapshot.paramMap.get('model');
     console.log(itemName);
     this.databaseService.getModel(itemName).subscribe(data => {
-      console.log(data[0]);
+      // console.log(data[0]);
       this.itemDoc = data[0];
+      console.log(this.itemDoc);
     });
   }
 
