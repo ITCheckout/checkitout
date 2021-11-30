@@ -33,7 +33,9 @@ export class DatabaseService {
     return this.firestore.collection('items').valueChanges();
   }
 
-
+  getModel(model) {
+    return this.firestore.collection('items', ref => ref.where('model', '==', model)).valueChanges();
+  }
   // IN PROGRESS QUERIES 
 
   addItem() {
