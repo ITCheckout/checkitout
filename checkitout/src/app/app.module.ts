@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule, CanActivate } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,7 +33,7 @@ import { CartComponent } from './cart/cart.component';
 import { AdminFacingComponent } from './admin-facing/admin-facing.component';
 import { CookieService } from 'ngx-cookie-service';
 import { ResetComponent } from './reset/reset.component';
-
+import { AdminGuard } from './services/admin.guard';
 
 @NgModule({
   declarations: [
@@ -66,7 +66,7 @@ import { ResetComponent } from './reset/reset.component';
     ScrollingModule,
     RouterModule.forRoot([
       { path: 'reset', component: ResetComponent },
-      { path: 'admin', component: AdminFacingComponent },
+      { path: 'admin', component: AdminFacingComponent, canActivate: [AdminGuard] },
       { path: 'cart', component: CartComponent },
       { path: 'checkout/:model', component: ItemComponent },
       { path: 'about', component: AboutComponent },
