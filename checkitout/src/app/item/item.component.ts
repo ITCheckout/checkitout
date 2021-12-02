@@ -10,6 +10,7 @@ export class ItemComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private databaseService: DatabaseService) { }
 
+  itemCount = [];
   itemDoc;
   ngOnInit(): void {
     const itemName = this.route.snapshot.paramMap.get('model');
@@ -19,6 +20,8 @@ export class ItemComponent implements OnInit {
       this.itemDoc = data[0];
       console.log(this.itemDoc);
     });
+
+    this.itemCount = this.databaseService.getItemCount(itemName);
   }
 
 }
