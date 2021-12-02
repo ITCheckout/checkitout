@@ -1,3 +1,13 @@
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+}
+
 img {
     width: 50px;
     height: 50px;
@@ -8,21 +18,34 @@ img {
   /* font-weight: bold; */
 }
 
-#tabs {
+ul, li {
+  display: inline;
+  margin: 0;
+    padding: 0;
+}
+
+ul {
+  flex: 1;
+  max-width: 25%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* #tabs {
     align-content: center;
     text-align: center;
     margin: auto;
-}
+} */
 
 button {
     font-family: "GOTHAM-MEDIUM";
-    padding-left: 2%;
-    padding-right: 2%;
+    /* padding-left: 2%;
+    padding-right: 2%; */
 }
 
-.spacer {
+/* .spacer {
     flex: 1 1 auto;
-  }
+  } */
 
   /*
  * Actual Sticky Footer Styles
@@ -57,6 +80,15 @@ button {
 
    .admin {
     font-family: "GOTHAM-MEDIUM";
-    padding-left: 2%;
-    padding-right: 2%;
+    /* padding-left: 2%;
+    padding-right: 2%; */
    }
+
+   @media (max-width: 768px) {
+
+    mat-toolbar {
+        flex-direction: column;
+        align-items: center;
+        height: 50px;
+    }
+}

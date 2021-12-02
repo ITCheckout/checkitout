@@ -3,17 +3,11 @@
     
     transform: rotate(180deg);
     width: 100%;
-    max-height: 50%;
+    max-height: 55%;
 }
 
 .container {
     position: relative;
-}
-
-.row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 
 h3 {
@@ -22,12 +16,21 @@ h3 {
 
 /* Current Inventory Div */
 .inventory {
-    margin-top: 2.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .inventoryHeader {
-    font-size: 250%;
+    margin: 50px auto;
+    font-size: 3em;
     color: #f1b82d;
+}
+
+.inventoryInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .inventoryDevice {
@@ -44,36 +47,44 @@ h3 {
 
 /* Quick Checkout Div */
 .quickCheckout {
-    position: relative;
-}
-
-.quickCheckout {
-    margin-top: 7%;
-    margin-bottom: -2.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
 }
 
 .quickCheckoutHeader {
+    margin-top: 50px;
     text-align: center;
-    font-size: 250%;
+    font-size: 3em;
     color: black;
 }
 
 .quickCheckoutSubHeader {
     font-family: "GOTHAM-MEDIUM";
-    text-align: center;
-    font-size: 200%;
+    font-size: 1.5em;
     color: black;
 }
 
 .quickCheckoutButtonsContainer {
-    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .quickCheckoutButtons {
-    margin: 75px 75px 25px 75px;
+    margin: 25px 75px 25px 75px;
     padding: 80px;
 
     background-color: black;
+}
+
+.quickCheckoutButtonsLabels {
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: "GOTHAM-BOOK";
+    font-size: 150%;
+    color: black;
 }
 
 .quickCheckoutButtons:hover {
@@ -90,9 +101,25 @@ h3 {
     transform: scale(6);
 }
 
-.quickCheckoutButtonsLabels {
-    text-align: center;
-    font-family: "GOTHAM-BOOK";
-    font-size: 150%;
-    color: black;
+@media screen and (max-width: 1200px) {
+
+    .quickCheckoutButtonsContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 1000px) {
+    #pageTear {        
+        min-height: 100%;
+    }
+
+    .inventoryInfo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .inventoryItem {
+        margin-bottom: 25px;
+    }
 }
