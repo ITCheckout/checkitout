@@ -5,6 +5,7 @@
 
     <!-- IF Model is a laptop-->
     <div class="itemContainer" *ngFor="let item of items">
+        <div>
         <div id="img">
             <img src="{{item.imagePath}}">
         </div>
@@ -15,6 +16,9 @@
             <h3><b>Release Year:</b> {{item.releaseYear}}</h3>
             <h3><b>Location:</b> {{item.location}}</h3>
         </div>
+        <button mat-button id="delete">
+            <mat-icon aria-hidden="false" aria-label="Shopping Cart">delete</mat-icon>
+        </button>
     </div>
 </div>
 <br>
