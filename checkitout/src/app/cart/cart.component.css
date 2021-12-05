@@ -32,6 +32,12 @@ hr {
     /* background-color: #D7D7D7; */
 }
 
+.cartCheckbox {
+    display: block;
+    width: 25%;
+    margin-left: 6.6%;
+}
+
 mat-label, mat-datepicker-toggle {
     color: #f1b82d;
 }
