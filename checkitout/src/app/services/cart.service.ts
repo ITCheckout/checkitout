@@ -1,15 +1,24 @@
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+  constructor(private cookieService: CookieService) { 
+    let items = JSON.parse(this.cookieService.get('cart'));
+    console.log('items array' + JSON.stringify(items));
+  }
+
   items = [];
+
+  
+
 
   addToCart(product) {
     this.items.push(product);
+    console.log(this.items);
     this.cookieService.set('cart', JSON.stringify(this.items));
-    console.log(this.items)
   }
 
   getItems() {
@@ -20,5 +29,5 @@ export class CartService {
     this.items = [];
     return this.items;
   }
-  constructor(private cookieService: CookieService) { }
+
 }

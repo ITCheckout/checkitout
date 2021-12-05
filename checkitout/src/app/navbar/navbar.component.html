@@ -20,10 +20,6 @@
         </li>
     </ul>
 
-    <!-- <div *ngIf="userRole=='admin'" class="admin">
-        <button mat-button routerLink="/admin">Admin</button>
-    </div> -->
-
     <!-- <span class="spacer"></span> -->
     <div>
         <button mat-button routerLink="/login" *ngIf="!(afAuth.user | async); else noLogin">Login</button>
