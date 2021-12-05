@@ -15,7 +15,7 @@
         <h3><b>Storage:</b>  {{itemDoc.diskSpace}}</h3>
         <h3><b>Release Year:</b> {{itemDoc.releaseYear}}</h3>
         <h3><b>Location:</b> {{itemDoc.location}}</h3>
-        <button mat-raised-button>Add to Cart</button>
+        <button mat-raised-button (click)="addToCart(itemDoc)">Add to Cart</button>
     </div>
 </div>
 
@@ -26,6 +26,6 @@
         <h3><b>Category:</b>  {{itemDoc.categoryName}}</h3>
         <h3><b>Model:</b>  {{itemDoc.model}}</h3>
         <h3><b>Info:</b>  {{itemDoc.description}}</h3>
-        <button mat-raised-button>Add to Cart</button>
+        <button mat-raised-button (click)="addToCart(itemDoc)">Add to Cart</button>
     </div>
 </ng-template>
