@@ -35,3 +35,21 @@ img {
     top: 0.5px;
     bottom: 0%;
 }
+
+@media (max-width: 1200px) {
+    #columns {
+        margin-left: 65%;
+    }
+}
+
+@media (max-width: 1200px) {
+    #columns {
+        margin-left: 55%;
+    }
+}
+
+@media (max-width: 768px) {
+    #columns {
+        display: none;
+    }
+}

@@ -1,12 +1,10 @@
-/* Whole page */
-.container {
-    position: relative;
-}
+#checkoutHeader {
+    margin-top: 3%;
+    margin-bottom: 1.5%;
+    margin-left: 5%;
 
-.row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    font-family: "GOTHAM-BOLD";
+    font-size: 500%;
 }
 
 hr {
@@ -14,25 +12,49 @@ hr {
     width: 90%;
 }
 
-/* headerContainer */
-.headerContainer {
-    margin-top: 3vw;
-    margin-left: 5vw;
+.filterContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-.checkoutHeader {
-    font-family: "GOTHAM-BOLD";
-    font-size: 500%;
-}
-
-/* filterContainer */
 .filterForm {
     padding: 5px;
     background-color: lightgray;
 }
 
-/* inventoryContainer */
-.itemContainer {
-    margin: 5px;
+.inventoryContainer {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
+.itemCard {
+    margin: 10px 10px;
+    width: 250px;
+    height: 400px;
+}
+
+.imgContainer {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+img {
+    transform: scale(0.75);
+}
+
+mat-card-actions {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    #checkoutHeader {
+        margin-top: 5%;
+        margin-bottom: 3%;
+    }
+}

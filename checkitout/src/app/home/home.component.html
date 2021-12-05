@@ -9,18 +9,29 @@
         <div class="inventoryInfo">
             <div class="inventoryItem">
                 <p class="inventoryDevice">Mid 2017 MacBook Pro</p>
-                <p class="inventoryAvailable">{{ mbp2017[0] }} Available</p>
-                <p class="inventoryOut">{{ mbp2017[1] }} Out</p>
+                <div class="countContainer">
+                    <p class="inventoryAvailable"><span class="inventoryAvailableCount">{{ mbp2017[0] }}</span>
+                        Available
+                    </p>
+                    <p class="inventoryOut"><span class="inventoryOutCount">{{ mbp2017[1] }}</span> Out</p>
+                </div>
             </div>
             <div class="inventoryItem">
                 <p class="inventoryDevice">Dell Latitude 5580</p>
-                <p class="inventoryAvailable">{{ dell[0] }} Available</p>
-                <p class="inventoryOut">{{ dell[1] }} Out</p>
+                <div class="countContainer">
+                    <p class="inventoryAvailable"><span class="inventoryAvailableCount">{{ dell[0] }}</span> Available
+                    </p>
+                    <p class="inventoryOut"><span class="inventoryOutCount">{{ dell[1] }}</span> Out</p>
+                </div>
             </div>
             <div class="inventoryItem">
                 <p class="inventoryDevice">Mid 2015 MacBook Pro</p>
-                <p class="inventoryAvailable">{{ mbp2015[0] }} Available</p>
-                <p class="inventoryOut">{{ mbp2015[1] }} Out</p>
+                <div class="countContainer">
+                    <p class="inventoryAvailable"><span class="inventoryAvailableCount">{{ mbp2015[0] }}</span>
+                        Available
+                    </p>
+                    <p class="inventoryOut"><span class="inventoryOutCount">{{ mbp2015[1] }}</span> Out</p>
+                </div>
             </div>
         </div>
 

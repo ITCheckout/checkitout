@@ -1,4 +1,94 @@
-body {
+#aboutHeader {
+    margin-top: 3%;
+    margin-bottom: 1.5%;
+    margin-left: 5%;
+
+    font-family: "GOTHAM-BOLD";
+    font-size: 500%;
+}
+
+hr {
+    border: 2.5px solid black;
+    width: 90%;
+}
+
+.bodyContainer {
+    margin-top: 10%;
+    margin-left: 12.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.material-icons-outlined {
+    transform: scale(20);
+}
+
+.aboutInfoContainer {
+    margin-left: 10%;
+}
+
+.contactHeader {
+    font-family: "GOTHAM-MEDIUM";
+}
+
+p {
+    font-family: "GOTHAM-BOOK";
+}
+
+@media (min-width: 1800px) {
+    .material-icons-outlined {
+        transform: scale(25);
+    }
+}
+
+@media (max-width: 1550px) {
+    .bodyContainer {
+        margin-top: 15%;
+        margin-left: 0%;
+        flex-direction: column;
+    }
+
+    .iconContainer {
+        margin-bottom: 15%;
+    }
+
+    .aboutInfoContainer {
+        margin-left: 0%;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .material-icons-outlined {
+        transform: scale(15);
+    }
+
+    .aboutInfoContainer {
+        margin-left: 0%;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 800px) {
+    .bodyContainer {
+        margin-top: 20%;
+    }
+
+    .material-icons-outlined {
+        transform: scale(10);
+    }
+}
+
+@media (max-width: 768px) {
+    #aboutHeader {
+        margin-top: 5%;
+        margin-bottom: 3%;
+    }
+}
+
+/* body {
     position: relative;
 }
 
@@ -22,20 +112,21 @@ body {
 .aboutHeader {
     margin-bottom: 5%;
     font-family: "GOTHAM-BOLD";
-    /* font-weight: bold; */
+    font-weight: bold;
     font-size: 500%;
 }
 
 .contactHeader {
     font-family: "GOTHAM-MEDIUM";
-    /* font-weight: bold; */
+    font-weight: bold;
     font-size: 150%;
 }
 
 p {
     font-family: "GOTHAM-BOOK";
     font-size: 125%;
-}
+} */
+
 /* .title {
     position: absolute;
     width: 100px;
