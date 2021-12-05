@@ -52,41 +52,9 @@ mat-card-actions {
     text-align: center;
 }
 
-/* Whole page */
-/* .container {
-    position: relative;
+@media (max-width: 768px) {
+    #checkoutHeader {
+        margin-top: 5%;
+        margin-bottom: 3%;
+    }
 }
-
-.row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-hr {
-    border: 2.5px solid black;
-    width: 90%;
-} */
-
-/* headerContainer */
-/* .headerContainer {
-    margin-top: 3vw;
-    margin-left: 5vw;
-}
-
-.checkoutHeader {
-    font-family: "GOTHAM-BOLD";
-    font-size: 500%;
-} */
-
-/* filterContainer */
-/* .filterForm {
-    padding: 5px;
-    background-color: lightgray;
-} */
-
-/* inventoryContainer */
-/* .itemContainer {
-    margin: 5px;
-} */
-

@@ -1,12 +1,23 @@
 <div class="cartContainer">
     <h1 id="cartHeader">Cart</h1>
-    <hr>
 
-    <div>
 
+
+    <!-- IF Model is a laptop-->
+    <div class="itemContainer" *ngFor="let item of items">
+        <div id="img">
+            <img src="{{item.imagePath}}">
+        </div>
+        <div id="content">
+            <h3><b>LAPTOP SPECS</b></h3>
+            <h3><b>Screen Size:</b>  {{item.screenSize}}</h3>
+            <h3><b>Storage:</b>  {{item.diskSpace}}</h3>
+            <h3><b>Release Year:</b> {{item.releaseYear}}</h3>
+            <h3><b>Location:</b> {{item.location}}</h3>
+        </div>
     </div>
 </div>
-
+<br>
 <div class="pickupContainer">
     <h2 id="pickupHeader">Pick-up Information</h2>
     <hr>
