@@ -25,7 +25,7 @@
     </div> -->
 
     <!-- <span class="spacer"></span> -->
-    <div>
+    <div id="rightSide">
         <button mat-button routerLink="/login" *ngIf="!(afAuth.user | async); else noLogin">Login</button>
         <ng-template #noLogin>
             <button mat-button (click)="logout()">Logout</button>

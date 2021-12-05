@@ -1,5 +1,59 @@
+#checkoutHeader {
+    margin-top: 3%;
+    margin-bottom: 1.5%;
+    margin-left: 5%;
+
+    font-family: "GOTHAM-BOLD";
+    font-size: 500%;
+}
+
+hr {
+    border: 2.5px solid black;
+    width: 90%;
+}
+
+.filterContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.filterForm {
+    padding: 5px;
+    background-color: lightgray;
+}
+
+.inventoryContainer {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.itemCard {
+    margin: 10px 10px;
+    width: 250px;
+    height: 400px;
+}
+
+.imgContainer {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+img {
+    transform: scale(0.75);
+}
+
+mat-card-actions {
+    text-align: center;
+}
+
 /* Whole page */
-.container {
+/* .container {
     position: relative;
 }
 
@@ -12,10 +66,10 @@
 hr {
     border: 2.5px solid black;
     width: 90%;
-}
+} */
 
 /* headerContainer */
-.headerContainer {
+/* .headerContainer {
     margin-top: 3vw;
     margin-left: 5vw;
 }
@@ -23,16 +77,16 @@ hr {
 .checkoutHeader {
     font-family: "GOTHAM-BOLD";
     font-size: 500%;
-}
+} */
 
 /* filterContainer */
-.filterForm {
+/* .filterForm {
     padding: 5px;
     background-color: lightgray;
-}
+} */
 
 /* inventoryContainer */
-.itemContainer {
+/* .itemContainer {
     margin: 5px;
-}
+} */
 
