@@ -127,4 +127,39 @@ export class DatabaseService {
     return uniqueModelList;
   }
 
+  getItemCount(item) {
+    var queryResult;
+    var availableCount = 0;
+    var unavailableCount = 0;
+    var count = [];
+
+
+    queryResult = this.firestore.collection('items', ref => ref.where('model', '==', item)).valueChanges();
+
+      queryResult.subscribe(data => {
+        data.forEach(element => {
+          if(element.status == "available") {
+            availableCount++;
+          } else if (element.status == "unavailable") {
+            unavailableCount++;
+          }
+          else {
+            console.log('item removed from service');
+          }
+        });
+      });
+
+      setTimeout(() => {
+        count.push(availableCount);
+        count.push(unavailableCount);
+      }, 1000);
+    
+      console.log(count);
+    return count;    
+  }
+
+
+  getItem(item) {
+    return this.firestore.collection('items', ref => ref.where('model', '==', item)).valueChanges();
+  }
 }

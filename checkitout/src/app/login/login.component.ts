@@ -36,38 +36,48 @@ export class LoginComponent {
 
     //This function creates a promise (that will be resolved when the user's role is found)
     //This is needed because this function needs to run first, then the Firebase Authentication can run only AFTER the promise is resolved
-    getRole() {
-      const promise = new Promise((resolve, reject) => {
+    async getRole() {
+      return  new Promise(async (resolve, reject) => {
         const {pawprint, password} = this.loginForm.value;
-        this.usersService.getUser(pawprint).subscribe(user => {
+        this.usersService.getUser(pawprint).subscribe(async user => {
+          this.userRole;
           this.userRole = user;
+          //do once the promise is resolved
+          resolve("success");
         })
-        resolve("success");
-        })
-        return promise
+
+        }).then(() => {
+            this.onLogin();
+        }
+        
+ 
+      )
     }
-    onLogin(){
+    async onLogin(){
       this.loginError = "";
+
       if(this.loginForm.valid){
-        this.getRole().then(() => {
+        //return a promise to wait for the user's role to be found
           const {pawprint, password} = this.loginForm.value;
         const schoolEmail = pawprint + "@umsystem.edu";
         const auth = getAuth();
-        signInWithEmailAndPassword(auth,schoolEmail, password).then((result) => {
+
+        signInWithEmailAndPassword(auth,schoolEmail, password).then(async (result) => {
           //if the email is verfiied, then the user can login
           if(result.user.emailVerified !== true){
             this.loginError = "Please validate the email address before logging in.";
             //break from function
             return;
           }
-          console.log(result.user);
-          // console.log("Firebase Login")
          const dateNow = new Date();
          dateNow.setMinutes(dateNow.getMinutes() + 60);
-        this.cookieService.set('userRole', this.userRole.role, dateNow);
-          this.router.navigate(['']).then(() => {
-            window.location.reload();
-          });
+
+     //wait to set cookie until the user's role is found
+            // console.log("Role gotten");
+            // console.log(this.userRole);
+            this.cookieService.set('userRole', this.userRole.role, dateNow);
+   
+          this.router.navigate([''])
         }).catch((error) => {
           switch (error.code) {
             case "auth/invalid-email":
@@ -87,7 +97,6 @@ export class LoginComponent {
             }
        }
         });
-        })
       }else {
         this.loginError = "Please fill pawprint and password fields.";
       }
@@ -95,7 +104,7 @@ export class LoginComponent {
 
     handleKeyUp(event) {
       if (event.keyCode === 13) {
-        this.onLogin();
+        this.getRole();
       }
     }
 }

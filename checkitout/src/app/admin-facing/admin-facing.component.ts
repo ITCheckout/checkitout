@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MatTabsModule } from '@angular/material/tabs';
 
 interface Category {
@@ -15,9 +16,19 @@ export class AdminFacingComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private afAuth: AngularFireAuth) { }
 
   ngOnInit(): void {
+    //log if user is logged in
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        console.log(user);
+      } else {
+        console.log('not logged in');
+      }
+    });
+
+    console.log(this.afAuth.currentUser);
   }
 
   selectedValue: string | undefined;

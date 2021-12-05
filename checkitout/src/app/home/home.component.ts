@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,22 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private databaseService: DatabaseService) { }
+
+  mbp2015 = [];
+  mbp2015Available = 0;
+  mbp2015Unavailable = 0;
+  mbp2017 = [];
+  mbp2017Available = 0;
+  mbp2017Unavailable = 0;
+  dell = [];
+  dellAvailable = 0;
+  dellUnavailable = 0;
 
   ngOnInit(): void {
+    this.mbp2015 = this.databaseService.getItemCount('Mid 2015 MacBook Pro');
+    this.mbp2017 = this.databaseService.getItemCount('Mid 2017 MacBook Pro');
+    this.dell = this.databaseService.getItemCount('Dell Latitude 5580');
   }
 
 }

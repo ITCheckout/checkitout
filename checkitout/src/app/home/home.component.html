@@ -1,77 +1,58 @@
 <body>
     <img id="pageTear" src="assets/MU-Brand-PageTear-Horiz-1920px.png">
-    <div fxLayout="column" fxLayoutGap="1vw" class="container">
-        <div fxLayout="row" class="inventory">
-            <div fxLayoutAlign="center" fxFill>
-                <h3 class="inventoryHeader">Popular Items</h3>
+    <div class="container">
+
+        <div class="inventory">
+            <h3 class="inventoryHeader">Popular Items</h3>
+        </div>
+
+        <div class="inventoryInfo">
+            <div class="inventoryItem">
+                <p class="inventoryDevice">Mid 2017 MacBook Pro</p>
+                <p class="inventoryAvailable">{{ mbp2017[0] }} Available</p>
+                <p class="inventoryOut">{{ mbp2017[1] }} Out</p>
+            </div>
+            <div class="inventoryItem">
+                <p class="inventoryDevice">Dell Latitude 5580</p>
+                <p class="inventoryAvailable">{{ dell[0] }} Available</p>
+                <p class="inventoryOut">{{ dell[1] }} Out</p>
+            </div>
+            <div class="inventoryItem">
+                <p class="inventoryDevice">Mid 2015 MacBook Pro</p>
+                <p class="inventoryAvailable">{{ mbp2015[0] }} Available</p>
+                <p class="inventoryOut">{{ mbp2015[1] }} Out</p>
             </div>
         </div>
 
-        <div fxLayout="row" class="inventoryInfo">
-            <div fxFlex fxLayoutAlign="center" class="inventoryItem, row">
-                <div>
-                    <p class="inventoryDevice">MacBook Pro 15"</p>
-                    <p class="inventoryOut">Out</p>
-                    <p class="inventoryAvailable">Available</p>
-                </div>
-            </div>
-            <div fxFlex fxLayoutAlign="center" class="inventoryItem, row">
-                <div>
-                    <p class="inventoryDevice">Dell Latitude 5580</p>
-                    <p class="inventoryOut">Out</p>
-                    <p class="inventoryAvailable">Available</p>
-                </div>
-            </div>
-            <div fxFlex fxLayoutAlign="center" class="inventoryItem, row">
-                <div>
-                    <p class="inventoryDevice">Canon C200</p>
-                    <p class="inventoryOut">Out</p>
-                    <p class="inventoryAvailable">Available</p>
-                </div>
-            </div>
+        <div class="quickCheckout">
+            <h3 class="quickCheckoutHeader">Quick Checkout</h3>
+            <h4 class="quickCheckoutSubHeader">Apply filter to quickly view inventory</h4>
         </div>
 
-        <div fxLayout="row">
-            <div fxLayoutAlign="center" fxFill>
-                <div class="quickCheckout">
-                    <h3 class="quickCheckoutHeader">Quick Checkout</h3>
-                    <h4 class="quickCheckoutSubHeader">Apply filter to quickly view inventory</h4>
-                </div>
+        <div class="quickCheckoutButtonsContainer">
+            <div>
+                <button mat-raised-button class="quickCheckoutButtons" routerLink="/checkout" color="black">
+                    <span class="material-icons-outlined">computer</span>
+                </button>
+                <p class="quickCheckoutButtonsLabels">Computers</p>
             </div>
-        </div>
-
-        <div fxLayout="row" class="quickCheckoutButtonsContainer">
-            <div fxFlex fxLayoutAlign="center" id="buttonOne">
-                <div>
-                    <button mat-raised-button class="quickCheckoutButtons" routerLink="/checkout" color="black">
-                        <span class="material-icons-outlined">computer</span>
-                    </button>
-                    <p class="quickCheckoutButtonsLabels">Computers</p>
-                </div>
+            <div>
+                <button mat-raised-button class="quickCheckoutButtons" routerLink="/checkout" color="black">
+                    <span class="material-icons-outlined">photo_camera</span>
+                </button>
+                <p class="quickCheckoutButtonsLabels">Cameras</p>
             </div>
-            <div fxFlex fxLayoutAlign="center" id="buttonTwo">
-                <div>
-                    <button mat-raised-button class="quickCheckoutButtons" routerLink="/checkout" color="black">
-                        <span class="material-icons-outlined">photo_camera</span>
-                    </button>
-                    <p class="quickCheckoutButtonsLabels">Cameras</p>
-                </div>
+            <div>
+                <button mat-raised-button class="quickCheckoutButtons" routerLink="/checkout" color="black">
+                    <span class="material-icons-outlined">mic_none</span>
+                </button>
+                <p class="quickCheckoutButtonsLabels">Microphones</p>
             </div>
-            <div fxFlex fxLayoutAlign="center" id="buttonThree">
-                <div>
-                    <button mat-raised-button class="quickCheckoutButtons" routerLink="/checkout" color="black">
-                        <span class="material-icons-outlined">mic_none</span>
-                    </button>
-                    <p class="quickCheckoutButtonsLabels">Microphones</p>
-                </div>
-            </div>
-            <div fxFlex fxLayoutAlign="center" id="buttonFour">
-                <div>
-                    <button mat-raised-button class="quickCheckoutButtons" routerLink="/checkout" color="black">
-                        <span class="material-icons-outlined">inventory_2</span>
-                    </button>
-                    <p class="quickCheckoutButtonsLabels">All Inventory</p>
-                </div>
+            <div>
+                <button mat-raised-button class="quickCheckoutButtons" routerLink="/checkout" color="black">
+                    <span class="material-icons-outlined">inventory_2</span>
+                </button>
+                <p class="quickCheckoutButtonsLabels">All Inventory</p>
             </div>
         </div>
     </div>
