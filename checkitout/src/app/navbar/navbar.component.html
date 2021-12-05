@@ -20,17 +20,13 @@
         </li>
     </ul>
 
-    <!-- <div *ngIf="userRole=='admin'" class="admin">
-        <button mat-button routerLink="/admin">Admin</button>
-    </div> -->
-
     <!-- <span class="spacer"></span> -->
     <div id="rightSide">
         <button mat-button routerLink="/login" *ngIf="!(afAuth.user | async); else noLogin">Login</button>
         <ng-template #noLogin>
             <button mat-button (click)="logout()">Logout</button>
         </ng-template>
-        <button mat-button routerLink="/cart" id="cart">
+        <button mat-button routerLink="cart" id="cart">
             <mat-icon aria-hidden="false" aria-label="Shopping Cart">shopping_cart</mat-icon>
         </button>
     </div>

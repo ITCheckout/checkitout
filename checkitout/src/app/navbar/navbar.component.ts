@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 import { LoginComponent } from '../login/login.component';
 import { CookieService } from 'ngx-cookie-service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,15 +21,22 @@ export class NavbarComponent implements OnInit {
     private _snackBar: MatSnackBar, 
     private loginComponent: LoginComponent, 
     private cookieService: CookieService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private cartService: CartService) { 
+    }
 
   userRole;
+  itemsInCart;
   ngOnInit(): void {
     this.userRole = this.cookieService.get('userRole');
+    console.log(this.userRole);
     if(!this.userRole){
       this.afAuth.signOut();
     }
+    
   }
+
+
 
 
   logout(){

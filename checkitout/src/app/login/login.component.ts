@@ -40,8 +40,9 @@ export class LoginComponent {
       return  new Promise(async (resolve, reject) => {
         const {pawprint, password} = this.loginForm.value;
         this.usersService.getUser(pawprint).subscribe(async user => {
-          this.userRole;
+          userRole: user;
           this.userRole = user;
+          console.log(this.userRole);
           //do once the promise is resolved
           resolve("success");
         })
@@ -77,7 +78,9 @@ export class LoginComponent {
             // console.log(this.userRole);
             this.cookieService.set('userRole', this.userRole.role, dateNow);
    
-          this.router.navigate([''])
+          this.router.navigate(['']).then(() => {
+            window.location.reload();
+          });
         }).catch((error) => {
           switch (error.code) {
             case "auth/invalid-email":
@@ -105,6 +108,9 @@ export class LoginComponent {
     handleKeyUp(event) {
       if (event.keyCode === 13) {
         this.getRole();
+        this.getRole();
       }
     }
+
+    redirectTo(uri:string){}
 }
