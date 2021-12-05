@@ -1,5 +1,16 @@
+<div class="titleContainer">
+    <div class="nameContainer">
+        <h1 id="nameHeader">{{itemDoc.model}}</h1>
+    </div>
+    <div class="countContainer">
+        <p class="count"><b>{{ itemCount[0] }}</b> Available</p>
+        <p class="count"><b class="gold">{{ itemCount[1] }}</b> Out</p>
+    </div>
+</div>
+<hr>
+
 <div id="title">
-    <span id="item"><b>{{itemDoc.model}}</b></span>
+    <h1 id="item">{{itemDoc.model}}</h1>
     <span class="spacer"></span>
     <span class="count"><b>{{ itemCount[0] }}</b> Available</span>
     <span class="count"><b class="gold">{{ itemCount[1] }}</b> Out</span>
@@ -11,8 +22,8 @@
 <div *ngIf="itemDoc.categoryName=='Laptops' else noLaptop">
     <div id="content">
         <h3><b>LAPTOP SPECS</b></h3>
-        <h3><b>Screen Size:</b>  {{itemDoc.screenSize}}</h3>
-        <h3><b>Storage:</b>  {{itemDoc.diskSpace}}</h3>
+        <h3><b>Screen Size:</b> {{itemDoc.screenSize}}</h3>
+        <h3><b>Storage:</b> {{itemDoc.diskSpace}}</h3>
         <h3><b>Release Year:</b> {{itemDoc.releaseYear}}</h3>
         <h3><b>Location:</b> {{itemDoc.location}}</h3>
         <button mat-raised-button>Add to Cart</button>
@@ -23,9 +34,9 @@
 <ng-template #noLaptop>
     <div id="content">
         <h3><b>SPECS</b></h3>
-        <h3><b>Category:</b>  {{itemDoc.categoryName}}</h3>
-        <h3><b>Model:</b>  {{itemDoc.model}}</h3>
-        <h3><b>Info:</b>  {{itemDoc.description}}</h3>
+        <h3><b>Category:</b> {{itemDoc.categoryName}}</h3>
+        <h3><b>Model:</b> {{itemDoc.model}}</h3>
+        <h3><b>Info:</b> {{itemDoc.description}}</h3>
         <button mat-raised-button>Add to Cart</button>
     </div>
 </ng-template>
