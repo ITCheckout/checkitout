@@ -6,12 +6,15 @@ import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 })
 export class CartService {
   constructor(private cookieService: CookieService) { 
-    // let items = JSON.parse(this.cookieService.get('cart'));
+
   }
+
 
   items = [];
 
-  
+  ngOnInit() {
+
+  }
 
 
   addToCart(product) {
@@ -27,6 +30,15 @@ export class CartService {
   clearCart() {
     this.items = [];
     return this.items;
+  }
+
+  deleteItem(product) {
+    console.log(product);
+    this.items.splice(this.items.indexOf(product));
+    this.items = [...this.items];
+    this.cookieService.set('cart', JSON.stringify(this.items));
+    console.log("item deleted")
+    console.log(this.items);
   }
 
 }
