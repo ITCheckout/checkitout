@@ -24,7 +24,6 @@ export class UsersService {
   }
 
   async setUser(data: any) {
-    console.log("Data Written")
     await this.firestore
       .collection(`users`).doc(data.pawprint).set(data)
   }

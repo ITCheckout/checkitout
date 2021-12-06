@@ -42,7 +42,6 @@ export class LoginComponent {
         this.usersService.getUser(pawprint).subscribe(async user => {
           userRole: user;
           this.userRole = user;
-          console.log(this.userRole);
           //do once the promise is resolved
           resolve("success");
         })
@@ -88,14 +87,12 @@ export class LoginComponent {
             case "auth/user-not-found":
             {
                this.loginError = "Wrong email address or password.";
-               console.log(this.loginError);
                break;
             }
             default:
             {
                 this.loginError = "Unexpected Error";
-                console.log(this.loginError);
-                console.log(error);
+
                 break;
             }
        }

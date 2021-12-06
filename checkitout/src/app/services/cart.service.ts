@@ -19,7 +19,7 @@ export class CartService {
 
   addToCart(product) {
     this.items.push(product);
-    console.log(this.items);
+    // console.log(this.items);
     this.cookieService.set('cart', JSON.stringify(this.items));
   }
 
@@ -28,17 +28,18 @@ export class CartService {
   }
 
   clearCart() {
-    this.items = [];
-    return this.items;
+    this.cookieService.delete('cart');
   }
 
   deleteItem(product) {
-    console.log(product);
-    this.items.splice(this.items.indexOf(product));
-    this.items = [...this.items];
+    // console.log(product);
+    //delete index from items array collection
+    const index = this.items.findIndex(item => item.id === product.id);
+    //remove item from cart
+    this.items.splice(index, 1);
     this.cookieService.set('cart', JSON.stringify(this.items));
-    console.log("item deleted")
-    console.log(this.items);
+    // console.log("item deleted")
+    // console.log(this.items);
   }
 
 }

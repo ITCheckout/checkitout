@@ -20,7 +20,6 @@ export class ItemComponent implements OnInit {
 
   ngOnInit(): void {
     const itemName = this.route.snapshot.paramMap.get('model');
-    console.log(itemName);
     this.databaseService.getModel(itemName).subscribe(data => {
       // console.log(data[0]);
       this.itemDoc = data[0];
@@ -33,7 +32,7 @@ export class ItemComponent implements OnInit {
   addToCart(item) {
     this.cartService.addToCart(item);
     window.alert('Your item,' + item.model + 'has been added to the cart!');
-    console.log(item);
+    // console.log(item);
   }
 
 }

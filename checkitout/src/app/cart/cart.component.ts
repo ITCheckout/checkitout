@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class CartComponent implements OnInit {
   // items = this.cartService.getItems();
   public items = [];
+   noItems: boolean;
   private subscription: Subscription
 
   constructor(
@@ -21,11 +22,22 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.cartService.getItems();
-    console.log("items", this.items);
+    // console.log("items", this.items);
+    if(this.items.length == 0) {
+      this.noItems = true
+    } else {
+      this.noItems = false
+    }
+    // console.log("noItems", this.noItems);
   }
 
   deleteItem(item) {
     this.cartService.deleteItem(item);
     // window.location.reload();
+  }
+
+  clearCart() {
+    this.cartService.clearCart();
+    window.location.reload();
   }
 }

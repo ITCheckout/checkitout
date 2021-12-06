@@ -4,7 +4,7 @@
 
 
     <!-- IF Model is a laptop-->
-<div class="itemContainer" *ngFor="let item of items">
+<div class="itemContainer" *ngFor="let item of items;let indexOfelement=index">
     <div id="img">
         <img src="{{item.imagePath}}">
     </div>
@@ -28,10 +28,15 @@
             <h3><b>Model:</b> {{item.model}}</h3>
             <h3><b>Info:</b> {{item.description}}</h3>
         </div>
-        <button mat-button id="delete">
-            <mat-icon aria-hidden="false" aria-label="Shopping Cart" (click)="deleteItem(item)">delete</mat-icon>
-        </button>
+            <button mat-button id="delete">
+                <mat-icon aria-hidden="false" aria-label="Shopping Cart" (click)="deleteItem(item)">delete</mat-icon>
+            </button>
     </ng-template>
+</div>
+<div *ngIf="noItems != true" >
+    <button id="clear" mat-button (click)="clearCart()">
+        Clear Cart
+    </button>
 </div>
 <br>
 <div class="pickupContainer">

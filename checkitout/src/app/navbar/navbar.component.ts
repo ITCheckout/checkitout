@@ -29,7 +29,6 @@ export class NavbarComponent implements OnInit {
   itemsInCart;
   ngOnInit(): void {
     this.userRole = this.cookieService.get('userRole');
-    console.log(this.userRole);
     if(!this.userRole){
       this.afAuth.signOut();
     }
