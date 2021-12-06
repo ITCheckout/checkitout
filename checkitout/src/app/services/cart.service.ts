@@ -6,8 +6,7 @@ import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 })
 export class CartService {
   constructor(private cookieService: CookieService) { 
-    let items = JSON.parse(this.cookieService.get('cart'));
-    console.log('items array' + JSON.stringify(items));
+    // let items = JSON.parse(this.cookieService.get('cart'));
   }
 
   items = [];
