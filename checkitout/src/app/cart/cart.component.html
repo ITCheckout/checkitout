@@ -73,4 +73,10 @@
     </div>
     <label for="cartCheckbox" class="cartCheckbox">Please accept the <a href="/assets/waiver.pdf" target="_blank">waiver terms</a>.</label>
     <input type="checkbox" id="cartCheckbox" name="cartCheckbox" value="checkbox" class="cartCheckbox" required>
+
+    <div *ngIf="noItems != true" >
+        <button id="clear" mat-button>
+            Checkout
+        </button>
+    </div>
 </div>
