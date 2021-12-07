@@ -20,7 +20,8 @@ hr {
 
 .filterForm {
     padding: 5px;
-    background-color: lightgray;
+    background-color: #D7D7D7;
+    border-radius: 10px;
 }
 
 .inventoryContainer {

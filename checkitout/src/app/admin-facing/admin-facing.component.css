@@ -1,9 +1,70 @@
-body {
-    display: block;
+#pageTear {
+    position: absolute;
+    
+    transform: rotate(180deg);
+    width: 100%;
+    max-height: 55%;
 }
 
-/* Current Inventory Div */
+.container {
+    position: relative;
+}
+
+h3 {
+    font-family: "GOTHAM-BOLD";
+}
+
+/* Popular Items Div */
 .inventory {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inventoryHeader {
+    margin: 50px auto;
+    font-size: 3em;
+    color: #f1b82d;
+}
+
+.inventoryInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.inventoryDevice {
+    font-family: "GOTHAM-MEDIUM";
+    font-size: 2em;
+    color: white;
+}
+
+.countContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inventoryOut, .inventoryAvailable {
+    font-family: "GOTHAM-BOOK";
+    font-size: 1.5em;
+    color: white;
+}
+
+.inventoryAvailableCount, .inventoryOutCount {
+    font-family: "GOTHAM-BOLD";
+}
+
+.inventoryAvailableCount {
+    color: #f1b82d;
+}
+
+/* body {
+    display: block;
+} */
+
+/* Current Inventory Div */
+/* .inventory {
     position: relative;
     height: 300px;
 }
@@ -21,7 +82,6 @@ body {
     transform: translate(-50%, -50%);
 
     font-family: "GOTHAM-BOLD";
-    /* font-weight: bold; */
     font-size: 250%;
     color: #f1b82d;
 }
@@ -42,250 +102,71 @@ body {
 
 .inventoryDevice {
     font-family: "GOTHAM-MEDIUM";
-    /* font-weight: normal; */
     font-size: 150%;
     color: white;
 }
 
 .inventoryOut, .inventoryAvailable {
     font-family: "GOTHAM-BOOK";
-    /* font-weight: lighter; */
     font-size: 125%;
     color: white;
-}
+} */
 
-.hr {
+/* .hr {
     border: 2px solid #000000;
-}
+} */
 
 
-.mat-tab-group {
+/* .mat-tab-group {
     margin-bottom: 50%;
 
     font-family: "GOTHAM-BOLD";
-    /* font-weight: bold; */
     font-size: 250%;
     color: black;
-}
+} */
 
-.inventoryTabs {
+/* .inventoryTabs {
     position: relative;
     top: 5em;
     width: 100%;
-}
+} */
 
-.mat-tab-group {
+/* .mat-tab-group {
     margin-bottom: 50%;
 }
 
 .mat-tab {
     font-family: "GOTHAM-MEDIUM";
+} */
+
+/* Admin Header */
+.adminHeaderContainer {
+    margin-top: 7.5%;
 }
 
- /* Test */
-.macbook16 {
-    position: relative;
-    left: 57%;
-    top: 13%;
-    white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
-    font-size: 120%;
-    font-weight: 900s;
-    color: #000000;
-}
-img[computerOne] {
-    position: relative;
-    width: 18%;
-    height: 22%;
-    left: 30%;
-    top: 30%;
-}
-.macbook16CPU {
-    position: relative;
-    left: 59%;
-    top: 17%;
-    white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
-    font-size: 105%;
-    color: #000000;
-}
-.macbook16GPU {
-    position: relative;
-    left: 59%;
-    top: 20%;
-    white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
-    font-size: 105%;
-    color: #000000;
-}
-.macbook16Memory {
-    position: relative;
-    left: 59%;
-    top: 23%;
-    white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
-    font-size: 105%;
-    color: #000000;
-}
-.macbook16Storage {
-    position: relative;
-    left: 59%;
-    top: 26%;
-    white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
-    font-size: 105%;
-    color: #000000;
+.adminHeader {
+    font-size: 3em;
+    text-align: center;
 }
 
-.macbook13 {
-    position: relative;
-    left: 57%;
-    top: 37%;
-    white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
-    font-size: 120%;
-    font-weight: 900;
-    color: #000000;
-    }
- img[computerTwo] {
-        position: relative;
-    width: 18%;
-    height: 22%;
-    left: 30%;
-    top: 33.5%;
-    }
-.macbook13CPU {
-    position: absolute;
-    left: 59%;
-    top: 41%;
-    white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
-    font-size: 105%;
-      color: #000000;
-    }
-.macbook13GPU {
-    position: absolute;
-    left: 59%;
-    top: 44%;
-    white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
-    font-size: 105%;
-    color: #000000;
-    }
-.macbook13Memory {
-    position: absolute;
-    left: 59%;
-    top: 47%;
-    white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
-    font-size: 105%;
-    color: #000000;
-    }
-.macbook13Storage {
-    position: absolute;
-    left: 59%;
-    top: 50%;
-    white-space: nowrap;
-    font-family: Gotham Medium;
-    font-style: normal;
-    font-size: 105%;
-    color: #000000;
-    }
-
-
-.dell15 {
-        position: relative;
-        left: 57%;
-        top: 65%;
-        white-space: nowrap;
-        font-family: Gotham Medium;
-        font-style: normal;
-        font-size: 120%;
-        font-weight: 900;
-        color: #000000;
-        }
-    img[computerThree] {
-        position: relative;
-        width: 18%;
-        height: 22%;
-        left: 30%;
-        top: 60%;
-        }
-        
-        .dell15CPU {
-                /* 2.6GHz 6-Core Intel Core i7 */
-        position: relative;
-        left: 59%;
-        top: 69%;
-        white-space: nowrap;
-        font-family: Gotham Medium;
-        font-style: normal;
-        font-size: 105%;
-    
-        /* identical to box height */
-        color: #000000;
-        }
-        
-        .dell15GPU {
-            /* 2.6GHz 6-Core Intel Core i7 */
-        position: relative;
-        left: 59%;
-        top: 72%;
-        white-space: nowrap;
-        font-family: Gotham Medium;
-        font-style: normal;
-        font-size: 105%;
-    
-        /* identical to box height */
-        color: #000000;
-        }
-        .dell15Memory {
-            /* 2.6GHz 6-Core Intel Core i7 */
-        position: relative;
-        left: 59%;
-        top: 75%;
-        white-space: nowrap;
-        font-family: Gotham Medium;
-        font-style: normal;
-        font-size: 105%;
-    
-        /* identical to box height */
-        color: #000000;
-        }
-        .dell15Storage {
-            /* 2.6GHz 6-Core Intel Core i7 */
-        position: relative;
-        left: 59%;
-        top: 78%;
-        white-space: nowrap;
-        font-family: Gotham Medium;
-        font-style: normal;
-        font-size: 105%;
-    
-        /* identical to box height */
-        color: #000000;
-        }
 /* Add Item tab */
 mat-form-field {
-    background-color: #7D7D7D;
-    border-radius: 25px;
+    background-color: #D7D7D7;
+    border-radius: 10px;
+    width: 300px;
 }
 
 mat-label {
-    color: #f1b82d;
+    color: black;
 }
 
 .initialForm {
-    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+
+    /* position: relative;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -293,34 +174,61 @@ mat-label {
     margin-top: 1em;
     margin-left: auto;
     margin-right: auto;
-    width: 25%;
+    width: 25%; */
 }
 
 .loadingForm {
-    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    /* position: relative;
     justify-content: center;
     column-count: 3;
     width: auto;
     display: grid;
     grid-template-columns: auto auto auto;
-    padding: 5px;
+    padding: 5px; */
+}
+
+.addItemBtn {
+    margin: 25px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    /* position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 10%; */
 }
 
 mat-form-field {
     margin: 1em;
 }
 
-.pickupContainer {
+
+.test {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+/* .pickupContainer {
     position: relative;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-}
+} */
 
 .daysForm {
     display: flex;
-    margin-right: auto;
-    margin-left: auto;
+    flex-direction: row;
+    justify-content: flex-end;
+    /* margin-right: auto;
+    margin-left: auto; */
 }
 
 .computerForm {
@@ -333,13 +241,7 @@ mat-form-field {
     text-align: center;
 }
 
-.addItemBtn {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: 10%;
-}
+
 
 .daysTo {
     height: 25px;
@@ -347,7 +249,39 @@ mat-form-field {
     margin-bottom: auto;
 }
 
-.adminHeader {
+/* .adminHeader {
     text-align: center;
     font-size: 20px;
+} */
+
+@media (min-width: 1800px) {
+    #pageTear {
+        max-height: 45%;
+    }
+}
+
+
+@media (max-width: 1300px) {
+    #pageTear {        
+        min-height: 100%;
+    }
+
+    .adminHeaderContainer {
+        margin-top: 7.5%;
+    }
+
+    .inventoryInfo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .inventoryItem {
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .adminHeaderContainer {
+        margin-top: 15%;
+    }
 }
