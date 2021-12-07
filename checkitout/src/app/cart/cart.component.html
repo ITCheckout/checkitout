@@ -57,6 +57,17 @@
             </mat-datepicker>
         </mat-form-field>
 
+        <form [formGroup]="cartForm" id="form">
+            <div class="center">
+              <mat-form-field appearance="fill" appearance="outline">
+                <input required type="text" matInput formControlName="pawprint" placeholder="Pawprint of User" id="text"/>
+              </mat-form-field>
+              <div *ngIf="pawprint?.invalid && pawprint?.touched">
+                <div class="error">Pawprint is Required</div>
+              </div>
+            </div>
+        </form>
+
         <mat-form-field appearance="fill" class="pickupForm">
             <mat-label>Enter a date range</mat-label>
             <mat-date-range-input [rangePicker]="rangePicker">
@@ -76,7 +87,7 @@
     <input type="checkbox" id="cartCheckbox" name="cartCheckbox" value="checkbox" class="cartCheckbox" required>
 
     <div *ngIf="noItems != true" >
-        <button id="clear" mat-button>
+        <button id="clear" mat-button (click)="getUser()">
             Checkout
         </button>
     </div>

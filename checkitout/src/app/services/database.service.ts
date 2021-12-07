@@ -162,4 +162,8 @@ export class DatabaseService {
   getItem(item) {
     return this.firestore.collection('items', ref => ref.where('model', '==', item)).valueChanges();
   }
+
+  getUser(pawprint) {
+    return this.firestore.collection('users').doc(pawprint).valueChanges();
+  }
 }
