@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
     <div id="logo">
         <img src="assets/MU_Stacked.png">
-        <span color="warn" id="navHeader" routerLink="">CheckItOut</span>
+        <span color="warn" id="navHeader" routerLink="" (click)='adminCheck()'>CheckItOut</span>
     </div>
 
     <!-- <span class="spacer"></span> -->
@@ -15,7 +15,7 @@
         <li>
             <button mat-button routerLink="/about">About</button>
         </li>
-        <li *ngIf="userRole=='admin'" class="admin">
+        <li *ngIf="isAdmin" class="admin">
             <button mat-button routerLink="/admin">Admin</button>
         </li>
     </ul>

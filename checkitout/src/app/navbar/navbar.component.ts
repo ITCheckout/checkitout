@@ -27,15 +27,22 @@ export class NavbarComponent implements OnInit {
 
   userRole;
   itemsInCart;
+  isAdmin;
   ngOnInit(): void {
     this.userRole = this.cookieService.get('userRole');
-    if(!this.userRole){
-      this.afAuth.signOut();
-    }
+    this.isAdmin = this.loginComponent.isAdmin;
+    console.log(this.isAdmin);
+
     
   }
 
-
+  adminCheck(){
+    if(this.isAdmin){
+      console.log("admin");
+    } else {
+      console.log("not admin");
+    }
+  }
 
 
   logout(){

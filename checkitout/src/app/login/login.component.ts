@@ -32,6 +32,7 @@ export class LoginComponent {
     //Login Form: https://www.youtube.com/watch?v=vAglCz1F96Y
     loginError = '';
     userRole;
+    isAdmin;
     user: User;
 
     //This function creates a promise (that will be resolved when the user's role is found)
@@ -75,7 +76,11 @@ export class LoginComponent {
      //wait to set cookie until the user's role is found
             // console.log("Role gotten");
             // console.log(this.userRole);
-            this.cookieService.set('userRole', this.userRole.role, dateNow);
+            // this.cookieService.set('userRole', this.userRole.role, dateNow);
+            if(this.userRole.role === "admin"){
+              this.isAdmin = true;
+              console.log("Admin");
+            }
    
           this.router.navigate(['']).then(() => {
             window.location.reload();
