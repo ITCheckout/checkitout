@@ -1,6 +1,9 @@
 {
   "dependencies": {
+    "@angular-devkit/core": "^13.0.4",
+    "@angular-devkit/schematics": "^13.0.4",
     "@angular/cdk": "^12.2.13",
-    "@angular/flex-layout": "^12.0.0-beta.35"
+    "@angular/flex-layout": "^12.0.0-beta.35",
+    "@schematics/angular": "^13.0.4"
   }
 }

@@ -1,68 +1,75 @@
 <img id="backgroundImg" src="assets/Jesse.jpeg">
-<mat-card class="example-card">
-<img id="MU" class="center" src="assets/MU_Stacked.png">
+
+<div class="signupContainer">
+  <mat-card class="example-card">
+    <img id="MU" class="center" src="assets/MU_Stacked.png">
     <mat-card-title class="center">CheckItOut</mat-card-title>
     <mat-card-content>
       <form [formGroup]="signUpForm">
         <div class="center">
-            <mat-form-field appearance="fill" appearance="outline">
-              <input type="text" matInput formControlName="fname" placeholder="First Name" (keyup)="handleKeyUp($event)"/>
-            </mat-form-field>
-            <div *ngIf="fname?.invalid && fname?.touched">
-              <div class="error">First Name is Required</div>
-            </div>
+          <mat-form-field appearance="fill" appearance="outline">
+            <input type="text" matInput formControlName="fname" placeholder="First Name"
+              (keyup)="handleKeyUp($event)" />
+          </mat-form-field>
+          <div *ngIf="fname?.invalid && fname?.touched">
+            <div class="error">First Name is Required</div>
           </div>
-          <div class="center">
-            <mat-form-field appearance="fill" appearance="outline">
-              <input type="text" matInput formControlName="lname" placeholder="Last Name" (keyup)="handleKeyUp($event)"/>
-            </mat-form-field>
-            <div *ngIf="lname?.invalid && lname?.touched">
-              <div class="error">Last Name is Required</div>
-            </div>
-          </div>
+        </div>
         <div class="center">
-        <mat-form-field appearance="fill" appearance="outline">
-          <input type="text" matInput formControlName="pawprint" placeholder="Pawprint" (keyup)="handleKeyUp($event)"/>
-        </mat-form-field>
-        <div *ngIf="pawprint?.invalid && pawprint?.touched">
-          <div class="error">Pawprint is Required</div>
+          <mat-form-field appearance="fill" appearance="outline">
+            <input type="text" matInput formControlName="lname" placeholder="Last Name" (keyup)="handleKeyUp($event)" />
+          </mat-form-field>
+          <div *ngIf="lname?.invalid && lname?.touched">
+            <div class="error">Last Name is Required</div>
+          </div>
         </div>
-      </div>
-      <div class="center">
-        <mat-form-field appearance="fill" appearance="outline">
-          <input type="password" matInput formControlName="password" placeholder="Choose Password" (keyup)="handleKeyUp($event)">
-        </mat-form-field>
-        <div *ngIf="password?.invalid && password?.touched">
-          <div class="error">Password is Required</div>
+        <div class="center">
+          <mat-form-field appearance="fill" appearance="outline">
+            <input type="text" matInput formControlName="pawprint" placeholder="Pawprint"
+              (keyup)="handleKeyUp($event)" />
+          </mat-form-field>
+          <div *ngIf="pawprint?.invalid && pawprint?.touched">
+            <div class="error">Pawprint is Required</div>
+          </div>
         </div>
-        <div *ngIf="f.password.errors?.minlength">
-          <div class="error">Password must be at least 6 characters</div>
+        <div class="center">
+          <mat-form-field appearance="fill" appearance="outline">
+            <input type="password" matInput formControlName="password" placeholder="Choose Password"
+              (keyup)="handleKeyUp($event)">
+          </mat-form-field>
+          <div *ngIf="password?.invalid && password?.touched">
+            <div class="error">Password is Required</div>
+          </div>
+          <div *ngIf="f.password.errors?.minlength">
+            <div class="error">Password must be at least 6 characters</div>
+          </div>
         </div>
-      </div>
-      <div class="center">
-        <mat-form-field appearance="fill" appearance="outline">
-          <input type="password" matInput formControlName="confirmPassword" placeholder="Confirm Password" (keyup)="handleKeyUp($event)">
-        </mat-form-field>
-        <div *ngIf="f.confirmPassword.errors?.required && confirmPassword?.touched">
-          <div class="error">Confirm Password is Required</div>
-        </div>
-        <div *ngIf="f.confirmPassword.errors?.minlength">
-          <div class="error">ConfirmPassword must be at least 6 characters</div>
-        </div>
-        <div *ngIf="f.confirmPassword.errors?.confirmedValidator">
-          <div class="error">Password and Confirm Password must match</div>
-        </div>
-        <!-- <div class="demo">Password: {{password?.value}}</div>
+        <div class="center">
+          <mat-form-field appearance="fill" appearance="outline">
+            <input type="password" matInput formControlName="confirmPassword" placeholder="Confirm Password"
+              (keyup)="handleKeyUp($event)">
+          </mat-form-field>
+          <div *ngIf="f.confirmPassword.errors?.required && confirmPassword?.touched">
+            <div class="error">Confirm Password is Required</div>
+          </div>
+          <div *ngIf="f.confirmPassword.errors?.minlength">
+            <div class="error">ConfirmPassword must be at least 6 characters</div>
+          </div>
+          <div *ngIf="f.confirmPassword.errors?.confirmedValidator">
+            <div class="error">Password and Confirm Password must match</div>
+          </div>
+          <!-- <div class="demo">Password: {{password?.value}}</div>
         <div class="demo">ConfirmPassword: {{confirmPassword?.value}}</div> -->
-      </div>
+        </div>
       </form>
       <div *ngIf="loginError">
         <div class="error center">{{loginError}}</div>
-        </div> 
-      <button mat-button class="center" (click)="createUser()" type="submit" ng-disabled="signUpForm.$invalid">Sign Up</button>
-    </mat-card-content>
-      <div>
-        <button mat-button routerLink="/login" >Back to Login</button>
       </div>
+      <button mat-button class="center" (click)="createUser()" type="submit" ng-disabled="signUpForm.$invalid">Sign
+        Up</button>
+    </mat-card-content>
+    <div>
+      <button mat-button routerLink="/login">Back to Login</button>
+    </div>
   </mat-card>
-  
+</div>
