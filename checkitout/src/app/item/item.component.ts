@@ -1,13 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
 import { CartService } from '../services/cart.service';
 import { CookieService } from 'ngx-cookie-service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css']
 })
+
+
+
 export class ItemComponent implements OnInit {
 
   constructor(
@@ -15,19 +21,38 @@ export class ItemComponent implements OnInit {
     private databaseService: DatabaseService,
     private cartService: CartService) { }
 
-  itemCount = [];
+  itemCount = [0,0];
   itemDoc;
+  itemsFromDatabase;
+  queryReturnedBool = false;
+  displayedColumns: string[] = ['barCode', 'serialNumber', 'status', 'condition', 'location'];
+  // dataSource;
+  
+
+  
 
   ngOnInit(): void {
     const itemName = this.route.snapshot.paramMap.get('model');
     this.databaseService.getModel(itemName).subscribe(data => {
-      // console.log(data[0]);
+
+      this.itemsFromDatabase = data;
+      
       this.itemDoc = data[0];
+
+      this.queryReturnedBool = true;
     });
 
     this.itemCount = this.databaseService.getItemCount(itemName);
 
+    // this.dataSource = new MatTableDataSource<itemElement>(this.itemsFromDatabase);
+
   }
+
+  // @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  // ngAfterViewInit() {
+  //   this.dataSource.paginator = this.paginator;
+  // }
 
   addToCart(item) {
     this.cartService.addToCart(item);
@@ -36,3 +61,9 @@ export class ItemComponent implements OnInit {
   }
 
 }
+
+// export interface itemElement {
+//   barCode: string;
+//   status: string;
+//   condition: string;
+// }

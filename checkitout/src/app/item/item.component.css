@@ -75,6 +75,31 @@ b {
     font-family: "GOTHAM-BOLD";
 }
 
+/* Table Div */
+.tableContainer {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+.specificItems {
+    width: 80%;
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 7px 7px 7px black;
+}
+
+th, td {
+    color: black;
+}
+
+tr:nth-of-type(even) {
+    background-color: #D7D7D7;
+}
+
 @media (max-width: 768px) {
     .titleContainer, .itemInfoContainer {
         flex-direction: column;
