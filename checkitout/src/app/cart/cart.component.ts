@@ -55,7 +55,7 @@ export class CartComponent implements OnInit {
 
   //get Users from Firestore
  users: any;
-
+ cartError;
  //this gets the specific user from the database
   getUser() {
     const {pawprint} = this.cartForm.value;
@@ -63,11 +63,13 @@ export class CartComponent implements OnInit {
       (data: User) => {
         this.users = data;
         console.log(this.users);
+
+        if(this.users == null) {
+          this.cartError = true;
+        }
       }
     );
-    if(this.users  == null) {
-      alert("User not found");
-    }
+
   }
 
 }
