@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
 import { CartService } from '../services/cart.service';
 import { CookieService } from 'ngx-cookie-service';
+import { MatDialog } from '@angular/material/dialog';
+import { UserDialogComponent } from '../user-dialog/user-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
@@ -13,7 +16,8 @@ export class ItemComponent implements OnInit {
   constructor(
     private route: ActivatedRoute, 
     private databaseService: DatabaseService,
-    private cartService: CartService) { }
+    private cartService: CartService,
+    private _snackbar: MatSnackBar) { }
 
   itemCount = [];
   itemDoc;
@@ -31,7 +35,11 @@ export class ItemComponent implements OnInit {
 
   addToCart(item) {
     this.cartService.addToCart(item);
-    window.alert('Your item,' + item.model + 'has been added to the cart!');
+    console.log(item)
+    this._snackbar.open('Item added to cart', '', {
+      duration: 2000,
+      panelClass: ['snackbar-success']
+    });
     // console.log(item);
   }
 
