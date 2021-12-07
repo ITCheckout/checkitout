@@ -44,6 +44,7 @@ hr {
 .itemInfoContainer {
     width: 90%;
     margin: 0 auto;
+    margin-bottom: 5%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -66,6 +67,11 @@ hr {
     width: 40%;
 }
 
+.specsHeader {
+    font-size: 3em;
+    font-family: "GOTHAM-BOLD";
+}
+
 h3 {
     font-family: "GOTHAM-BOOK";
     font-size: 1.5em;
@@ -73,6 +79,46 @@ h3 {
 
 b {
     font-family: "GOTHAM-BOLD";
+}
+
+/* Table Div */
+.tableLabelContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tableLabel {
+    font-size: 3em;
+    font-family: "GOTHAM-BOLD";
+}
+
+.tableContainer {
+    margin-top: 2.5%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.mat-header-cell {
+    background-color: black;
+    color: white;
+}
+
+.specificItems {
+    width: 80%;
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 5px 7px 7px #D7D7D7;
+}
+
+th, td {
+    color: black;
+}
+
+tr:nth-of-type(even) {
+    background-color: #D7D7D7;
 }
 
 @media (max-width: 768px) {

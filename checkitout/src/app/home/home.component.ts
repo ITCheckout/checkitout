@@ -11,15 +11,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private databaseService: DatabaseService) { }
 
-  mbp2015 = [];
-  mbp2015Available = 0;
-  mbp2015Unavailable = 0;
-  mbp2017 = [];
-  mbp2017Available = 0;
-  mbp2017Unavailable = 0;
-  dell = [];
-  dellAvailable = 0;
-  dellUnavailable = 0;
+  mbp2015 = [0,0];
+  mbp2017 = [0,0];
+  dell = [0,0];
 
   ngOnInit(): void {
     this.mbp2015 = this.databaseService.getItemCount('Mid 2015 MacBook Pro');

@@ -144,7 +144,7 @@ export class DatabaseService {
             unavailableCount++;
           }
           else {
-            console.log('item removed from service');
+            
           }
         });
       });
@@ -154,7 +154,7 @@ export class DatabaseService {
         count.push(unavailableCount);
       }, 1000);
     
-      console.log(count);
+      // console.log(count);
     return count;    
   }
 
