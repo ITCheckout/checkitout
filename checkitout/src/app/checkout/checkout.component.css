@@ -20,9 +20,31 @@ hr {
 
 .filterForm {
     padding: 5px;
-    background-color: #D7D7D7;
+    /* background-color: #7D7D7D; */
     border-radius: 10px;
 }
+
+mat-label {
+    color: black;
+}
+
+.not-empty-select.mat-selected {
+    color: black !important;
+  }
+
+:host /deep/ .mat-select-value-text {
+    color: black !important;
+}
+
+:host /deep/ .mat-select-arrow  {
+    color: black !important;
+}
+
+  /* .mat-select:focus:not(.mat-select-disabled).mat-primary 
+  .mat-select-arrow , .mat-select-underline , .mat-select-trigger 
+  {
+      color: black;
+  } */
 
 .inventoryContainer {
     width: 80%;
@@ -33,6 +55,7 @@ hr {
 }
 
 .itemCard {
+    background-color: #7D7D7D;
     margin: 10px 10px;
     width: 250px;
     height: 400px;

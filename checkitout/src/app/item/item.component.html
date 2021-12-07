@@ -1,88 +1,92 @@
 <div *ngIf="queryReturnedBool">
-<div class="modelConatiner">    
-<div class="titleContainer">
-    <div class="nameContainer">
-        <h1 id="nameHeader">{{itemDoc.model}}</h1>
-    </div>
-    <div class="countContainer">
-        <p class="count"><b class="gold">{{ itemCount[0] }}</b> Available</p>
-        <p id="spacer">&nbsp;&nbsp;&nbsp;</p>
-        <p class="count"><b>{{ itemCount[1] }}</b> Out</p>
-    </div>
-</div>
-<hr>
-
-<div class="itemInfoContainer">
-    <div class="photoContainer">
-        <img class="photoItem" src="{{itemDoc.imagePath}}">
-    </div>
-    <!-- IF Model is a laptop-->
-    <div class="laptopInfoContainer" *ngIf="itemDoc.categoryName=='Laptops' else noLaptop">
-        <div class="specs">
-            <h3><b>LAPTOP SPECS</b></h3>
-            <h3><b>Screen Size:</b> {{itemDoc.screenSize}}</h3>
-            <h3><b>Storage:</b> {{itemDoc.diskSpace}}</h3>
-            <h3><b>Release Year:</b> {{itemDoc.releaseYear}}</h3>
-            <h3><b>Location:</b> {{itemDoc.location}}</h3>
-            <button mat-raised-button (click)="addToCart(itemDoc)">Add to Cart</button>
+    <div class="modelConatiner">
+        <div class="titleContainer">
+            <div class="nameContainer">
+                <h1 id="nameHeader">{{itemDoc.model}}</h1>
+            </div>
+            <div class="countContainer">
+                <p class="count"><b class="gold">{{ itemCount[0] }}</b> Available</p>
+                <p id="spacer">&nbsp;&nbsp;&nbsp;</p>
+                <p class="count"><b>{{ itemCount[1] }}</b> Out</p>
+            </div>
         </div>
-    </div>
+        <hr>
 
-    <!--If it is anything else, display different information-->
-    <div class="nonLaptopContainer">
-        <ng-template #noLaptop>
-            <div class="specs">
-                <h3><b>SPECS</b></h3>
-                <!-- <h3><b>Category:</b> {{itemDoc.categoryName}}</h3>
+        <div class="itemInfoContainer">
+            <div class="photoContainer">
+                <img class="photoItem" src="{{itemDoc.imagePath}}">
+            </div>
+            <!-- IF Model is a laptop-->
+            <div class="laptopInfoContainer" *ngIf="itemDoc.categoryName=='Laptops' else noLaptop">
+                <div class="specs">
+                    <h3 class="specsHeader">LAPTOP SPECS</h3>
+                    <h3><b>Screen Size:</b> {{itemDoc.screenSize}}</h3>
+                    <h3><b>Storage:</b> {{itemDoc.diskSpace}}</h3>
+                    <h3><b>Release Year:</b> {{itemDoc.releaseYear}}</h3>
+                    <h3><b>Location:</b> {{itemDoc.location}}</h3>
+                    <button mat-raised-button (click)="addToCart(itemDoc)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!--If it is anything else, display different information-->
+            <div class="nonLaptopContainer">
+                <ng-template #noLaptop>
+                    <div class="specs">
+                        <h3 class="specsHeader">SPECS</h3>
+                        <!-- <h3><b>Category:</b> {{itemDoc.categoryName}}</h3>
                 <h3><b>Model:</b> {{itemDoc.model}}</h3>
                 <h3><b>Info:</b> {{itemDoc.description}}</h3>
                 <button mat-raised-button>Add to Cart</button> -->
 
-                <h3><b>Category:</b> {{itemDoc.categoryName}}</h3>
-                <h3><b>Model:</b> {{itemDoc.model}}</h3>
-                <h3><b>Info:</b> {{itemDoc.description}}</h3>
-                <button mat-raised-button (click)="addToCart(itemDoc)">Add to Cart</button>
+                        <h3><b>Category:</b> {{itemDoc.categoryName}}</h3>
+                        <h3><b>Model:</b> {{itemDoc.model}}</h3>
+                        <h3><b>Info:</b> {{itemDoc.description}}</h3>
+                        <button mat-raised-button (click)="addToCart(itemDoc)">Add to Cart</button>
+                    </div>
+                </ng-template>
             </div>
-        </ng-template>
+        </div>
+
+        <div class="tableLabelContainer">
+            <h3 class="tableLabel">Device List</h3>
+        </div>
+
+
+        <div class="tableContainer">
+            <table mat-table [dataSource]="itemsFromDatabase" class="specificItems">
+
+                <ng-container matColumnDef="barCode">
+                    <th mat-header-cell *matHeaderCellDef> Barcode </th>
+                    <td mat-cell *matCellDef="let element"> {{element.barCode}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="serialNumber">
+                    <th mat-header-cell *matHeaderCellDef> Serial Number </th>
+                    <td mat-cell *matCellDef="let element"> {{element.serialNumber}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="condition">
+                    <th mat-header-cell *matHeaderCellDef> Condition </th>
+                    <td mat-cell *matCellDef="let element"> {{element.condition}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="location">
+                    <th mat-header-cell *matHeaderCellDef> Location </th>
+                    <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns" class="headRow"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <!-- <mat-paginator [length]="50" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                aria-label="Select page of itemsFromDatabase">
+            </mat-paginator> -->
+        </div>
     </div>
-</div>
-
-    <div class="tableContainer">
-        <table mat-table [dataSource]="itemsFromDatabase" class="specificItems">
-
-            <ng-container matColumnDef="barCode">
-                <th mat-header-cell *matHeaderCellDef> Barcode </th>
-                <td mat-cell *matCellDef="let element"> {{element.barCode}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="serialNumber">
-                <th mat-header-cell *matHeaderCellDef> Serial Number </th>
-                <td mat-cell *matCellDef="let element"> {{element.serialNumber}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="status">
-                <th mat-header-cell *matHeaderCellDef> Status </th>
-                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="condition">
-                <th mat-header-cell *matHeaderCellDef> Condition </th>
-                <td mat-cell *matCellDef="let element"> {{element.condition}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="location">
-                <th mat-header-cell *matHeaderCellDef> Location </th>
-                <td mat-cell *matCellDef="let element"> {{element.location}} </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-
-        <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                 showFirstLastButtons 
-                 aria-label="Select page of periodic elements">
-  </mat-paginator> -->
-    </div>
-</div>
 </div>
