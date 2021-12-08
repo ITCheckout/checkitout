@@ -116,6 +116,7 @@ export class CartComponent implements OnInit {
   } 
 
   //this adds the user and item to the database
+  //Date time: https://stackoverflow.com/questions/64365142/how-do-i-convert-date-and-time-in-different-time-zone
   addCartData() {
     const dateNow = this.datePipe.transform(Date.now(), this.format, "CST");
     this.items.forEach(item => {

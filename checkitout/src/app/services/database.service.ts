@@ -5,13 +5,15 @@ import { AngularFirestore, AngularFirestoreCollection, DocumentData } from '@ang
 import { Item } from '../models/item';
 import { Category, SubCategory } from '../models/category';
 // import { Model } from '../models/model';
-import { DatePipe } from '@angular/common';
+import firebase from 'firebase/compat/app';
+import 'firebase/firestore';
 @Injectable({
   providedIn: 'root',
 })
 export class DatabaseService {
 
   constructor(private firestore: AngularFirestore) { }
+
 
   itemsCollection = this.firestore.collection('items');
   categoryCollection = this.firestore.collection('categories');
@@ -206,7 +208,9 @@ export class DatabaseService {
     
 
   }
+  
   addCartData(pawprint, barcode, dueDate, dateNow) {
+    
     //since we are adding a 'history' section to the order document, we need two cases....
     //1. if the order document already exists
     //2. if the order document does not exist
@@ -218,14 +222,23 @@ export class DatabaseService {
           'pawprint': pawprint,
           'dueDate': dueDate,
           'checkedOut': dateNow,
+          'history': []
         });
         console.log('written')
       } else {
         const docQuery =this.firestore.collection('orders').doc(barcode).valueChanges();
         docQuery.subscribe((data: any) => {
-          const pawprint = data.pawprint;
+          const pastPawprint = data.pawprint;
+          const pastDueDate = data.dueDate;
+          this.firestore.collection('orders').doc(barcode).update({
+            'pawprint': pawprint,
+            'dueDate': dueDate,
+            'history': firebase.firestore.FieldValue.arrayUnion({
+              'pawprint': pastPawprint,
+              'pastDueDate': pastDueDate
+            })
+          });
         });
-        console.log(pawprint)
       }
     });
   }
