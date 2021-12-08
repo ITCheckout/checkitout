@@ -30,7 +30,7 @@ export class ItemComponent implements OnInit {
   itemDoc;
   itemsFromDatabase;
   queryReturnedBool = false;
-  displayedColumns: string[] = ['barCode', 'serialNumber', 'status', 'condition', 'location', 'Add to Cart'];
+  displayedColumns: string[] = ['barCode', 'serialNumber', 'status', 'condition', 'location', 'Add To Cart'];
   isAdmin;
   // dataSource;
 
