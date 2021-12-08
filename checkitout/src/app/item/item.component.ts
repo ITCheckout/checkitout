@@ -61,7 +61,7 @@ export class ItemComponent implements OnInit {
   addToCart(item) {
     this.cartService.addToCart(item);
     console.log(item)
-    this._snackbar.open('Item' + item.barCode + 'added to cart', '', {
+    this._snackbar.open('Item' + item.barCode + ' added to cart', '', {
       duration: 2000,
       panelClass: ['snackbar-success']
     });

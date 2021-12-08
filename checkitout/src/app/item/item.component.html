@@ -80,8 +80,8 @@
                     </ng-container>
 
                     <ng-container matColumnDef="Add to Cart">
-                        <th mat-header-cell *matHeaderCellDef> Add to Cart </th>
-                        <button mat-raised-button *matCellDef="let element" (click)="addToCart(element)">Add to Cart</button>
+                        <th mat-header-cell *matHeaderCellDef *matCellDef="let element"> Add to Cart </th>
+                        <button mat-raised-button *ngIf="(element.condition)=='available'" (click)="addToCart({{element}})">Add to Cart</button>
                     </ng-container>
 
 
