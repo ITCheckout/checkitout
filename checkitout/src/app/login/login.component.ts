@@ -7,14 +7,14 @@ import { Router } from '@angular/router';
 import { UsersService } from '../shared/users.service';
 import { User } from '../shared/user';
 import { __awaiter } from 'tslib';
-import { CookieService } from 'ngx-cookie-service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private fb: FormBuilder, private auth: AngularFireAuth, private router: Router, private usersService: UsersService, private cookieService: CookieService) { }
+  constructor(private fb: FormBuilder, private auth: AngularFireAuth, private router: Router, private usersService: UsersService) { }
 
   loginForm!: FormGroup;
 
@@ -74,9 +74,6 @@ export class LoginComponent {
          dateNow.setMinutes(dateNow.getMinutes() + 60);
 
      //wait to set cookie until the user's role is found
-            // console.log("Role gotten");
-            // console.log(this.userRole);
-            // this.cookieService.set('userRole', this.userRole.role, dateNow);
             if(this.userRole.role === "admin"){
               localStorage.setItem('adminPass', 'true');
             }

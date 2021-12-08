@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
 import { CartService } from '../services/cart.service';
-import { CookieService } from 'ngx-cookie-service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -37,6 +36,7 @@ export class ItemComponent implements OnInit {
   // @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
+    this.itemCount = [0,0];
     // this.dataSource = new MatTableDataSource(this.itemsFromDatabase);
     const itemName = this.route.snapshot.paramMap.get('model');
     this.databaseService.getModel(itemName).subscribe(data => {
@@ -61,7 +61,7 @@ export class ItemComponent implements OnInit {
   addToCart(item) {
     this.cartService.addToCart(item);
     console.log(item)
-    this._snackbar.open('Item' + item.barCode + ' added to cart', '', {
+    this._snackbar.open('Item \'' + item.barCode + '\' added to cart', '', {
       duration: 2000,
       panelClass: ['snackbar-success']
     });

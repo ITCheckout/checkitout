@@ -23,13 +23,16 @@
     color: black !important;
    }
 
+   mat-label, mat-datepicker-toggle {
+    color: black;
+}
+
 #cartHeader {
     margin-top: 3%;
     margin-bottom: 1.5%;
     margin-left: 5%;
 
     font-family: "GOTHAM-BOLD";
-    /* font-weight: bold; */
     font-size: 500%;
 }
 
@@ -39,7 +42,6 @@
     margin-left: 5%;
 
     font-family: "GOTHAM-MEDIUM";
-    /* font-weight: normal; */
     font-size: 200%;
     display: block;
 }
@@ -47,16 +49,14 @@
 hr {
     border: 2.5px solid black;
     width: 90%;
+    margin-bottom: 1.5%;
 }
 
 .pickupForm {
     display: flex;
-    margin-left: 6%;
-    margin-bottom: 0.05%;
-    justify-content: center;
-    align-items: center;
-
-    /* background-color: #D7D7D7; */
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 1.5%;
 }
 
 .cartCheckbox {
@@ -65,12 +65,11 @@ hr {
     margin-left: 6.6%;
 }
 
-mat-label, mat-datepicker-toggle {
-    color: black;
-}
+
 
 img {
-    float: left;
+    margin: 0 75px;
+    /* float: left;
     width: 20%;
     height: 20%;
     margin-left: 10%;
@@ -78,25 +77,54 @@ img {
     max-width: 20%;
     max-height: 20%;
     min-width: 20%;
-    min-height: 20%;
+    min-height: 20%; */
+}
+
+.itemInCart {
+    border: #f1b82d solid 1px;
+    width: 90%;
+    height: 350px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.functionContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .itemContainer {
-    display: flex 1 1 auto;
-    width: 95%;
-    margin-top: 1%;
+    /* display: flex 1 1 auto; */
+    /* margin: 0 auto; */
+    margin: -2.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    /* height: 350px; */
+    /* border: #f1b82d solid 1px; */
+    /* margin-top: 1%;
     margin-bottom: 1%;
     border: #f1b82d solid 1px;
     padding: 1%;
     margin: 0 auto;
-    margin-top: 2%;
+    margin-top: 2%; */
+}
+
+.specs {
+    width: 100%;
 }
 
 #content{
     display: flex;
-    float: left;
-    padding-left: 2%;
-    padding-top: 3%;
+    flex-direction: column;
+    align-content: center;
+    /* padding-left: 2%;
+    padding-top: 3%; */
 }
 
 #content h3{
@@ -112,12 +140,14 @@ img {
     padding-right: 2%;
 }
 
-.pickupContainer {
+
+
+/* .pickupContainer {
     display: block;
     width: 100%;
     margin-top: 1%;
     margin-bottom: 1%;
-}
+} */
 
 .cartContainer {
     display: flex;
@@ -125,14 +155,20 @@ img {
 }
 
 #delete {
-    position: absolute;
-    right: 0;
-    margin-right: 2%;
+    margin: 15px;
     background-color: rgb(245, 112, 112);
 }
 
-#clear {
-    width: 100%;
+.middleBtn {
+    margin: 0 auto;
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#checkoutBtn {
+    margin-bottom: 1.5%;
 }
 
 .gold {
@@ -157,16 +193,16 @@ img {
     line-height: 100%;
 }
 
-.nameContainer {
+/* .nameContainer {
     width: 75%;
-}
+} */
 
-.countContainer {
+/* .countContainer {
     margin-top: 2%;
     display: flex;
     justify-content: flex-end;
     width: 25%;
-}
+} */
 
 p {
     font-family: "GOTHAM-BOOK";
@@ -178,30 +214,30 @@ hr {
     width: 90%;
 }
 
-.itemInfoContainer {
+/* .itemInfoContainer {
     width: 90%;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-}
+} */
 
-.photoContainer {
+/* .photoContainer {
     margin-top: 5%;
     width: 40%;
     display: flex;
     justify-content: center;
-}
+} */
 
 .photoItem {
     transform: scale(1.5);
 }
 
-.laptopInfoContainer, .nonLaptopInfoContainer {
+/* .laptopInfoContainer, .nonLaptopInfoContainer {
     margin-top: 10%;
     width: 40%;
-}
+} */
 
 h3 {
     font-family: "GOTHAM-BOOK";
@@ -213,16 +249,22 @@ b {
 }
 
 @media (max-width: 768px) {
-    .titleContainer, .itemInfoContainer {
-        flex-direction: column;
+    #cartHeader {
+        margin-top: 5%;
     }
 
-    .photoItem {
-        margin-bottom: 15%;
+    .itemInCart {
+        height: 525px;
     }
-    
-    .specs {
-        margin-bottom: 5%;
+
+    .itemContainer {
+        margin: 0 auto;
+        flex-direction: column;
+        align-content: center;
+    }
+
+    #checkoutBtn {
+        margin-bottom: 3%;
     }
 }
 
@@ -231,34 +273,34 @@ b {
     color: white;
 }
 
-#backgroundImg {
+/* #backgroundImg {
     position: absolute;
     min-width: 100%; 
     height: 100%;
     z-index: 0;
-}
+} */
 
-#title {
+/* #title {
     padding-bottom: 8%;
-}
+} */
 
-#form {
+/* #form {
     padding-bottom: 8%;
-}
-button {
+} */
+/* button {
     display: block;
     margin: auto;
     font-size: large;
-}
+} */
 
-.loginContainer {
+/* .loginContainer {
     margin-top: 4%;
     margin-left: 7.5%;
     margin-right: 7.5%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-}
+} */
 
 .example-card {
     /* position: absolute; */
@@ -275,48 +317,49 @@ p {
     margin-bottom: 0;
 }
 
-#MU {
+/* #MU {
 width: 150px;
 height: 160.6px;
 left: 1040px;
 top: 237px;
 margin: auto;
 display: block;
-}
+} */
 
-.center {
+/* .center {
     text-align: center;
-}
+} */
 
-.pawprintSelection {
+/* .pawprintSelection {
     width: 75%;
     color: black;
-}
+} */
 
-.error {
+/* .error {
     color: red;
-}
+} */
+
 /* input color class */
-::ng-deep input.mat-input-element {
+/* ::ng-deep input.mat-input-element {
     color: #110d0d;
-  }
+  } */
 
   /* Change label color on focused */
-  ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  /* ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
     color: #50d0fb !important;
-  }
+  } */
 
   /* underline border color on focused */
-  ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+  /* ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
     background-color: #50d0fb !important;
-  }
+  } */
 
 /* border-radius change: https://stackoverflow.com/questions/66484113/change-increase-border-radius-of-mat-form-field
      -needs important tags
      - Background color is all adjusted here
 */
 
-::ng-deep .mat-form-field-outline-start {
+/* ::ng-deep .mat-form-field-outline-start {
   border-radius: 28px 0 0 28px !important;
   min-width: 28px !important;
   background-color: white;
@@ -331,19 +374,19 @@ display: block;
     border-radius: 28px 28px 28px 28px !important;
     background-color: #ffffff;
     box-shadow: 00px 0px 10px -2px #222222;
-  }
+  } */
 
-  ::placeholder {
+  /* ::placeholder {
     color: black;
     font-size: medium;
-}
-@media (max-width: 768px) {
+} */
+/* @media (max-width: 768px) {
     .loginContainer {
         margin-bottom: 4%;
     }
-}
+} */
 
-#form {
+/* #form {
     margin-top: 3%;
-}
+} */
 

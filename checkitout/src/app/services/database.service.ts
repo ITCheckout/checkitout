@@ -166,4 +166,42 @@ export class DatabaseService {
   getUser(pawprint) {
     return this.firestore.collection('users').doc(pawprint).valueChanges();
   }
+
+  setItemUnavailable(barcode) {
+    this.firestore.collection('items').doc(barcode).update({
+      status: "unavailable"
+    });
+  }
+
+  setItemAvailable(barcode) {
+    this.firestore.collection('items').doc(barcode).update({
+      status: "available"
+    });
+  }
+
+  createOrder(barcode, pawprint, dueDate) {
+    this.firestore.collection('orders').doc().set({
+      barcode: barcode,
+      pawprint: pawprint,
+      dueDate: dueDate
+    });
+  }
+
+  getPawPrints() {
+    var queryResult;
+    var pawPrints = [];
+
+    queryResult = this.firestore.collection('users').valueChanges();
+
+    queryResult.subscribe(data => {
+      data.forEach(element => {
+        pawPrints.push(element.pawprint);
+      });
+    });
+    return pawPrints;
+    
+  }
+
+
+  
 }
