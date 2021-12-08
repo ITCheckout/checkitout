@@ -5,7 +5,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 import { LoginComponent } from '../login/login.component';
-import { CookieService } from 'ngx-cookie-service';
 import { CartService } from '../services/cart.service';
 import { UsersService } from '../shared/users.service';
 @Component({
@@ -20,7 +19,6 @@ export class NavbarComponent implements OnInit {
     private router: Router, 
     private _snackBar: MatSnackBar, 
     private loginComponent: LoginComponent, 
-    private cookieService: CookieService,
     private dialog: MatDialog,
     private cartService: CartService,
     private userService: UsersService){

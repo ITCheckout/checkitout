@@ -1,41 +1,35 @@
 <div class="cartContainer">
     <h1 id="cartHeader">Cart</h1>
-
+    <hr>
 
 
     <!-- IF Model is a laptop-->
-<div class="itemContainer" *ngFor="let item of items;let indexOfelement=index">
+<div class="itemInCart" *ngFor="let item of items;let indexOfelement=index">
+    <div class="functionContainer">
+        <button mat-button id="delete">
+            <mat-icon aria-hidden="false" aria-label="Shopping Cart" (click)="deleteItem(item)">delete</mat-icon>
+        </button>
+    </div>
+    <div class="itemContainer">
     <div id="img">
         <img src="{{item.imagePath}}">
     </div>
-    <div *ngIf="item.categoryName=='Laptops' else noLaptop">
+    <div class="specs">
         <div id="content">
-            <h3><b>LAPTOP SPECS</b></h3>
-            <h3><b>Screen Size:</b>  {{item.screenSize}}</h3>
-            <h3><b>Storage:</b>  {{item.diskSpace}}</h3>
-            <h3><b>Release Year:</b> {{item.releaseYear}}</h3>
+            <h3><b>Model:</b> {{item.model}}</h3>
+            <h3><b>Barcode:</b> {{item.barCode}}</h3>
             <h3><b>Location:</b> {{item.location}}</h3>
         </div>
-        <button mat-button id="delete">
-            <mat-icon aria-hidden="false" aria-label="Shopping Cart">delete</mat-icon>
-        </button>
     </div>
-    <ng-template #noLaptop>
-
-        <div id="content">
-            <h3><b>SPECS</b></h3>
-            <h3><b>Category:</b> {{item.categoryName}}</h3>
-            <h3><b>Model:</b> {{item.model}}</h3>
-            <h3><b>Info:</b> {{item.description}}</h3>
-        </div>
         <!--Not able to make this work yet-->
             <!-- <button mat-button id="delete">
                 <mat-icon aria-hidden="false" aria-label="Shopping Cart" (click)="deleteItem(item)">delete</mat-icon>
             </button> -->
-    </ng-template>
+        </div>
+    
 </div>
 <div *ngIf="noItems != true" >
-    <button id="clear" mat-button (click)="clearCart()">
+    <button class="middleBtn" mat-raised-button (click)="clearCart()">
         Clear Cart
     </button>
 </div>
@@ -45,44 +39,35 @@
     <hr>
 
     <div>
-
-        <form [formGroup]="cartForm" id="form">
-            <!-- <div class="center">
-              <mat-form-field appearance="fill" appearance="outline" class="pawprintSelection">
-                <input required type="text" matInput formControlName="pawprint" placeholder="Pawprint of User" id="text"/>
-              </mat-form-field>
-              <div *ngIf="pawprint?.invalid && pawprint?.touched">
-                <div class="error">Please input the pawprint</div>
-              </div>
-              <div *ngIf="cartError">
-                <div class="error">User is not found</div>
-              </div>
-            </div> -->
-            <mat-form-field appearance='fill'>
-                <mat-label>Student PawPrint</mat-label>
-                <input required type="text" placeholder="PawPrint" aria-label="PawPrint" matInput [formControl]='pawPrintControl' [matAutocomplete]='auto'>
-                <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                        {{option}}
-                    </mat-option>
-                </mat-autocomplete>
-            </mat-form-field>
-        </form>
-
         <div class="pickupForm">
+            <form [formGroup]="cartForm" id="form">
+                <!-- <div class="center">
+                <mat-form-field appearance="fill" appearance="outline" class="pawprintSelection">
+                    <input required type="text" matInput formControlName="pawprint" placeholder="Pawprint of User" id="text"/>
+                </mat-form-field>
+                <div *ngIf="pawprint?.invalid && pawprint?.touched">
+                    <div class="error">Please input the pawprint</div>
+                </div>
+                <div *ngIf="cartError">
+                    <div class="error">User is not found</div>
+                </div>
+                </div> -->
+                <mat-form-field appearance='fill'>
+                    <mat-label>Student PawPrint</mat-label>
+                    <input required type="text" placeholder="PawPrint" aria-label="PawPrint" matInput [formControl]='pawPrintControl' [matAutocomplete]='auto'>
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </form>
+        
             <mat-form-field appearance="fill" >
-                <mat-label>Enter a date range</mat-label>
-                <mat-date-range-input [rangePicker]="rangePicker">
-                    <input matStartDate placeholder="Start date" id="start">
-                    <input matEndDate placeholder="End date" id="end">
-                </mat-date-range-input>
-                <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
-                <mat-date-range-picker #rangePicker>
-                    <mat-date-range-picker-actions>
-                        <button mat-button matDateRangePickerCancel>Cancel</button>
-                        <button mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
-                    </mat-date-range-picker-actions>
-                </mat-date-range-picker>
+                <mat-label>Due Date</mat-label>
+                <input matInput [matDatepicker]='picker'>
+                <mat-datepicker-toggle matSuffix [for]='picker'></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
         </div>
     </div>
@@ -90,7 +75,7 @@
     <!-- <input type="checkbox" id="cartCheckbox" name="cartCheckbox" value="checkbox" class="cartCheckbox" required> -->
 
     <div *ngIf="noItems != true" >
-        <button id="clear" mat-button (click)="getUser()">
+        <button class="middleBtn" id="checkoutBtn" mat-raised-button (click)="getUser()">
             Checkout
         </button>
     </div>

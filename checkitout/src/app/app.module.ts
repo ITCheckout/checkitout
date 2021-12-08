@@ -68,18 +68,19 @@ import { AdminGuard } from './services/admin.guard';
       { path: 'reset', component: ResetComponent },
       { path: 'admin', component: AdminFacingComponent, canActivate: [AdminGuard], pathMatch: 'full' },
       { path: 'cart', component: CartComponent },
-      { path: 'checkout/:model', component: ItemComponent },
+      { path: 'checkout/:model', component: ItemComponent, },
       { path: 'about', component: AboutComponent },
       { path: 'checkout', component: CheckoutComponent },
       { path: 'login', component: LoginComponent },
       { path: 'signUp', component: SignUpComponent },
       { path: '', component: HomeComponent },
       { path: '**', component: PageNotFoundComponent },
-    ]),
+    ], {scrollPositionRestoration: 'enabled'}),
+    //https://stackoverflow.com/questions/39601026/angular-2-scroll-to-top-on-route-change
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
-  providers: [UsersService, LoginComponent, CookieService],
+  providers: [UsersService, LoginComponent],
   bootstrap: [AppComponent]
 })
 

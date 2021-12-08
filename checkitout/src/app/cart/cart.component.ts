@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 
-import { CookieService } from 'ngx-cookie-service';
 import { Subscription } from 'rxjs';
 
 import { FormBuilder, FormArray, FormGroup, FormControl } from '@angular/forms';
@@ -30,7 +29,6 @@ export class CartComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private cookieService: CookieService,
     private fb: FormBuilder,
     private databaseService: DatabaseService
   ) { this.cartService.getItems(); }
@@ -86,7 +84,8 @@ export class CartComponent implements OnInit {
 
   deleteItem(item) {
     this.cartService.deleteItem(item);
-    // window.location.reload();
+    console.log(item + "deleted")
+    window.location.reload();
   }
 
   clearCart() {

@@ -16,6 +16,11 @@ export class HomeComponent implements OnInit {
   dell = [0,0];
 
   ngOnInit(): void {
+    this.mbp2015 = [0,0];
+    this.mbp2017 = [0,0];
+    this.dell = [0,0];
+
+
     this.mbp2015 = this.databaseService.getItemCount('Mid 2015 MacBook Pro');
     this.mbp2017 = this.databaseService.getItemCount('Mid 2017 MacBook Pro');
     this.dell = this.databaseService.getItemCount('Dell Latitude 5580');
