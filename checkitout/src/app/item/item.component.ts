@@ -3,16 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
 import { CartService } from '../services/cart.service';
 import { CookieService } from 'ngx-cookie-service';
-<<<<<<< HEAD
 import { MatDialog } from '@angular/material/dialog';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-=======
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { DataSource } from '@angular/cdk/collections';
 
->>>>>>> dev
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
@@ -33,7 +30,8 @@ export class ItemComponent implements OnInit {
   itemDoc;
   itemsFromDatabase;
   queryReturnedBool = false;
-  displayedColumns: string[] = ['barCode', 'serialNumber', 'status', 'condition', 'location'];
+  displayedColumns: string[] = ['barCode', 'serialNumber', 'status', 'condition', 'location', 'Add to Cart'];
+  isAdmin;
   // dataSource;
 
   // @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -48,6 +46,8 @@ export class ItemComponent implements OnInit {
       this.itemDoc = data[0];
 
       this.queryReturnedBool = true;
+
+      this.isAdmin = localStorage.getItem("adminPass")
     });
 
     this.itemCount = this.databaseService.getItemCount(itemName);
@@ -61,7 +61,7 @@ export class ItemComponent implements OnInit {
   addToCart(item) {
     this.cartService.addToCart(item);
     console.log(item)
-    this._snackbar.open('Item added to cart', '', {
+    this._snackbar.open('Item' + item.barCode + 'added to cart', '', {
       duration: 2000,
       panelClass: ['snackbar-success']
     });

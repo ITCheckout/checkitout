@@ -33,13 +33,11 @@ export class AdminFacingComponent implements OnInit {
     //log if user is logged in
     this.afAuth.authState.subscribe(user => {
       if (user) {
-        console.log(user);
       } else {
-        console.log('not logged in');
       }
     });
 
-    console.log(this.afAuth.currentUser);
+    // console.log(this.afAuth.currentUser);
 
     this.mbp2015 = this.databaseService.getItemCount('Mid 2015 MacBook Pro');
     this.mbp2017 = this.databaseService.getItemCount('Mid 2017 MacBook Pro');

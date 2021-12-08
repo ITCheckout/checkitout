@@ -75,7 +75,6 @@ export class SignUpComponent implements OnInit {
       // this will get the data from the signUpForm and pass it to the userService's 'createUser' method
       let data = this.signUpForm.value;
       // console.log(data);
-      this.userService.createUser(data)
         this.dialog.open(UserDialogComponent, {
           data: {
             formData: this.signUpForm.value,

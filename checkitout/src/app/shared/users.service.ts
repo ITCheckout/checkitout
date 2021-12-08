@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
-
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,11 +17,11 @@ export class UsersService {
   
   public currentUser: any;
   public userRole: string;
+  public isAdmin: boolean;
   //Tutorial helped: https://www.dottedsquirrel.com/angular-firebase-crud/
 
   //this function will get the data from the sign-up form component, pass it here, and will submit it to the firestore database
-  createUser(data: any) {
-  }
+
 
   async setUser(data: any) {
     await this.firestore

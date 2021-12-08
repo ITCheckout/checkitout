@@ -7,7 +7,7 @@ import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 import { LoginComponent } from '../login/login.component';
 import { CookieService } from 'ngx-cookie-service';
 import { CartService } from '../services/cart.service';
-
+import { UsersService } from '../shared/users.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -22,27 +22,17 @@ export class NavbarComponent implements OnInit {
     private loginComponent: LoginComponent, 
     private cookieService: CookieService,
     private dialog: MatDialog,
-    private cartService: CartService) { 
+    private cartService: CartService,
+    private userService: UsersService){
     }
 
   userRole;
   itemsInCart;
   isAdmin;
   ngOnInit(): void {
-    this.userRole = this.cookieService.get('userRole');
-    this.isAdmin = this.loginComponent.isAdmin;
-    console.log(this.isAdmin);
-
-    
+    this.isAdmin = localStorage.getItem('adminPass');
   }
 
-  adminCheck(){
-    if(this.isAdmin){
-      console.log("admin");
-    } else {
-      console.log("not admin");
-    }
-  }
 
 
   logout(){
@@ -59,8 +49,8 @@ export class NavbarComponent implements OnInit {
     });
     snackBarRef.afterDismissed().subscribe(() => {
       this.router.navigate(['']).then(() => {
+        localStorage.removeItem('adminPass');
         window.location.reload();
-        this.cookieService.delete('userRole');
       });
     }
     );

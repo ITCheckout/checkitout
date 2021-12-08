@@ -15,14 +15,13 @@ export class AdminGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      const role = this.cookieService.get('userRole')
+      const isAdmin = localStorage.getItem('adminPass')
       var loggedIn;
       //this promise is used to check if the user is logged in or not
       return new Promise((resolve, reject) => {
         this.afAuth.authState.subscribe(user => {
           //if there is a user logged in, we resolve it and set the canActivate to true
-          console.log(user);
-          if (role == 'admin') {
+          if (isAdmin == 'true') {
             loggedIn = true;
             resolve(true);
           } else {

@@ -78,8 +78,7 @@ export class LoginComponent {
             // console.log(this.userRole);
             // this.cookieService.set('userRole', this.userRole.role, dateNow);
             if(this.userRole.role === "admin"){
-              this.isAdmin = true;
-              console.log("Admin");
+              localStorage.setItem('adminPass', 'true');
             }
    
           this.router.navigate(['']).then(() => {
