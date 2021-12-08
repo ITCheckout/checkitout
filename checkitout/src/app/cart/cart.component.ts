@@ -4,9 +4,12 @@ import { CartService } from '../services/cart.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Subscription } from 'rxjs';
 
-import { FormBuilder, FormArray, FormGroup } from '@angular/forms';
+import { FormBuilder, FormArray, FormGroup, FormControl } from '@angular/forms';
 import { DatabaseService } from '../services/database.service';
 import { User } from '../shared/user';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -17,6 +20,13 @@ export class CartComponent implements OnInit {
   public items = [];
    noItems: boolean;
   private subscription: Subscription
+
+
+  pawPrintControl = new FormControl();
+  options = [];
+  filteredOptions: Observable<string[]>;
+
+
 
   constructor(
     private cartService: CartService,
@@ -40,7 +50,38 @@ export class CartComponent implements OnInit {
       this.noItems = false
     }
     // console.log("noItems", this.noItems);
+
+
+    this.filteredOptions = this.pawPrintControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );
+
+    this.options = this.databaseService.getPawPrints();
+
+
+
+
+
+
   }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+
+
+
+
+
+
+
+
+
+
   get pawprint() {return this.cartForm.get('pawprint')}
 
   deleteItem(item) {
