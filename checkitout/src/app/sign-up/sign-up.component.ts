@@ -58,6 +58,8 @@ export class SignUpComponent implements OnInit {
         let user = {
           id: userResponse.user.uid,
           email: userResponse.user.email,
+          fname: this.fname.value,
+          lname: this.lname.value,
           pawprint: pawprint,
           role: 'user',
         }
