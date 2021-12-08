@@ -51,15 +51,15 @@ export class SignUpComponent implements OnInit {
   createUser() {
     return new Promise(async (resolve, reject) => {
     if(this.signUpForm.valid){
-      const {pawprint, password} = this.signUpForm.value;
+      const {pawprint, password, fname, lname} = this.signUpForm.value;
       const schoolEmail = pawprint + "@umsystem.edu";
       this.auth.createUserWithEmailAndPassword(schoolEmail, password).then (async userResponse => {
       
         let user = {
           id: userResponse.user.uid,
           email: userResponse.user.email,
-          fname: this.fname,
-          lname: this.fname,
+          fname: fname,
+          lname: lname,
           pawprint: pawprint,
           role: 'user',
         }

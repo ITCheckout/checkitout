@@ -5,9 +5,9 @@ import { AngularFirestore, AngularFirestoreCollection, DocumentData } from '@ang
 import { Item } from '../models/item';
 import { Category, SubCategory } from '../models/category';
 // import { Model } from '../models/model';
-
+import { DatePipe } from '@angular/common';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DatabaseService {
 
@@ -180,10 +180,10 @@ export class DatabaseService {
   }
 
   createOrder(barcode, pawprint, dueDate) {
-    this.firestore.collection('orders').doc().set({
-      barcode: barcode,
-      pawprint: pawprint,
-      dueDate: dueDate
+    this.firestore.collection('orders').doc(barcode).set({
+      'barcode': barcode,
+      'pawprint': pawprint,
+      'dueDate': dueDate
     });
   }
 
@@ -202,6 +202,35 @@ export class DatabaseService {
     
   }
 
+  getPawprint(barCode){
+    
 
+  }
+  addCartData(pawprint, barcode, dueDate, dateNow) {
+    //since we are adding a 'history' section to the order document, we need two cases....
+    //1. if the order document already exists
+    //2. if the order document does not exist
+    this.firestore.collection('orders').doc(barcode).get().subscribe(doc => {
+      //if order document does not exist, we have no history of checkout 
+      if (!doc.exists) {
+        this.firestore.collection('orders').doc(barcode).set({
+          'barcode': barcode,
+          'pawprint': pawprint,
+          'dueDate': dueDate,
+          'checkedOut': dateNow,
+        });
+        console.log('written')
+      } else {
+        const docQuery =this.firestore.collection('orders').doc(barcode).valueChanges();
+        docQuery.subscribe((data: any) => {
+          const pawprint = data.pawprint;
+        });
+        console.log(pawprint)
+      }
+    });
+  }
+
+
+  
   
 }

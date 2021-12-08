@@ -335,9 +335,9 @@ display: block;
     color: black;
 } */
 
-/* .error {
+.error {
     color: red;
-} */
+}
 
 /* input color class */
 /* ::ng-deep input.mat-input-element {

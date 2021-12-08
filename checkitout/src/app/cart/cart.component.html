@@ -4,7 +4,7 @@
 
 
     <!-- IF Model is a laptop-->
-<div class="itemInCart" *ngFor="let item of items;let indexOfelement=index">
+<div class="itemInCart" *ngFor="let item of items">
     <div class="functionContainer">
         <button mat-button id="delete">
             <mat-icon aria-hidden="false" aria-label="Shopping Cart" (click)="deleteItem(item)">delete</mat-icon>
@@ -65,7 +65,7 @@
         
             <mat-form-field appearance="fill" >
                 <mat-label>Due Date</mat-label>
-                <input matInput [matDatepicker]='picker'>
+                <input matInput [matDatepicker]='picker' [formControl]='dueDateControl'>
                 <mat-datepicker-toggle matSuffix [for]='picker'></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -75,8 +75,12 @@
     <!-- <input type="checkbox" id="cartCheckbox" name="cartCheckbox" value="checkbox" class="cartCheckbox" required> -->
 
     <div *ngIf="noItems != true" >
-        <button class="middleBtn" id="checkoutBtn" mat-raised-button (click)="getUser()">
+        <button class="middleBtn" id="checkoutBtn" mat-raised-button (click)="checkUser()">
             Checkout
         </button>
     </div>
+    <div *ngIf="cartError">
+        <div class="error">User is not found</div>
+    </div>
+    
 </div>
