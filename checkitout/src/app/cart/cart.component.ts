@@ -11,6 +11,9 @@ import { map, startWith } from 'rxjs/operators';
 import { take } from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
 import { validateBasis } from '@angular/flex-layout';
+import { MatDialog } from '@angular/material/dialog';
+import { UserDialogComponent } from '../user-dialog/user-dialog.component';
+import { forEach } from '@angular-devkit/schematics';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -34,7 +37,8 @@ export class CartComponent implements OnInit {
     private cartService: CartService,
     private fb: FormBuilder,
     private databaseService: DatabaseService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private dialog: MatDialog,
   ) { this.cartService.getItems(); }
 
 
@@ -102,35 +106,53 @@ export class CartComponent implements OnInit {
  cartErrorMessage;
 
  checkPawprint() {
-  const pawprints = this.databaseService.getPawPrints(); 
-  const formPawprint = this.pawPrintControl.value;
-  if(pawprints.includes(formPawprint)) {
-    this.cartError = false;
-  } else {
-    this.cartError = true;
-    this.cartErrorMessage = "Pawprint does not exist";
-  }
+  
+  
+  
+  
 
  }
  //this gets the specific user from the database
-  checkUser() {
-    this.checkPawprint();
+  async checkUser() {
+    var isntValid = true;
 
-    if(this.cartForm.valid) {
-         //the take(1) method is used in the pipe because this function was running twice for some reason
-         this.databaseService.getUser(this.pawPrintControl.value).pipe(take(1)).subscribe(user => {
-          this.cartError = false;
-            this.addCartData();
-        }, err => {
-          this.cartError = true;
-          console.log('try' + this.cartError);
-        });
+    const pawprints = this.databaseService.getPawPrints(); 
+    console.log(pawprints);
+    const formPawprint = this.pawPrintControl.value.toString();
 
-    } 
-     else {
-      this.cartError = true;
-      this.cartErrorMessage = "Please Fill Out All Fields";
-    }
+    await setTimeout(() => {
+      console.log(formPawprint.toString());
+      const isValid = pawprints.includes(formPawprint);
+      console.log(isValid);
+      if(pawprints.includes(formPawprint)) {
+        console.log('Pawprint is correct');
+        isntValid = false;
+      } else {
+        console.log('Pawprint wrong #1')
+        isntValid = true;
+        this.cartError = true;
+      }
+
+  }, 1000);
+
+    // if(isntValid) {
+    //   console.log('Pawprint wrong')
+    //   return;
+    // } 
+
+    setTimeout(() => {
+      if(!isntValid) {
+        //the take(1) method is used in the pipe because this function was running twice for some reason
+        this.databaseService.getUser(this.pawPrintControl.value).pipe(take(1)).subscribe(user => {
+         this.cartError = false;
+           this.addCartData();
+       });
+      } 
+        else {
+        this.cartError = true;
+      }
+    }, 2000);
+    
 
     
     
@@ -142,8 +164,18 @@ export class CartComponent implements OnInit {
     const dateNow = this.datePipe.transform(Date.now(), this.format, "CST");
     const dueDateNow = this.datePipe.transform(this.dueDateControl.value, 'longDate', "CST");
     this.items.forEach(item => {
+      console.log("item" + item);
       this.databaseService.addCartData(this.pawPrintControl.value, item.barCode, dueDateNow, dateNow);
     });
-
+    this.cartService.clearCart();
+    this.dialog.open(UserDialogComponent, {
+      data: {
+        reason: 'cart',
+        formData: this.items,
+        pawPrint: this.pawPrintControl.value,
+        dueDate: dueDateNow,
+        date: dateNow
+      }
+    });
   }
 }

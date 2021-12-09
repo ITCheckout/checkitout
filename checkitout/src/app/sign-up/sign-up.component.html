@@ -62,14 +62,20 @@
         <div class="demo">ConfirmPassword: {{confirmPassword?.value}}</div> -->
         </div>
       </form>
+      
+      <div class="waiverCheck">
+        <label for="cartCheckbox" class="cartCheckbox">Please accept the <a href="/waiver" target="_blank">waiver terms</a>.</label>
+        <input type="checkbox" id="cartCheckbox" name="cartCheckbox" value="checkbox" class="cartCheckbox" required formControlName="checkboxWaiver">
+      </div>
+
       <div *ngIf="loginError">
         <div class="error center">{{loginError}}</div>
       </div>
-      <button mat-button class="center" (click)="createUser()" type="submit" ng-disabled="signUpForm.$invalid">Sign
+      <button mat-raised-button class="center" (click)="createUser()" type="submit" ng-disabled="signUpForm.$invalid">Sign
         Up</button>
     </mat-card-content>
     <div>
-      <button mat-button routerLink="/login">Back to Login</button>
+      <button mat-raised-button routerLink="/login">Back to Login</button>
     </div>
   </mat-card>
 </div>

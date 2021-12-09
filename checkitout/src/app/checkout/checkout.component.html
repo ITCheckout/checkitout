@@ -6,7 +6,7 @@
     <div class="filterContainer">
         <div>
             <form [formGroup]="selectCategory" fxLayoutGap="25px">
-                <mat-form-field appearance="standard" class="filterForm">
+                <mat-form-field appearance="fill" class="filterForm">
                     <mat-label>Select Category</mat-label>
                     <mat-select formControlName="category" (selectionChange)="categorySelected($event.value)">
                         <mat-option *ngFor="let category of categories" [value]="category.categoryName">
@@ -15,7 +15,7 @@
                     </mat-select>
                 </mat-form-field>
 
-                <mat-form-field appearance="standard" class="filterForm">
+                <mat-form-field appearance="fill" class="filterForm">
                     <mat-label>Select Sub Category</mat-label>
                     <mat-select formControlName="subCategory" (selectionChange)="subCategorySelected($event.value)">
                         <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory.subCategoryName">

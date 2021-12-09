@@ -52,7 +52,7 @@
                     <div class="error">User is not found</div>
                 </div>
                 </div> -->
-                <mat-form-field appearance='fill'>
+                <mat-form-field appearance='standard'>
                     <mat-label>Student PawPrint</mat-label>
                     <input required type="text" placeholder="PawPrint" aria-label="PawPrint" matInput formControlName='pawPrintControl' [matAutocomplete]='auto'>
                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
@@ -63,7 +63,7 @@
                 </mat-form-field>
             </form> 
             <form [formGroup]="cartForm">
-                <mat-form-field appearance="fill" >
+                <mat-form-field appearance="standard" >
                     <mat-label>Due Date</mat-label>
                     <input matInput [matDatepicker]='picker' formControlName='dueDateControl'>
                     <mat-datepicker-toggle matSuffix [for]='picker'></mat-datepicker-toggle>
@@ -72,8 +72,7 @@
             </form>
         </div>
     </div>
-    <!-- <label for="cartCheckbox" class="cartCheckbox">Please accept the <a href="/assets/waiver.pdf" target="_blank">waiver terms</a>.</label> -->
-    <!-- <input type="checkbox" id="cartCheckbox" name="cartCheckbox" value="checkbox" class="cartCheckbox" required> -->
+    
 
     <div *ngIf="noItems != true" >
         <button class="middleBtn" id="checkoutBtn" mat-raised-button (click)="checkUser()">
@@ -81,7 +80,7 @@
         </button>
     </div>
     <div *ngIf="cartError">
-        <div class="error">{{cartErrorMessage}}</div>
+        <div class="error"><strong>Invalid Submission!</strong><br>Ensure that PawPrint exists in database and due date is selected.</div>
     </div>
     
 </div>

@@ -4,4 +4,5 @@ export interface Item {
     model: string;
     categoryName: string;
     subCategoryName: string;
+    notes: string;
 }

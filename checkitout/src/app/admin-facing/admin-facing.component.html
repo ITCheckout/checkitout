@@ -36,50 +36,75 @@
             </div>
         </div>
 
-
-
-        <!-- <div class="inventory">
-        <img id="pageTear" src="assets/MU-Brand-PageTear-Horiz-1920px.png">
-        <h3 class="inventoryHeader">Current Inventory</h3>
-
-        <section class="inventoryInfo">
-            <div class="inventoryItem">
-                <p class="inventoryDevice">MacBook Pro 16"</p>
-                <p class="inventoryOut">Out</p>
-                <p class="inventoryAvailable">Available</p>
-            </div>
-            <div class="inventoryItem">
-                <p class="inventoryDevice">Dell XPS 15"</p>
-                <p class="inventoryOut">Out</p>
-                <p class="inventoryAvailable">Available</p>
-            </div>
-            <div class="inventoryItem">
-                <p class="inventoryDevice">Canon C200</p>
-                <p class="inventoryOut">Out</p>
-                <p class="inventoryAvailable">Available</p>
-            </div>
-        </section>
-    </div> -->
         <div class="adminHeaderContainer">
             <h3 class="adminHeader">Admin Control Panel</h3>
         </div>
+
+    
         <div class="inventoryTabs">
             <mat-tab-group class="tabTitle" mat-align-tabs="center" backgroundColor="primary">
-                <!-- <mat-tab class="labelText" label="Inventory Overview">
-                <hr class="vertical">
-                <h4 class="macbook16">MacBook Pro 16"</h4>
-                <img computerOne src="assets/macbookpro.jpg" routerLink="/item">
-                <h5 class="macbook16CPU">CPU: 2.6GHz 6-Core Intel Core i7</h5>
-                <h5 class="macbook16GPU">GPU: AMD Radeon Pro 5300M with 4GB of GDDR6 Memory</h5>
-                <h5 class="macbook16Memory">Memory (RAM): 16GB</h5>
-                <h5 class="macbook16Storage">Storage: 512GB</h5>
-            </mat-tab> -->
 
+            <mat-tab class="labelText" label="Inventory Control">
+                <div class="tableContainer">
+                    <table mat-table [dataSource]="itemsFromDatabase" class="specificItems">
+        
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef> Order # </th>
+                            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                        </ng-container>
+                        
+                        <ng-container matColumnDef="barCode">
+                            <th mat-header-cell *matHeaderCellDef> Barcode </th>
+                            <td mat-cell *matCellDef="let element"> {{element.barCode}} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="pawprint">
+                            <th mat-header-cell *matHeaderCellDef> PawPrint </th>
+                            <td mat-cell *matCellDef="let element"> {{element.pawprint}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="fname">
+                            <th mat-header-cell *matHeaderCellDef> First Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.fname}} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="lname">
+                            <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.lname}} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="condition">
+                            <th mat-header-cell *matHeaderCellDef> Condition </th>
+                            <td mat-cell *matCellDef="let element"> {{element.condition}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="checkedOut">
+                            <th mat-header-cell *matHeaderCellDef> Check Out Date </th>
+                            <td mat-cell *matCellDef="let element"> {{element.checkedOut}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="dueDate">
+                            <th mat-header-cell *matHeaderCellDef> Due Date </th>
+                            <td mat-cell *matCellDef="let element"> {{element.dueDate}} </td>
+                        </ng-container>
+                        
+                        <ng-container matColumnDef="CheckIn">
+                            <th mat-header-cell *matHeaderCellDef> Check In </th>
+                            <td mat-cell *matCellDef="let element"> <button mat-raised-button (click)="checkIn(element.barCode, element.condition, element.dueDate, element.id)">Check In</button> </td>
+                        </ng-container>
+                        
+        
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="headRow"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    
+                    </table>
+                </div>
+            </mat-tab>
                 <mat-tab class="labelText" label="Add Item">
                     <form>
                         <div class="initialForm">
                             <!-- <h4>Add Item</h4> -->
-                            <mat-form-field appearance="fill">
+                            <mat-form-field appearance="fill" class="filterForm">
                                 <mat-label>Type of device</mat-label>
                                 <mat-select [(ngModel)]="selectedValue" name="addItem">
                                     <mat-option *ngFor="let form of addItemForm" [value]="form.viewValue">
@@ -90,167 +115,100 @@
 
                             <!-- <p> Selected device: {{selectedValue}} </p> -->
                         </div>
-
+                        
+                        
                         <div class="loadingForm">
-                            <ng-container class="computerForm" *ngIf="selectedValue==='Computer'">
-                                <mat-form-field appearance="fill">
+                            <ng-container class="computerForm" *ngIf="selectedValue==='Laptop'; else otherEquipment">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Brand</mat-label>
                                     <input matInput>
                                 </mat-form-field>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Model</mat-label>
                                     <input matInput>
                                 </mat-form-field>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Release year</mat-label>
                                     <input matInput>
                                 </mat-form-field>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Screen size</mat-label>
                                     <input matInput>
                                 </mat-form-field>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Disk space</mat-label>
                                     <input matInput>
                                 </mat-form-field>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Condition</mat-label>
                                     <input matInput>
                                 </mat-form-field>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Barcode</mat-label>
                                     <input matInput>
                                 </mat-form-field>
                             </ng-container>
 
-                            <ng-container class="cameraForm" *ngIf="selectedValue==='Camera'">
-                                <mat-form-field appearance="fill">
+                            <ng-template #otherEquipment>
+                                <mat-form-field appearance="standard">
                                     <mat-label>Brand</mat-label>
                                     <input matInput>
                                 </mat-form-field>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Model</mat-label>
                                     <input matInput>
                                 </mat-form-field>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Release year</mat-label>
                                     <input matInput>
                                 </mat-form-field>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Condition</mat-label>
                                     <input matInput>
                                 </mat-form-field>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Barcode</mat-label>
                                     <input matInput>
                                 </mat-form-field>
-                            </ng-container>
-
-                            <ng-container class="microphoneForm" *ngIf="selectedValue==='Microphone'">
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Brand</mat-label>
-                                    <input matInput>
-                                </mat-form-field>
-
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Model</mat-label>
-                                    <input matInput>
-                                </mat-form-field>
-
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Release year</mat-label>
-                                    <input matInput>
-                                </mat-form-field>
-
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Condition</mat-label>
-                                    <input matInput>
-                                </mat-form-field>
-
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Barcode</mat-label>
-                                    <input matInput>
-                                </mat-form-field>
-                            </ng-container>
-
-                            <ng-container class="lightsForm" *ngIf="selectedValue==='Lights'">
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Brand</mat-label>
-                                    <input matInput>
-                                </mat-form-field>
-
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Model</mat-label>
-                                    <input matInput>
-                                </mat-form-field>
-
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Release year</mat-label>
-                                    <input matInput>
-                                </mat-form-field>
-
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Condition</mat-label>
-                                    <input matInput>
-                                </mat-form-field>
-
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Barcode</mat-label>
-                                    <input matInput>
-                                </mat-form-field>
-                            </ng-container>
+                            </ng-template>
 
                         </div>
                     </form>
 
                     <!--Button to add items as admin-->
-                    <button mat-raised-button class="addItemBtn">Add Item</button>
+                    <button mat-raised-button class="addItemBtn" (click)="addComputer()">Add Item</button>
 
                 </mat-tab>
+
+
 
                 <mat-tab class="labelText" label="Change Pick-Up">
                     <div class="test">
                         <div></div>
                         <div class="pickupContainer">
-                            <div class="daysForm">
-
-                                <h4 class="daysTo">Sunday</h4>
-
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Time</mat-label>
-                                    <input matInput>
-                                </mat-form-field>
-
-                                <p class="daysTo">to</p>
-
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Time</mat-label>
-                                    <input matInput>
-                                </mat-form-field>
-                            </div>
 
                             <div class="daysForm">
 
                                 <h4 class="daysTo">Monday</h4>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Time</mat-label>
                                     <input matInput>
                                 </mat-form-field>
 
                                 <p class="daysTo">to</p>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Time</mat-label>
                                     <input matInput>
                                 </mat-form-field>
@@ -260,14 +218,14 @@
 
                                 <h4 class="daysTo">Tuesday</h4>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Time</mat-label>
                                     <input matInput>
                                 </mat-form-field>
 
                                 <p class="daysTo">to</p>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Time</mat-label>
                                     <input matInput>
                                 </mat-form-field>
@@ -277,14 +235,14 @@
 
                                 <h4 class="daysTo">Wednesday</h4>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Time</mat-label>
                                     <input matInput>
                                 </mat-form-field>
 
                                 <p class="daysTo">to</p>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Time</mat-label>
                                     <input matInput>
                                 </mat-form-field>
@@ -294,14 +252,14 @@
 
                                 <h4 class="daysTo">Thursday</h4>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Time</mat-label>
                                     <input matInput>
                                 </mat-form-field>
 
                                 <p class="daysTo">to</p>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Time</mat-label>
                                     <input matInput>
                                 </mat-form-field>
@@ -311,35 +269,19 @@
 
                                 <h4 class="daysTo">Friday</h4>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Time</mat-label>
                                     <input matInput>
                                 </mat-form-field>
 
                                 <p class="daysTo">to</p>
 
-                                <mat-form-field appearance="fill">
+                                <mat-form-field appearance="standard">
                                     <mat-label>Time</mat-label>
                                     <input matInput>
                                 </mat-form-field>
                             </div>
 
-                            <div class="daysForm">
-
-                                <h4 class="daysTo">Saturday</h4>
-
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Time</mat-label>
-                                    <input matInput>
-                                </mat-form-field>
-
-                                <p class="daysTo">to</p>
-
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Time</mat-label>
-                                    <input matInput>
-                                </mat-form-field>
-                            </div>
                         </div>
                         <div></div>
                     </div>

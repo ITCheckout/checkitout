@@ -31,7 +31,8 @@ export class SignUpComponent implements OnInit {
       lname: new FormControl('', Validators.required),
       pawprint: new FormControl('', Validators.required),
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)])
+      confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      checkboxWaiver: new FormControl('', Validators.required)
     }, {
       //custom validator imported from confirm-password.ts
       validator: ConfirmedValidator('password', 'confirmPassword')
@@ -79,6 +80,7 @@ export class SignUpComponent implements OnInit {
       // console.log(data);
         this.dialog.open(UserDialogComponent, {
           data: {
+            reason: 'signup',
             formData: this.signUpForm.value,
             thanks: "Thank you!"
           }

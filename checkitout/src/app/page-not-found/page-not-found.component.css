@@ -24,3 +24,9 @@ div {
     font-size: 125%;
     margin: 25px;
 }
+
+@media (max-width: 768px) {
+    div {
+        top: 65%;
+    }
+}

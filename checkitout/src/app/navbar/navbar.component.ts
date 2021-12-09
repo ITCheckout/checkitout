@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
     this.afAuth.signOut();
     this.dialog.open(UserDialogComponent, {
       data: {
-        formData: 'logout',
+        reason: 'logout',
         thanks: "You have been signed Out"
       }
     })

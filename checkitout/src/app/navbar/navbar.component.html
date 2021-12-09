@@ -25,7 +25,7 @@
         <ng-template #noLogin>
             <button mat-button (click)="logout()">Logout</button>
         </ng-template>
-        <button mat-button routerLink="cart" id="cart">
+        <button mat-button routerLink="cart" id="cart" *ngIf="isAdmin">
             <mat-icon aria-hidden="false" aria-label="Shopping Cart">shopping_cart</mat-icon>
         </button>
     </div>

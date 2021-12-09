@@ -7,12 +7,12 @@
 
 button {
     display: block;
-    margin: auto;
-    font-size: large;
+    margin: 5px auto;
+    font-size: medium;
 }
 
 .signupContainer {
-    margin-top: 2%;
+    margin-top: 2.5%;
     margin-left: 7.5%;
     margin-right: 7.5%;
     display: flex;
@@ -21,13 +21,18 @@ button {
 }
 
 .example-card {
-    /* position: absolute;
-    top: 12.5%;
-    left: 60%;
-    width: 30%; */
     width: 400px;
     background-color: black;
-    /* z-index: 1000; */
+}
+
+.cartCheckbox {
+    text-align: center;
+}
+
+.waiverCheck {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 p {
@@ -60,6 +65,7 @@ mat-form-field {
      -needs important tags
      - Background color is all adjusted here
 */
+
 ::ng-deep .mat-form-field-outline-start {
     border-radius: 28px 0 0 28px !important;
     min-width: 28px !important;
@@ -75,10 +81,8 @@ mat-form-field {
     font-size: medium;
 }
 
-
   .ng-invalid {
-    color: red;
-    
+    color: red;    
   }
 
   .error {
@@ -87,6 +91,7 @@ mat-form-field {
 
 @media (max-width: 768px) {
     .signupContainer {
-        margin-bottom: 2%;
+        margin-bottom: 2.5%;
     }
 }
+

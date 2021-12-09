@@ -1,0 +1,73 @@
+.checkoutNoti {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.checkInPop {
+    display: flex;
+    flex-direction: row;
+}
+
+#leftSide {
+    margin-top: 30px;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.checkInCond {
+    width: 215px;
+}
+
+.notesSec {
+    width: 215px;
+}
+
+#notes {
+    margin-bottom: 5px;
+}
+
+textarea {
+    border: 1px solid black;
+}
+
+#actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.center {
+    justify-content: center;
+    text-align: center;
+}
+
+mat-label {
+    color: white;
+}
+
+.not-empty-select.mat-selected {
+    color: white !important;
+  }
+
+:host /deep/ .mat-select-value-text {
+    color: white !important;
+}
+
+:host /deep/ .mat-select-arrow  {
+    color: white !important;
+}
+
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: white !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: white !important;;
+  }

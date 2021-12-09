@@ -34,6 +34,7 @@ import { AdminFacingComponent } from './admin-facing/admin-facing.component';
 import { CookieService } from 'ngx-cookie-service';
 import { ResetComponent } from './reset/reset.component';
 import { AdminGuard } from './services/admin.guard';
+import { WaiverComponent } from './waiver/waiver.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AdminGuard } from './services/admin.guard';
     AboutComponent,
     CartComponent,
     AdminFacingComponent,
-    ResetComponent
+    ResetComponent,
+    WaiverComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +75,7 @@ import { AdminGuard } from './services/admin.guard';
       { path: 'checkout', component: CheckoutComponent },
       { path: 'login', component: LoginComponent },
       { path: 'signUp', component: SignUpComponent },
+      { path: 'waiver', component: WaiverComponent },
       { path: '', component: HomeComponent },
       { path: '**', component: PageNotFoundComponent },
     ], {scrollPositionRestoration: 'enabled'}),

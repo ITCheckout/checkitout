@@ -1,0 +1,13 @@
+.waiver {
+    padding: 35px;
+}
+
+#waiverTitle {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.indent {
+    margin-left: 6px;
+}

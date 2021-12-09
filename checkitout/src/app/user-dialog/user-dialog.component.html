@@ -1,17 +1,86 @@
-<div *ngIf="formData.formData!='logout'; else logout">
+<div *ngIf="formData.reason=='signup'">
     <h1 mat-dialog-title>Thank You! {{formData.formData.fname}}</h1>
   <div mat-dialog-content>An email will be sent to {{formData.formData.pawprint}}@umsystem.edu</div>
   <div mat-dialog-actions>
     <button mat-button mat-dialog-close>Close</button>
   </div>
-  <!-- <div *ngIf="thanks">
-    <button mat-button>Logout</button>
-  </div> -->
 </div>
 
-<ng-template #logout>
+<div *ngIf="formData.reason=='logout'">
     <h1 mat-dialog-title>Goodbye</h1>
   <div mat-dialog-content>You have been logged out</div>
   <div mat-dialog-actions>
-    <button mat-button mat-dialog-close>Close</button>
   </div>
+</div>
+
+<div *ngIf="formData.reason=='cart'">
+  <h1 mat-dialog-title>Your Items have been successfully checked out to user {{formData.pawPrint}}:</h1>
+  <div class="checkoutNoti" mat-dialog-content *ngFor="let item of formData.formData">
+    <ul>
+      <li>{{item.barCode}}</li>
+    </ul>
+  </div>
+  <div class="checkoutNoti">
+    <p>Your items are due on {{formData.dueDate}}</p>
+  </div>
+  <div class="center" mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="clearForm()">Close</button>
+  </div>
+</div>
+
+
+<div *ngIf="formData.reason=='checkIn'">
+<div class="checkInPop">
+  <div id="leftSide">
+    
+    <div mat-dialog-content>
+      <div>
+        <p>Barcode: {{formData.barCode}}</p>
+        <p>Condition of Item at Checkout: {{formData.condition}}</p>
+        <p>Due Date of Item: {{formData.dueDate}}</p>
+      </div>
+      <p>
+    </div>
+  </div>
+
+  <div id="form">
+    <form [formGroup]="checkInForm">
+      <div>
+      <mat-form-field class="checkInCond" appearance="standard">
+        <mat-label for="condition">Condition at Check In:</mat-label>
+        <mat-select class="form-control" id="condition" name="condition" formControlName="condition">
+          <mat-option value="Excellent">Excellent</mat-option>
+          <mat-option value="Good">Good</mat-option>
+          <mat-option value="Fair">Fair</mat-option>
+          <mat-option value="Poor">Poor</mat-option>
+          <mat-option value="Damaged & Removed from Service">Damaged & Removed From Service</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Check In Date</mat-label>
+        <input matInput [matDatepicker]='picker' formControlName="dueDate">
+        <mat-datepicker-toggle matSuffix [for]='picker'></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div class="form-group">
+        <mat-form-field class="notesSec" appearance="standard">
+          <mat-label id="notes">Notes:</mat-label>
+          <textarea matInput class="form-control" id="notes" name="newNote" #newNote placeholder="Enter notes here">{{notesFromDB}}</textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+  <div id="actions" class="center" mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  <!-- </div>
+  <div class="center" mat-dialog-actions> -->
+    <button mat-button mat-dialog-close (click)="checkInItem(newNote.value)">Check In Item</button>
+  </div>
+  
+</div>
+

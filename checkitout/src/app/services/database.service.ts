@@ -1,14 +1,17 @@
 import { query } from '@angular/animations';
 import { Injectable } from '@angular/core';
 import { waitForAsync } from '@angular/core/testing';
-import { AngularFirestore, AngularFirestoreCollection, DocumentData } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Item } from '../models/item';
 import { Category, SubCategory } from '../models/category';
 // import { Model } from '../models/model';
 import firebase from 'firebase/compat/app';
 import 'firebase/firestore';
+import { Users } from '../models/users';
 
 import { take } from 'rxjs/operators';
+// import { DatePipe } from '@angular/common';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -140,7 +143,7 @@ export class DatabaseService {
 
     queryResult = this.firestore.collection('items', ref => ref.where('model', '==', item)).valueChanges();
 
-      queryResult.subscribe(data => {
+      queryResult.pipe(take(1)).subscribe(data => {
         data.forEach(element => {
           if(element.status == "available") {
             availableCount++;
@@ -184,13 +187,37 @@ export class DatabaseService {
   }
 
   createOrder(barcode, pawprint, dueDate, dateNow) {
-    this.firestore.collection('orders').doc(barcode).set({
-      'barcode': barcode,
+    var fname;
+    var lname;
+    var condition;
+    var checkedIn = 'false';
+
+    this.firestore.collection<Users>('users').doc(pawprint).valueChanges().subscribe(data => {
+      fname = data.fname;
+      lname = data.lname;
+    });
+
+    this.firestore.collection<Item>('items').doc(barcode).valueChanges().subscribe(data => {
+      condition = data.condition;
+    });
+
+    setTimeout(() => {
+
+    this.firestore.collection('orders').doc().set({
+      'barCode': barcode,
       'pawprint': pawprint,
       'dueDate': dueDate,
       'checkedOut': dateNow,
-      'history': []
+      'fname': fname,
+      'lname': lname,
+      'condition': condition,
+      'checkedIn': checkedIn
     });
+      
+    // console.log(id)
+    }, 1500);
+    this.setItemUnavailable(barcode);
+
   }
 
   getPawPrints() {
@@ -213,32 +240,73 @@ export class DatabaseService {
     //since we are adding a 'history' section to the order document, we need two cases....
     //1. if the order document already exists
     //2. if the order document does not exist
-    this.firestore.collection('orders').doc(barcode).get().subscribe(doc => {
-      //if order document does not exist, we have no history of checkout 
-      if (!doc.exists) {
-        this.createOrder(barcode, pawprint, dueDate, dateNow);
-      } else {
-        const docQuery =this.firestore.collection('orders').doc(barcode).valueChanges();
-        docQuery.pipe(take(1)).subscribe((data: any) => {
-          const pastPawprint = data.pawprint;
-          const pastDueDate = data.dueDate;
-          //the arrayUnion allows the user to put multiple items in the history array:
-          //https://stackoverflow.com/questions/69139443/property-auth-does-not-exist-on-type-typeof-import-firebase-auth
-          this.firestore.collection('orders').doc(barcode).update({
-            'pawprint': pawprint,
-            'dueDate': dueDate,
-            'history': firebase.firestore.FieldValue.arrayUnion({
-              'pawprint': pastPawprint,
-              'pastDueDate': pastDueDate
-            })
-          });
-        });
-      }
-      // this.setItemUnavailable(barcode);
+    this.createOrder(barcode, pawprint, dueDate, dateNow);
+    const docQuery =this.firestore.collection<Item>('items').doc(barcode).valueChanges();
+    var condition;
+    docQuery.subscribe(data => {
+      condition = data.condition;
+    });
+
+    setTimeout(() => {
+    docQuery.pipe(take(1)).subscribe((data: any) => {
+      //the arrayUnion allows the user to put multiple items in the history array:
+      //https://stackoverflow.com/questions/69139443/property-auth-does-not-exist-on-type-typeof-import-firebase-auth
+      this.firestore.collection('items').doc(barcode).update({
+        'history': firebase.firestore.FieldValue.arrayUnion({
+          'pawprint': pawprint,
+          'dueDate': dueDate,
+          'condition': condition,
+        })
+      });
+      
+    });
+    }, 1000);
+  }
+
+  addItem(barcode) {
+    this.firestore.collection('items').doc(barcode).set
+  }
+
+  getCheckedOutItems() {
+    return this.firestore.collection('orders', ref => ref.where('checkedIn', '==', 'false')).valueChanges({ idField: 'id' });
+  }
+  
+  checkInItem(barcode, condition, turnInDate, notes, orderNumber) {
+    this.firestore.collection('items').doc(barcode).update({
+      'condition': condition,
+      'notes': notes,
+    });
+
+    this.setItemAvailable(barcode);
+
+    this.firestore.collection('orders').doc(orderNumber).update({
+      'checkedIn': 'true',
+      'turnInDate': turnInDate,
+      'turnInCondition': condition,
     });
   }
 
+  getNotes(barcode) {
+    return this.firestore.collection<Item>('items').doc(barcode).valueChanges();
+  }
 
-  
-  
+  addComputer(barcode, model, subCategory, condition, notes, status, history) {
+    this.firestore.collection('items').doc(barcode).set({
+      'model': model,
+      'subCategoryName': subCategory,
+      'condition': condition,
+      'notes': notes,
+      'status': status,
+      'history': history
+    });
+  }
+
+  // addOtherEquip(brand, model, condition, barCode) {
+  //   this.firestore.collection('items').doc(barcode).set({
+  //     'model': model,
+  //     'subCategoryName': brand,
+  //     'condition': condition,
+      
+  //   });
+  // }
 }

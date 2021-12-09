@@ -59,89 +59,49 @@ h3 {
     color: #f1b82d;
 }
 
-/* body {
-    display: block;
-} */
-
-/* Current Inventory Div */
-/* .inventory {
-    position: relative;
-    height: 300px;
+.filterForm {
+    padding: 5px;
+    border-radius: 10px;
 }
 
-#pageTear {
-    position: relative;
-    transform: rotate(180deg);
-    width: 100%;
-}
-
-.inventoryHeader {
-    position: absolute;
-    top: 75px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
+.tableLabel {
+    font-size: 3em;
     font-family: "GOTHAM-BOLD";
-    font-size: 250%;
-    color: #f1b82d;
 }
 
-.inventoryInfo {
-    position: absolute;
+.tableContainer {
+    margin-top: 2.5%;
+    margin-bottom: 5%;
     display: flex;
-    top: 200px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    flex-direction: row;
+    justify-content: center;
 }
 
-.inventoryItem {
+.mat-header-cell {
+    background-color: black;
+    color: white;
     text-align: center;
-    width: 200px;
-    padding: 100px;
 }
 
-.inventoryDevice {
-    font-family: "GOTHAM-MEDIUM";
-    font-size: 150%;
-    color: white;
+.specificItems {
+    width: 80%;
+    text-align: center;
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 5px 7px 7px #D7D7D7;
 }
 
-.inventoryOut, .inventoryAvailable {
-    font-family: "GOTHAM-BOOK";
-    font-size: 125%;
-    color: white;
-} */
-
-/* .hr {
-    border: 2px solid #000000;
-} */
-
-
-/* .mat-tab-group {
-    margin-bottom: 50%;
-
-    font-family: "GOTHAM-BOLD";
-    font-size: 250%;
+th, td {
     color: black;
-} */
-
-/* .inventoryTabs {
-    position: relative;
-    top: 5em;
-    width: 100%;
-} */
-
-/* .mat-tab-group {
-    margin-bottom: 50%;
 }
 
-.mat-tab {
-    font-family: "GOTHAM-MEDIUM";
-} */
+tr:nth-of-type(even) {
+    background-color: #D7D7D7;
+}
 
 /* Admin Header */
 .adminHeaderContainer {
-    margin-top: 7.5%;
+    margin-top: 8%;
 }
 
 .adminHeader {
@@ -151,10 +111,21 @@ h3 {
 
 /* Add Item tab */
 mat-form-field {
-    background-color: #D7D7D7;
+    background-color: #fff;
     border-radius: 10px;
     width: 300px;
 }
+
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: black !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: black !important;;
+  }
+
 
 mat-label {
     color: black;
@@ -165,30 +136,12 @@ mat-label {
     flex-direction: row;
     justify-content: center;
     margin: 0 auto;
-
-    /* position: relative;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    border-radius: 25px;
-    margin-top: 1em;
-    margin-left: auto;
-    margin-right: auto;
-    width: 25%; */
 }
 
 .loadingForm {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-    /* position: relative;
-    justify-content: center;
-    column-count: 3;
-    width: auto;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 5px; */
 }
 
 .addItemBtn {
@@ -196,18 +149,23 @@ mat-label {
     display: flex;
     flex-direction: row;
     justify-content: center;
-
-    /* position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: 10%; */
 }
 
 mat-form-field {
     margin: 1em;
 }
 
+.not-empty-select.mat-selected {
+    color: black !important;
+  }
+
+:host /deep/ .mat-select-value-text {
+    color: black !important;
+}
+
+:host /deep/ .mat-select-arrow  {
+    color: black !important;
+}
 
 .test {
     display: flex;
@@ -215,20 +173,10 @@ mat-form-field {
     justify-content: center;
 }
 
-
-/* .pickupContainer {
-    position: relative;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-} */
-
 .daysForm {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    /* margin-right: auto;
-    margin-left: auto; */
 }
 
 .computerForm {
@@ -241,18 +189,11 @@ mat-form-field {
     text-align: center;
 }
 
-
-
 .daysTo {
     height: 25px;
     margin-top: auto;
     margin-bottom: auto;
 }
-
-/* .adminHeader {
-    text-align: center;
-    font-size: 20px;
-} */
 
 @media (min-width: 1800px) {
     #pageTear {
@@ -282,6 +223,6 @@ mat-form-field {
 
 @media (max-width: 768px) {
     .adminHeaderContainer {
-        margin-top: 15%;
+        margin-top: 20%;
     }
 }

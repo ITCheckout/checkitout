@@ -1,3 +1,5 @@
 export interface Users {
-    email: string;
+    fname: string;
+    lname: string;
+    pawprint: string;
 }
