@@ -24,7 +24,7 @@ export class CartService {
       'model': product.model
     }
     this.items.push(productDict);
-    console.log(this.items);
+    // console.log(this.items);
     localStorage.setItem('cart', JSON.stringify(this.items));
   }
 

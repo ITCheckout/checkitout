@@ -28,7 +28,7 @@ export class ResetComponent implements OnInit {
   reset() {
     if(this.resetForm.valid) {
       const pawprint = this.resetForm.value.pawprint;
-      console.log(this.resetForm.value);
+      // console.log(this.resetForm.value);
       const schoolEmail = pawprint + "@umsystem.edu";
       this.auth.sendPasswordResetEmail(schoolEmail).then(() => {
         this.dialog.open(UserDialogComponent, {

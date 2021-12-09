@@ -21,6 +21,8 @@ import { forEach } from '@angular-devkit/schematics';
   providers: [DatePipe]
 })
 export class CartComponent implements OnInit {
+
+  minDate = new Date();
   // items = this.cartService.getItems();
   format: string = "longDate";   
   public items = [];
@@ -91,7 +93,7 @@ export class CartComponent implements OnInit {
 
   deleteItem(item) {
     this.cartService.deleteItem(item);
-    console.log(item + "deleted")
+    // console.log(item + "deleted")
     window.location.reload();
   }
 
@@ -117,18 +119,18 @@ export class CartComponent implements OnInit {
     var isntValid = true;
 
     const pawprints = this.databaseService.getPawPrints(); 
-    console.log(pawprints);
+    // console.log(pawprints);
     const formPawprint = this.pawPrintControl.value.toString();
 
     await setTimeout(() => {
-      console.log(formPawprint.toString());
+      // console.log(formPawprint.toString());
       const isValid = pawprints.includes(formPawprint);
-      console.log(isValid);
+      // console.log(isValid);
       if(pawprints.includes(formPawprint)) {
-        console.log('Pawprint is correct');
+        // console.log('Pawprint is correct');
         isntValid = false;
       } else {
-        console.log('Pawprint wrong #1')
+        // console.log('Pawprint wrong #1')
         isntValid = true;
         this.cartError = true;
       }
@@ -164,7 +166,7 @@ export class CartComponent implements OnInit {
     const dateNow = this.datePipe.transform(Date.now(), this.format, "CST");
     const dueDateNow = this.datePipe.transform(this.dueDateControl.value, 'longDate', "CST");
     this.items.forEach(item => {
-      console.log("item" + item);
+      // console.log("item" + item);
       this.databaseService.addCartData(this.pawPrintControl.value, item.barCode, dueDateNow, dateNow);
     });
     this.cartService.clearCart();
