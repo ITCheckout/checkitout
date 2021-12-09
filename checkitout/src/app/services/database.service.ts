@@ -7,6 +7,8 @@ import { Category, SubCategory } from '../models/category';
 // import { Model } from '../models/model';
 import firebase from 'firebase/compat/app';
 import 'firebase/firestore';
+
+import { take } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
@@ -181,11 +183,13 @@ export class DatabaseService {
     });
   }
 
-  createOrder(barcode, pawprint, dueDate) {
+  createOrder(barcode, pawprint, dueDate, dateNow) {
     this.firestore.collection('orders').doc(barcode).set({
       'barcode': barcode,
       'pawprint': pawprint,
-      'dueDate': dueDate
+      'dueDate': dueDate,
+      'checkedOut': dateNow,
+      'history': []
     });
   }
 
@@ -203,11 +207,6 @@ export class DatabaseService {
     return pawPrints;
     
   }
-
-  getPawprint(barCode){
-    
-
-  }
   
   addCartData(pawprint, barcode, dueDate, dateNow) {
     
@@ -217,19 +216,14 @@ export class DatabaseService {
     this.firestore.collection('orders').doc(barcode).get().subscribe(doc => {
       //if order document does not exist, we have no history of checkout 
       if (!doc.exists) {
-        this.firestore.collection('orders').doc(barcode).set({
-          'barcode': barcode,
-          'pawprint': pawprint,
-          'dueDate': dueDate,
-          'checkedOut': dateNow,
-          'history': []
-        });
-        console.log('written')
+        this.createOrder(barcode, pawprint, dueDate, dateNow);
       } else {
         const docQuery =this.firestore.collection('orders').doc(barcode).valueChanges();
-        docQuery.subscribe((data: any) => {
+        docQuery.pipe(take(1)).subscribe((data: any) => {
           const pastPawprint = data.pawprint;
           const pastDueDate = data.dueDate;
+          //the arrayUnion allows the user to put multiple items in the history array:
+          //https://stackoverflow.com/questions/69139443/property-auth-does-not-exist-on-type-typeof-import-firebase-auth
           this.firestore.collection('orders').doc(barcode).update({
             'pawprint': pawprint,
             'dueDate': dueDate,
@@ -240,6 +234,7 @@ export class DatabaseService {
           });
         });
       }
+      // this.setItemUnavailable(barcode);
     });
   }
 

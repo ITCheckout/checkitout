@@ -3,13 +3,14 @@ import { CartService } from '../services/cart.service';
 
 import { Subscription } from 'rxjs';
 
-import { FormBuilder, FormArray, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormArray, FormGroup, FormControl, Validators } from '@angular/forms';
 import { DatabaseService } from '../services/database.service';
 import { User } from '../shared/user';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { take } from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
+import { validateBasis } from '@angular/flex-layout';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -18,14 +19,12 @@ import { DatePipe } from '@angular/common';
 })
 export class CartComponent implements OnInit {
   // items = this.cartService.getItems();
-  format: string = "medium";   
+  format: string = "longDate";   
   public items = [];
    noItems: boolean;
   private subscription: Subscription
 
 
-  pawPrintControl = new FormControl();
-  dueDateControl = new FormControl();
   options = [];
   filteredOptions: Observable<string[]>;
 
@@ -43,8 +42,10 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
    this.cartForm= this.fb.group({
-      pawprint: ['']
+      pawPrintControl: new FormControl('', Validators.required),
+      dueDateControl: new FormControl('', Validators.required)
     });
+    
     this.items = this.cartService.getItems();
     // console.log("items", this.items);
     if(this.items.length == 0) {
@@ -61,13 +62,10 @@ export class CartComponent implements OnInit {
     );
 
     this.options = this.databaseService.getPawPrints();
-
-
-
-
-
-
   }
+
+  get pawPrintControl() { return this.cartForm.get('pawPrintControl') }
+  get dueDateControl() { return this.cartForm.get('dueDateControl') }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
@@ -101,16 +99,39 @@ export class CartComponent implements OnInit {
   //get Users from Firestore
  users: any;
  cartError;
+ cartErrorMessage;
+
+ checkPawprint() {
+  const pawprints = this.databaseService.getPawPrints(); 
+  const formPawprint = this.pawPrintControl.value;
+  if(pawprints.includes(formPawprint)) {
+    this.cartError = false;
+  } else {
+    this.cartError = true;
+    this.cartErrorMessage = "Pawprint does not exist";
+  }
+
+ }
  //this gets the specific user from the database
   checkUser() {
-    //the take(1) method is used in the pipe because this function was running twice for some reason
-      this.databaseService.getUser(this.pawPrintControl.value).pipe(take(1)).subscribe(user => {
-        this.cartError = false;
-          this.addCartData();
-      }, err => {
-        this.cartError = true;
-        console.log('try' + this.cartError);
-      });
+    this.checkPawprint();
+
+    if(this.cartForm.valid) {
+         //the take(1) method is used in the pipe because this function was running twice for some reason
+         this.databaseService.getUser(this.pawPrintControl.value).pipe(take(1)).subscribe(user => {
+          this.cartError = false;
+            this.addCartData();
+        }, err => {
+          this.cartError = true;
+          console.log('try' + this.cartError);
+        });
+
+    } 
+     else {
+      this.cartError = true;
+      this.cartErrorMessage = "Please Fill Out All Fields";
+    }
+
     
     
   } 
@@ -119,9 +140,10 @@ export class CartComponent implements OnInit {
   //Date time: https://stackoverflow.com/questions/64365142/how-do-i-convert-date-and-time-in-different-time-zone
   addCartData() {
     const dateNow = this.datePipe.transform(Date.now(), this.format, "CST");
+    const dueDateNow = this.datePipe.transform(this.dueDateControl.value, 'longDate', "CST");
     this.items.forEach(item => {
-      this.databaseService.addCartData(this.pawPrintControl.value, item.barCode, this.dueDateControl.value, dateNow);
-      console.log("added");
+      this.databaseService.addCartData(this.pawPrintControl.value, item.barCode, dueDateNow, dateNow);
     });
+
   }
 }

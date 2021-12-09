@@ -54,21 +54,22 @@
                 </div> -->
                 <mat-form-field appearance='fill'>
                     <mat-label>Student PawPrint</mat-label>
-                    <input required type="text" placeholder="PawPrint" aria-label="PawPrint" matInput [formControl]='pawPrintControl' [matAutocomplete]='auto'>
+                    <input required type="text" placeholder="PawPrint" aria-label="PawPrint" matInput formControlName='pawPrintControl' [matAutocomplete]='auto'>
                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                             {{option}}
                         </mat-option>
                     </mat-autocomplete>
                 </mat-form-field>
+            </form> 
+            <form [formGroup]="cartForm">
+                <mat-form-field appearance="fill" >
+                    <mat-label>Due Date</mat-label>
+                    <input matInput [matDatepicker]='picker' formControlName='dueDateControl'>
+                    <mat-datepicker-toggle matSuffix [for]='picker'></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
             </form>
-        
-            <mat-form-field appearance="fill" >
-                <mat-label>Due Date</mat-label>
-                <input matInput [matDatepicker]='picker' [formControl]='dueDateControl'>
-                <mat-datepicker-toggle matSuffix [for]='picker'></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
         </div>
     </div>
     <!-- <label for="cartCheckbox" class="cartCheckbox">Please accept the <a href="/assets/waiver.pdf" target="_blank">waiver terms</a>.</label> -->
@@ -80,7 +81,7 @@
         </button>
     </div>
     <div *ngIf="cartError">
-        <div class="error">User is not found</div>
+        <div class="error">{{cartErrorMessage}}</div>
     </div>
     
 </div>
