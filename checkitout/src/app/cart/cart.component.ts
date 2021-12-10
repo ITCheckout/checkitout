@@ -118,6 +118,8 @@ export class CartComponent implements OnInit {
   async checkUser() {
     var isntValid = true;
 
+    if(this.cartForm.valid) {
+
     const pawprints = this.databaseService.getPawPrints(); 
     // console.log(pawprints);
     const formPawprint = this.pawPrintControl.value.toString();
@@ -136,6 +138,10 @@ export class CartComponent implements OnInit {
       }
 
   }, 1000);
+}
+  else {
+    this.cartError = true;
+  }
 
     // if(isntValid) {
     //   console.log('Pawprint wrong')

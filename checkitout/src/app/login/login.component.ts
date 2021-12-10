@@ -66,7 +66,7 @@ export class LoginComponent {
         signInWithEmailAndPassword(auth,schoolEmail, password).then(async (result) => {
           //if the email is verfiied, then the user can login
           if(result.user.emailVerified !== true){
-            this.loginError = "Please validate the email address before logging in.";
+            this.loginError = "Please validate your email address before logging in.";
             //break from function
             return;
           }
@@ -87,7 +87,7 @@ export class LoginComponent {
             case "auth/wrong-password":
             case "auth/user-not-found":
             {
-               this.loginError = "Wrong email address or password.";
+               this.loginError = "Wrong username or password.";
                break;
             }
             default:
