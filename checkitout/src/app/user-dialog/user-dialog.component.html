@@ -84,3 +84,10 @@
   
 </div>
 
+<div *ngIf="formData.reason=='reset'">
+  <h1 mat-dialog-title>Reset Password Email Sent</h1>
+  <div mat-dialog-content>An email has been sent to {{formData.schoolEmail}}</div>
+  <div mat-dialog-actions>
+  </div>
+</div>
+
