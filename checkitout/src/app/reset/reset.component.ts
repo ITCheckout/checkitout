@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-reset',
   templateUrl: './reset.component.html',
@@ -14,7 +15,8 @@ export class ResetComponent implements OnInit {
   constructor(
     private fb: FormBuilder, 
     private auth: AngularFireAuth,
-    private dialog: MatDialog) {
+    private dialog: MatDialog,
+    private router: Router) {
 
     this.resetForm = this.fb.group({
       pawprint: new FormControl('', Validators.required)
@@ -33,12 +35,15 @@ export class ResetComponent implements OnInit {
       this.auth.sendPasswordResetEmail(schoolEmail).then(() => {
         this.dialog.open(UserDialogComponent, {
           data: {
+            reason: "reset",
             formData: this.resetForm.value,
+            schoolEmail: schoolEmail,
             thanks: "A password reset email has been sent to " + schoolEmail + "."
           }
         });
     }
     );
+    this.router.navigate(['/login']);
     }else {
       this.loginError = "Please enter a valid pawprint."
     }
